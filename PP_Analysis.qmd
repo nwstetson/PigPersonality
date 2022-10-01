@@ -1,0 +1,36 @@
+---
+title: "Pig Personality"
+author: "Noah Stetson"
+date: "`r Sys.Date()`"
+format: html
+editor: source
+---
+
+Analyzing data on personality in pigs, using both observational and informant assessment data
+
+Loading library
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+Loading dataset (for observational data and meta data about pigs)
+```{r}
+df <- read_csv("~/Documents/GitHub/PigPersonality/obsData_30Sept.csv")
+meta <- read_csv("~/Documents/GitHub/PigPersonality/PigSample.csv")
+```
+## Cleaning Data
+
+Change "name" in metadata to "pig" so the files can be combined
+```{r}
+colnames(meta) [colnames(meta) == "Name"] <- "Pig"
+```
+
+Put meta data into df based on pig
+```{r}
+df_m <- inner_join(df, meta, by = "Pig") 
+```
+Wait why did it change from 475 objects to 472? It deleted 2 rows?
+Oh they were rows with "no value" as the pig name so they need to be omitted
+
