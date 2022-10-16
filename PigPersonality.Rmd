@@ -11,22 +11,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Analyzing data on personality in pigs, using both observational and informant assessment data
 
-Loading library
+## Loading library
+
 ```{r}
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
 ```
 
-Loading dataset (for observational, survey, and meta data about pigs)
+## Loading dataset (for observational, survey, and meta data about pigs)
+
 ```{r}
 obs <- read_csv("~/Documents/GitHub/PigPersonality/obsData_30Sept.csv")
 svy <- read_csv("~/Documents/GitHub/PigPersonality/CaregiverSurveyMOCK.csv")
 meta <- read_csv("~/Documents/GitHub/PigPersonality/PigSample.csv")
 ```
+
 it won't let me open files from documents, only from desktop 😳 so my working director must have been set to my desktop, but when I try to fix it it doesn't work!
 
-Temporary fix, open copies from using base (readr)
+Temporary fix, open copies from using base (readr) I hate my life I wish I were dead why am I so fucking stupid
 
 ## Cleaning Data
 
@@ -37,31 +40,56 @@ colnames(meta) [colnames(meta) == "Name"] <- "Pig"
 
 Put meta data into df based on pig
 ```{r}
-obs_m <- inner_join(obs, meta, by = "Pig") 
+obs_m <- inner_join(obs, meta, by = "Pig")
+svy_m <- inner_join(svy, meta, by = "Pig") # Idk how to do this because Qualtrics will actually put them as numbers. I need to first change the numbers into the pigs' names. There must be an easy way to do this bc the meta data has numbered columns.
 ```
-Wait why did it change from 475 objects to 472? It deleted 2 rows?
-Oh they were rows with "no value" as the pig name so they need to be omitted
+Wait why did it change from 475 objects to 472? It deleted 2 rows? Oh they were rows with "no value" from the observational data as the pig name so they need to be omitted
 
-# Find most common observed behaviors
-```{r}
-obs_m %>% 
-  count(Behavior) %>% 
-  ggplot(aes(x = Behavior, y = n)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Frequency of Behaviors") +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
-  theme_linedraw() +
-  theme(axis.ticks = element_blank(),
-        axis.title = element_blank(),
-        panel.grid.major.x = element_blank())
-```
+The survey data should have scores for easy category automatically generated (e.g. SC1, SC2, etc.)
 
+# Survey Data (mock data for now)
+
+Inter-observer reliability (Cronbach's Alpha)
 ```{r}
-ggplot (obs_m, aes(x= Behavior)) +
-  geom_bar(color = "black", fill = "#C84E00") +
+ggplot(svy, aes(x = SC1, y = Pig) +
+ geom_bar(fill = "#32b5ed") +
   theme_classic() +
-  xlab("Left or Right Side") +
-  ylab("# of Times Using Each Limb") +
-  ggtitle("Hand Use for Food Grasping Between Individuals") +
-  facet_wrap (~ Focal)
+  xlab("Pig") +
+  ylab("Score") +
+  ggtitle("Personality Scores")
+```
+
+
+# Observational Data
+
+## Find most commonly observed behaviors
+```{r}
+ggplot(obs_m, aes(x = reorder (Behavior, Behavior, table))) +
+ geom_bar(fill = "#32b5ed") +
+  theme_classic() +
+  xlab("Behavior") +
+  ylab("Count") +
+  ggtitle("Frequency of Behaviors")
+```
+
+Is there a sex difference?
+```{r}
+ggplot(obs_m, aes(x = reorder (Behavior, Behavior, table))) +
+  geom_bar(fill = "#32b5ed") +
+  theme_classic() +
+  xlab("Behavior") +
+  ylab("Count") +
+  ggtitle("Frequency of Behaviors") +
+  facet_wrap (~ Sex)
+```
+
+What about an individual difference?
+```{r}
+ggplot(obs_m, aes(x = reorder (Behavior, Behavior, table))) +
+ geom_bar(fill = "#32b5ed") +
+  theme_classic() +
+  xlab("Behavior") +
+  ylab("Count") +
+  ggtitle("Frequency of Behaviors") +
+  facet_wrap( ~ Pig)
 ```
