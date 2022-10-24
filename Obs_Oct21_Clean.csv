@@ -1,0 +1,683 @@
+Observer,Date,Time,Pig,PigID,Trauma,Group,Sex,With/To,Behavior,Location,Notes,Start,Stop
+AJ,9/23/22,10:30:38 AM,Loretta,13,Y,B,F,George,Rest.proxim,,,1,0
+AJ,9/23/22,10:35:30 AM,Loretta,13,Y,B,F,George,Rest.proxim,,,0,1
+AJ,9/23/22,10:36:11 AM,George,7,Y,B,M,Loretta,Rest.proxim,,,1,0
+AJ,9/23/22,10:41:44 AM,George,7,Y,B,M,Loretta,Rest.proxim,,,0,1
+AJ,9/23/22,10:43:41 AM,Hank,9,Y,B,M,Willie,Rest.proxim,,,1,0
+AJ,9/23/22,10:44:21 AM,Hank,9,Y,B,M,No Value,Yawn.not.contaig,,,0,0
+AJ,9/23/22,10:44:33 AM,Hank,9,Y,B,M,No Value,Travel,,,0,0
+AJ,9/23/22,10:45:15 AM,Hank,9,Y,B,M,No Value,Pee,,,0,0
+AJ,9/23/22,10:46:23 AM,Hank,9,Y,B,M,Willie,Snout.touch,,,0,0
+AJ,9/23/22,10:46:36 AM,Hank,9,Y,B,M,Dahlia,Attempt.disp,,grunting with dahlia. she moved out of his way,0,0
+AJ,9/23/22,10:49:02 AM,Hank,9,Y,B,M,No Value,Drink,,,0,1
+AJ,9/23/22,10:49:19 AM,Pixie,15,N,B,F,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,10:53:30 AM,Pixie,15,N,B,F,Molly,Nudge.ground ,,,0,1
+AJ,9/23/22,10:53:43 AM,Raymond,16,N,B,M,No Value,Other,,scratching on a tree,1,0
+AJ,9/23/22,10:54:10 AM,Raymond,16,N,B,M,No Value,Nudge.ground ,,,0,0
+AJ,9/23/22,10:55:17 AM,Raymond,16,N,B,M,No Value,Wag.tail,,,0,0
+AJ,9/23/22,10:55:57 AM,Raymond,16,N,B,M,No Value,Travel,,,0,0
+AJ,9/23/22,10:56:40 AM,Raymond,16,N,B,M,No Value,Nudge.ground ,,eating some grass,0,0
+AJ,9/23/22,10:58:00 AM,Raymond,16,N,B,M,No Value,Grunt,,,0,0
+AJ,9/23/22,10:59:40 AM,Dahlia,4,N,B,F,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,11:00:28 AM,Dahlia,4,N,B,F,No Value,Other,,nudging the dinner table with snout,0,0
+AJ,9/23/22,11:01:08 AM,Dahlia,4,N,B,F,No Value,Nudge.ground ,,,0,0
+AJ,9/23/22,11:05:25 AM,Dahlia,4,N,B,F,No Value,Nudge.ground ,,,0,1
+AJ,9/23/22,11:06:31 AM,Willie,20,Y,B,M,Raymond,Rest.proxim,,,1,0
+AJ,9/23/22,11:11:51 AM,Willie,20,Y,B,M,Raymond,Rest,,,0,1
+AJ,9/23/22,11:12:02 AM,Kitty,12,Y,B,F,No Value,Rest,,,1,0
+AJ,9/23/22,11:17:18 AM,Kitty,12,Y,B,F,No Value,Rest,,,0,1
+AJ,9/23/22,11:19:34 AM,Molly,14,N,B,F,No Value,Other,,rolling in water/mud puddle,1,0
+AJ,9/23/22,11:20:49 AM,Molly,14,N,B,F,No Value,Rest,,in a puddle,0,0
+AJ,9/23/22,11:22:26 AM,Molly,14,N,B,F,No Value,Grunt,,,0,0
+AJ,9/23/22,11:22:45 AM,Molly,14,N,B,F,Pixie,Gets.disp,,stood up and left when pixie came in to puddle,0,0
+AJ,9/23/22,11:23:36 AM,Molly,14,N,B,F,No Value,Travel,,,0,0
+AJ,9/23/22,11:24:53 AM,Molly,14,N,B,F,No Value,Other,,scratching belly on dinner table,0,0
+AJ,9/23/22,11:25:16 AM,Molly,14,N,B,F,Pixie,Grunt,,,0,1
+AJ,9/30/22,10:51:39 AM,Kitty,12,Y,B,F,Dahlia,Gets.disp,,,1,0
+AJ,9/30/22,10:52:55 AM,Kitty,12,Y,B,F,Dahlia,Attempt.disp,,,0,0
+AJ,9/30/22,10:53:07 AM,Kitty,12,Y,B,F,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,10:53:24 AM,Kitty,12,Y,B,F,No Value,Wag.tail,,,0,0
+AJ,9/30/22,10:53:42 AM,Kitty,12,Y,B,F,Dahlia,Nudge.ground ,,,0,0
+AJ,9/30/22,10:54:08 AM,Kitty,12,Y,B,F,Willie,Gets.disp,,,0,0
+AJ,9/30/22,10:54:45 AM,Kitty,12,Y,B,F,No Value,Travel,,,0,0
+AJ,9/30/22,10:55:43 AM,Kitty,12,Y,B,F,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,10:56:27 AM,Kitty,12,Y,B,F,No Value,Nudge.ground ,,,0,1
+AJ,9/30/22,10:56:37 AM,Dahlia,4,N,B,F,No Value,Travel,,,1,0
+AJ,9/30/22,10:56:58 AM,Dahlia,4,N,B,F,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,10:58:00 AM,Dahlia,4,N,B,F,Pixie,Attempt.disp,,,0,0
+AJ,9/30/22,10:58:33 AM,Dahlia,4,N,B,F,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,11:01:44 AM,Dahlia,4,N,B,F,No Value,Nudge.ground ,,,0,1
+AJ,9/30/22,11:01:57 AM,Pixie,15,N,B,F,Dahlia,Grunt,,,1,0
+AJ,9/30/22,11:02:24 AM,Pixie,15,N,B,F,No Value,Drink,,,0,0
+AJ,9/30/22,11:03:04 AM,Pixie,15,N,B,F,Willie,Nudge.ground ,,,0,0
+AJ,9/30/22,11:03:42 AM,Pixie,15,N,B,F,No Value,Travel,,,0,0
+AJ,9/30/22,11:03:52 AM,Pixie,15,N,B,F,Kitty,Nudge.ground ,,,0,0
+AJ,9/30/22,11:05:53 AM,Pixie,15,N,B,F,Willie,Gets.disp,,,0,0
+AJ,9/30/22,11:07:02 AM,Pixie,15,N,B,F,No Value,Nudge.ground ,,,0,1
+AJ,9/30/22,11:07:15 AM,Loretta,13,Y,B,F,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,11:12:11 AM,Loretta,13,Y,B,F,No Value,,,lifting dinner table with snout,0,1
+AJ,9/30/22,11:13:13 AM,Raymond,16,N,B,M,No Value,Rest,,near mud puddle,1,0
+AJ,9/30/22,11:17:49 AM,Raymond,16,N,B,M,No Value,Nudge.ground ,,got up,0,0
+AJ,9/30/22,11:18:13 AM,Raymond,16,N,B,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,11:18:22 AM,Raymond,16,N,B,M,No Value,Travel,,,0,0
+AJ,9/30/22,11:18:34 AM,Raymond,16,N,B,M,No Value,Drink,,,0,1
+AJ,9/30/22,11:19:37 AM,Molly,14,N,B,F,George,Rest.proxim,,,1,0
+AJ,9/30/22,11:24:40 AM,Molly,14,N,B,F,George,Rest.proxim,,,0,1
+AJ,9/30/22,11:25:00 AM,George,7,Y,B,M,Molly,Rest.proxim,,,1,0
+AJ,9/30/22,11:25:14 AM,George,7,Y,B,M,No Value,Grunt,,,0,0
+AJ,9/30/22,11:30:07 AM,George,7,Y,B,M,Molly,Rest.proxim,,,0,1
+AJ,9/30/22,11:32:46 AM,Willie,20,Y,B,M,Hank,Rest.proxim,,,1,0
+AJ,9/30/22,11:37:59 AM,Willie,20,Y,B,M,Hank,Rest.proxim,,,0,1
+AJ,9/30/22,11:38:09 AM,Hank,9,Y,B,M,Willie,Rest.proxim,,,1,0
+AJ,9/30/22,11:43:26 AM,Hank,9,Y,B,M,Willie,Rest.proxim,,,0,1
+AJ,10/7/22,10:41:18 AM,Loretta,13,Y,B,F,Willie,Gets.disp,"30.009124,-97.300503",,1,0
+AJ,10/7/22,10:43:17 AM,Loretta,13,Y,B,F,No Value,Grunt,"30.007217,-97.298145",,0,0
+AJ,10/7/22,10:43:22 AM,Loretta,13,Y,B,F,No Value,Other,"30.005931,-97.297381",lifting up dinner table with snout,0,0
+AJ,10/7/22,10:44:45 AM,Loretta,13,Y,B,F,No Value,Travel,"30.014973,-97.306310",,0,0
+AJ,10/7/22,10:45:34 AM,Loretta,13,Y,B,F,Pixie,Other,"30.013831,-97.307797",got sniffed,0,0
+AJ,10/7/22,10:46:20 AM,Loretta,13,Y,B,F,No Value,Drink,"30.015207,-97.306007",,0,1
+AJ,10/7/22,10:46:45 AM,Willie,20,Y,B,M,No Value,Travel,"30.015005,-97.306623",,1,0
+AJ,10/7/22,10:47:37 AM,Willie,20,Y,B,M,No Value,Drink,"30.014603,-97.304774",,0,0
+AJ,10/7/22,10:48:25 AM,Willie,20,Y,B,M,No Value,Travel,"30.014289,-97.303168",,0,0
+AJ,10/7/22,10:50:32 AM,Willie,20,Y,B,M,Dahlia,Nudge.ground ,"30.015220,-97.305497",,0,0
+AJ,10/7/22,10:51:07 AM,Willie,20,Y,B,M,Dahlia,Rest.proxim,"30.015305,-97.305827",,0,0
+AJ,10/7/22,10:51:47 AM,Willie,20,Y,B,M,Dahlia,Rest.proxim,"30.015199,-97.305926",,0,1
+AJ,10/7/22,10:52:08 AM,Dahlia,4,N,B,F,Willie,Rest.proxim,"30.015000,-97.306262",,1,0
+AJ,10/7/22,10:57:18 AM,Dahlia,4,N,B,F,Willie,Rest.proxim,"30.004178,-97.295733",,0,1
+AJ,10/7/22,10:58:23 AM,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.014913,-97.306110",dirt,1,0
+AJ,10/7/22,10:58:59 AM,Pixie,15,N,B,F,No Value,Other,"30.015010,-97.306490",lifting up dinner table with snout,0,0
+AJ,10/7/22,11:03:49 AM,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.013510,-97.304953",,0,1
+AJ,10/7/22,11:06:31 AM,Raymond,16,N,B,M,Kitty,Nudge.ground ,"30.006378,-97.297917",,1,0
+AJ,10/7/22,11:08:07 AM,Raymond,16,N,B,M,Kitty,Rest.proxim,"30.013387,-97.302235",,0,0
+AJ,10/7/22,11:11:30 AM,Raymond,16,N,B,M,Kitty,Rest.proxim,"30.006406,-97.308077",,0,1
+AJ,10/7/22,11:11:42 AM,Kitty,12,Y,B,F,Raymond,Rest.proxim,"30.015153,-97.305777",,1,0
+AJ,10/7/22,11:17:00 AM,Kitty,12,Y,B,F,Raymond,Rest.proxim,"30.008603,-97.300047",,0,1
+AJ,10/7/22,11:22:21 AM,Molly,14,N,B,F,Dahlia,Rest.proxim,"30.004270,-97.295813",,1,0
+AJ,10/7/22,11:27:34 AM,Molly,14,N,B,F,Dahlia,Rest.proxim,"30.004473,-97.296017",,0,1
+AJ,10/7/22,11:28:18 AM,George,7,Y,B,M,Hank,Rest.proxim,"30.014679,-97.306176",,1,0
+AJ,10/7/22,11:33:36 AM,George,7,Y,B,M,Hank,Rest.proxim,"30.005549,-97.297149",,0,1
+AJ,10/7/22,11:33:46 AM,Hank,9,Y,B,M,George,Rest.proxim,"30.014479,-97.306412",,1,0
+AJ,10/7/22,11:38:53 AM,Hank,9,Y,B,M,George,Rest.proxim,"30.014740,-97.306401",,0,1
+AJ,10/21/22,12:51:55 PM,Molly,14,N,B,F,No Value,Rest,"30.014659,-97.306413",,1,0
+AJ,10/21/22,12:57:14 PM,Molly,14,N,B,F,No Value,Rest,"30.010047,-97.302270",,0,1
+AJ,10/21/22,12:57:37 PM,Pixie,15,N,B,F,No Value,Rest,"30.014608,-97.306257",in water puddle,1,0
+AJ,10/21/22,12:58:02 PM,Pixie,15,N,B,F,No Value,Grunt,"30.014590,-97.306266",,0,0
+AJ,10/21/22,12:59:14 PM,Pixie,15,N,B,F,No Value,Drink,"30.014603,-97.306219",water leaking from a hose,0,0
+AJ,10/21/22,1:00:46 PM,Pixie,15,N,B,F,No Value,Travel,"30.017678,-97.306628",,0,0
+AJ,10/21/22,1:01:32 PM,Pixie,15,N,B,F,No Value,Pee,"30.014649,-97.306228",,0,0
+AJ,10/21/22,1:02:10 PM,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.014648,-97.306207",,0,0
+AJ,10/21/22,1:02:20 PM,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.014663,-97.306198",leaves from ground,0,0
+AJ,10/21/22,1:03:31 PM,Pixie,15,N,B,F,No Value,Travel,"30.014747,-97.306190",,0,1
+AJ,10/21/22,1:05:24 PM,Raymond,16,N,B,M,No Value,Rest,"30.010107,-97.304891",,1,0
+AJ,10/21/22,1:10:08 PM,Raymond,16,N,B,M,No Value,Rest,"30.011779,-97.301050",,0,1
+AJ,10/21/22,1:10:52 PM,Loretta,13,Y,B,F,No Value,Rest,"30.014532,-97.306811",,1,0
+AJ,10/21/22,1:16:04 PM,Loretta,13,Y,B,F,No Value,Rest,"30.014918,-97.306697",,0,1
+AJ,10/21/22,1:17:18 PM,George,7,Y,B,M,No Value,Rest,"30.014999,-97.306948",,1,0
+AJ,10/21/22,1:22:31 PM,George,7,Y,B,M,No Value,Rest,"30.012992,-97.297448",,0,1
+AJ,10/21/22,1:24:29 PM,Hank,9,Y,B,M,Willie,Rest.proxim,"30.014207,-97.306857",,1,0
+AJ,10/21/22,1:30:26 PM,Hank,9,Y,B,M,Willie,Rest.proxim,"30.013936,-97.301484",,0,1
+AJ,10/21/22,1:30:47 PM,Willie,20,Y,B,M,Hank,Rest.proxim,"30.014981,-97.306101",,1,0
+AJ,10/21/22,1:35:56 PM,Willie,20,Y,B,M,No Value,Rest,"30.013764,-97.300458",,0,1
+AJ,10/21/22,1:36:05 PM,Dahlia,4,N,B,F,No Value,Rest,"30.014923,-97.306055",,1,0
+AJ,10/21/22,1:41:17 PM,Dahlia,4,N,B,F,No Value,Rest,"30.013145,-97.297648",,0,1
+AJ,10/21/22,1:46:21 PM,Kitty,12,Y,B,F,No Value,Rest,"30.015009,-97.305699",,1,0
+AJ,10/21/22,1:51:02 PM,Kitty,12,Y,B,F,No Value,Rest,"30.014638,-97.305922",,0,1
+NS,9/23/22,10:30:39,George,7,Y,B,M,Loretta,Rest.proxim,"30.018307,-97.307565",,1,0
+NS,9/23/22,10:35:41,George,7,Y,B,M,Loretta,Rest.proxim,"30.014989,-97.306173",,0,1
+NS,9/23/22,10:36:01,Loretta,13,Y,B,F,George,Rest.proxim,"30.015016,-97.306122",,1,0
+NS,9/23/22,10:41:46,Loretta,13,Y,B,F,George,Rest.proxim,"30.016983,-97.306950",,0,1
+NS,9/23/22,10:43:10,Pixie,15,N,B,F,No Value,Travel,"30.016022,-97.306782",Walk towards me,1,0
+NS,9/23/22,10:43:43,Pixie,15,N,B,F,No Value,Pee,"30.015094,-97.306330",,0,0
+NS,9/23/22,10:44:04,Pixie,15,N,B,F,No Value,Sniff.obj,"30.015101,-97.306280",Branch,0,0
+NS,9/23/22,10:44:34,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.015091,-97.306365",Branch,0,0
+NS,9/23/22,10:45:24,Pixie,15,N,B,F,No Value,OOV,"30.015137,-97.306315",Rub head on branch,0,0
+NS,9/23/22,10:45:52,Pixie,15,N,B,F,No Value,Travel,"30.015194,-97.306340",Walk to water hole,0,0
+NS,9/23/22,10:46:16,Pixie,15,N,B,F,No Value,Other,"30.015148,-97.306378",Stick nose in water,0,0
+NS,9/23/22,10:46:28,Pixie,15,N,B,F,No Value,Rest,"30.015033,-97.306562",Laying in water,0,0
+NS,9/23/22,10:47:07,Pixie,15,N,B,F,No Value,Other,"30.015135,-97.306533",Get out of watering hole,0,0
+NS,9/23/22,10:47:26,Pixie,15,N,B,F,No Value,Other,"30.015005,-97.306485",Watch volunteer on buggy,0,0
+NS,9/23/22,10:47:52,Pixie,15,N,B,F,No Value,Grunt,"30.015039,-97.306513",,0,1
+NS,9/23/22,10:48:47,Dahlia,4,N,B,F,No Value,Other,"30.015108,-97.306541",Rub body on tree,1,0
+NS,9/23/22,10:49:33,Dahlia,4,N,B,F,No Value,Other,"30.015438,-97.306781",Rubbing face against tree,0,0
+NS,9/23/22,10:50:38,Dahlia,4,N,B,F,No Value,Nudge.ground ,"30.015052,-97.306551",Around dinner table,0,0
+NS,9/23/22,10:51:04,Dahlia,4,N,B,F,No Value,Nudge.ground ,"30.015000,-97.306541",Eat hay off dinner table,0,0
+NS,9/23/22,10:51:55,Dahlia,4,N,B,F,No Value,Other,"30.015009,-97.306546",Step on dinner table,0,0
+NS,9/23/22,10:52:21,Dahlia,4,N,B,F,No Value,Travel,"30.015030,-97.306574",,0,0
+NS,9/23/22,10:52:30,Dahlia,4,N,B,F,No Value,Other,"30.015002,-97.306567",Look outside of fence,0,0
+NS,9/23/22,10:52:52,Dahlia,4,N,B,F,Raymond,Grunt,"30.015045,-97.306574",,0,0
+NS,9/23/22,10:53:44,Dahlia,4,N,B,F,Pixie,Nudge.ground ,"30.015003,-97.306525",Eat hay off dinner table next to Pixie,0,0
+NS,9/23/22,10:54:36,Hank,9,Y,B,M,No Value,Rest,"30.015034,-97.306552",In water,1,0
+NS,9/23/22,10:55:03,Hank,9,Y,B,M,No Value,Grunt,"30.015366,-97.306537",Still laying in water,0,0
+NS,9/23/22,10:55:39,Hank,9,Y,B,M,No Value,Other,"30.015236,-97.306505",Fart,0,0
+NS,9/23/22,10:56:02,Hank,9,Y,B,M,No Value,Grunt,"30.015329,-97.306491",,0,0
+NS,9/23/22,10:56:35,Hank,9,Y,B,M,No Value,Other,"30.015089,-97.306512",Stick nose in water,0,0
+NS,9/23/22,10:58:23,Hank,9,Y,B,M,No Value,Wag.tail,"30.012596,-97.304971",Wag tail in water and splash water,0,0
+NS,9/23/22,10:59:38,Hank,9,Y,B,M,No Value,Rest,"30.015372,-97.306651",,0,1
+NS,9/23/22,11:00:33,Raymond,16,N,B,M,No Value,Nudge.ground ,"30.015109,-97.306403",,1,0
+NS,9/23/22,11:01:06,Raymond,16,N,B,M,Willie,Rest.proxim,"30.015160,-97.306295",,0,0
+NS,9/23/22,11:03:24,Raymond,16,N,B,M,Kitty,Grunt,"30.015055,-97.306238",Grunt as Kitty approach,0,0
+NS,9/23/22,11:05:47,Kitty,12,Y,B,F,No Value,Sniff.obj,"30.015041,-97.306305",Dirt,1,0
+NS,9/23/22,11:07:24,Kitty,12,Y,B,F,No Value,Grunt,"30.016648,-97.306863",,0,0
+NS,9/23/22,11:07:36,Kitty,12,Y,B,F,Raymond,Attempt.disp,"30.015011,-97.306240",,0,0
+NS,9/23/22,11:07:54,Kitty,12,Y,B,F,No Value,Nudge.ground ,"30.015026,-97.306252",,0,0
+NS,9/23/22,11:08:30,Kitty,12,Y,B,F,No Value,Grunt,"30.015049,-97.306249",Grunting while laying in dirt,0,0
+NS,9/23/22,11:08:48,Kitty,12,Y,B,F,No Value,Rest,"30.015076,-97.306172",Willy and Raymond resting together approx 2 m away,0,0
+NS,9/23/22,11:13:04,Molly,14,N,B,F,No Value,Nudge.ground ,"30.017515,-97.307243",,1,0
+NS,9/23/22,11:13:33,Molly,14,N,B,F,No Value,Wag.tail,"30.014857,-97.306438",Wags tail side to side while rooting,0,0
+NS,9/23/22,11:13:59,Molly,14,N,B,F,No Value,Nudge.ground ,"30.014821,-97.306385",,0,0
+NS,9/23/22,11:15:13,Molly,14,N,B,F,No Value,Other,"30.015367,-97.306312",Rubbing face against branches and snapping them,0,0
+NS,9/23/22,11:15:49,Molly,14,N,B,F,No Value,Wag.tail,"30.014733,-97.306332",,0,0
+NS,9/23/22,11:17:08,Molly,14,N,B,F,No Value,Nudge.ground ,"30.014928,-97.306281",Eat dirt,0,0
+NS,9/23/22,11:17:45,Molly,14,N,B,F,No Value,Drink,"30.014793,-97.306371",From watering hole,0,1
+NS,9/23/22,11:19:03,Willie,20,Y,B,M,Raymond,Rest.proxim,"30.014947,-97.306390",Resting with Raymond. Kitty about 2m away,1,0
+NS,9/23/22,11:24:06,Willie,20,Y,B,M,Raymond,Rest.proxim,"30.018283,-97.307556",,0,1
+NS,9/30/22,10:51:03,Pixie,15,N,B,F,Loretta,Nudge.ground ,"30.017871,-97.305992",Eat pellets on dinner table,1,0
+NS,9/30/22,10:53:11,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.017222,-97.306082",Pellets. Loretta moved away and is eating on ground,0,0
+NS,9/30/22,10:54:22,Pixie,15,N,B,F,No Value,Drink,"30.014991,-97.306504",From large water bowl,0,0
+NS,9/30/22,10:54:47,Pixie,15,N,B,F,No Value,Sniff.obj,"30.015072,-97.306510",Dinner table,0,0
+NS,9/30/22,10:55:07,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.015055,-97.306463",Dirt,0,0
+NS,9/30/22,10:56:10,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.014952,-97.306412",,0,1
+NS,9/30/22,10:56:39,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015045,-97.306475",Dirt,1,0
+NS,9/30/22,10:57:53,Loretta,13,Y,B,F,No Value,Sniff.obj,"30.015086,-97.306513",Ground,0,0
+NS,9/30/22,10:58:16,Loretta,13,Y,B,F,Willie,Get.disp,"30.015078,-97.306456",,0,0
+NS,9/30/22,10:58:26,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015038,-97.306557",Push dinner table,0,0
+NS,9/30/22,10:59:21,Loretta,13,Y,B,F,Kitty,Nudge.ground ,"30.015019,-97.306538",Hay,0,0
+NS,9/30/22,10:59:38,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015013,-97.306531",Dirt,0,0
+NS,9/30/22,11:00:00,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015035,-97.306524",Push dinner table,0,0
+NS,9/30/22,11:00:31,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015032,-97.306513",Push dinner table,0,0
+NS,9/30/22,11:01:26,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015023,-97.306573",Pellets off of dinner table,0,1
+NS,9/30/22,11:01:50,Willie,20,Y,B,M,No Value,Nudge.ground ,"30.015025,-97.306570","Dirt
+Pixie, Dahlia, and Kitty within 2 m",1,0
+NS,9/30/22,11:03:45,Willie,20,Y,B,M,No Value,Nudge.ground ,"30.015048,-97.306499",Hay,0,0
+NS,9/30/22,11:04:28,Willie,20,Y,B,M,No Value,Travel,"30.015036,-97.306527",,0,0
+NS,9/30/22,11:05:03,Willie,20,Y,B,M,No Value,Other,"30.014926,-97.306655",Approach Abby (observer),0,0
+NS,9/30/22,11:05:36,Willie,20,Y,B,M,No Value,Nudge.ground ,"30.015056,-97.306545",Hay,0,0
+NS,9/30/22,11:06:14,Willie,20,Y,B,M,Pixie,Attempt.disp,"30.015067,-97.306537",Displaces Pixie,0,0
+NS,9/30/22,11:06:38,Willie,20,Y,B,M,No Value,Nudge.ground ,"30.014977,-97.306517",Hay and dirt,0,1
+NS,9/30/22,11:07:17,Dahlia,4,N,B,F,No Value,Nudge.ground ,"30.015004,-97.306523",Dirt,1,0
+NS,9/30/22,11:07:37,Dahlia,4,N,B,F,No Value,Travel,"30.015124,-97.306508",,0,0
+NS,9/30/22,11:07:51,Dahlia,4,N,B,F,Pixie,Nudge.ground ,"30.015084,-97.306518",Eat hay next to Pixie,0,0
+NS,9/30/22,11:08:47,Dahlia,4,N,B,F,Kitty,Nudge.ground ,"30.015078,-97.306553",,0,0
+NS,9/30/22,11:10:37,Dahlia,4,N,B,F,No Value,Other,"30.014988,-97.306487",Approach Noah,0,0
+NS,9/30/22,11:11:12,Dahlia,4,N,B,F,No Value,Nudge.ground ,"30.014934,-97.306718",Dirt,0,0
+NS,9/30/22,11:12:20,Dahlia,4,N,B,F,No Value,Nudge.ground ,"30.014986,-97.306543",Dirt,0,1
+NS,9/30/22,11:12:41,Kitty,12,Y,B,F,No Value,Nudge.ground ,"30.014959,-97.306588",Dirt,0,0
+NS,9/30/22,11:17:44,Kitty,12,Y,B,F,No Value,Nudge.ground ,"30.015136,-97.306330",,0,1
+NS,9/30/22,11:18:33,George,7,Y,B,M,Molly,Rest.proxim,"30.015036,-97.306531",,0,0
+NS,9/30/22,11:23:30,George,7,Y,B,M,Molly,Rest.proxim,"30.017776,-97.305970",,0,1
+NS,9/30/22,11:27:05,Raymond,16,N,B,M,No Value,Nudge.ground ,"30.004003,-97.298480",,0,0
+NS,9/30/22,11:27:41,Raymond,16,N,B,M,Molly,Rest.proxim,"30.015056,-97.306291",Next to Molly and George,0,0
+NS,9/30/22,11:32:12,Raymond,16,N,B,M,No Value,Rest.proxim,"30.015038,-97.306252",Same,0,1
+NS,9/30/22,11:33:07,Molly,14,N,B,F,George,Rest.proxim,"30.015095,-97.306243",With George and Raymond,1,0
+NS,9/30/22,11:36:15,Molly,14,N,B,F,No Value,Other,"30.017700,-97.306007",Stand up,0,0
+NS,9/30/22,11:37:01,Molly,14,N,B,F,No Value,Rest.proxim,"30.015060,-97.306199",Lays back down,0,0
+NS,9/30/22,11:37:35,Molly,14,N,B,F,No Value,Rest.proxim,"30.015026,-97.306270",,0,1
+NS,9/30/22,11:43:28,Hank,9,Y,B,M,Willie,Rest.proxim,"30.017648,-97.306016",,1,0
+NS,9/30/22,11:45:59,Hank,9,Y,B,M,No Value,Grunt,"30.017567,-97.305999",,0,0
+NS,9/30/22,11:46:08,Hank,9,Y,B,M,Willie,Rest.proxim,"30.014966,-97.306143",,0,0
+NS,9/30/22,11:48:31,Hank,9,Y,B,M,Willie,Rest.proxim,"30.015006,-97.306070",,0,1
+NS,10/7/22,10:40:30,Pixie,15,N,B,F,No Value,,"30.015110,-97.306427",Dinner table,0,0
+NS,10/7/22,10:41:06,Pixie,15,N,B,F,No Value,Drink,"30.015106,-97.306497",Drink water in trough with front feet in,0,0
+NS,10/7/22,10:41:22,Pixie,15,N,B,F,No Value,Travel,"30.015155,-97.306516",,0,0
+NS,10/7/22,10:41:52,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.015156,-97.306487",Hay,0,0
+NS,10/7/22,10:42:39,Pixie,15,N,B,F,Dahlia,Get.disp,"30.015093,-97.306542",,0,0
+NS,10/7/22,10:43:14,Pixie,15,N,B,F,Dahlia,Grunt,"30.015040,-97.306558",,0,0
+NS,10/7/22,10:43:31,Pixie,15,N,B,F,No Value,Nudge.ground ,"30.015038,-97.306465",Hay,0,0
+NS,10/7/22,10:45:26,Pixie,15,N,B,F,No Value,Other,"30.015069,-97.306485",Sniff Loretta,0,1
+NS,10/7/22,10:46:01,Kitty,12,Y,B,F,No Value,Grunt,"30.015117,-97.306492",,1,0
+NS,10/7/22,10:47:21,Kitty,12,Y,B,F,No Value,Other,"30.015069,-97.306545","Putting nose through fence, sniffing donkey ",0,0
+NS,10/7/22,10:47:48,Kitty,12,Y,B,F,No Value,Nudge.ground ,"30.015059,-97.306547",Hay,0,0
+NS,10/7/22,10:50:25,Kitty,12,Y,B,F,No Value,Grunt,"30.015039,-97.306492",,0,0
+NS,10/7/22,10:50:47,Kitty,12,Y,B,F,Raymond,Attempt.disp,"30.015077,-97.306500",Displaces Raymond at dinner table,0,0
+NS,10/7/22,10:51:22,Kitty,12,Y,B,F,No Value,Nudge.ground ,"30.015026,-97.306593",Dirt,0,0
+NS,10/7/22,10:51:37,Raymond,16,N,B,M,No Value,Sniff.obj,"30.014907,-97.306613",Ground,1,0
+NS,10/7/22,10:52:17,Raymond,16,N,B,M,No Value,Nudge.ground ,"30.014939,-97.306513",Hay,0,0
+NS,10/7/22,10:53:33,Raymond,16,N,B,M,No Value,Nudge.ground ,"30.014965,-97.306636",Eat dirt next to Dahlia,0,0
+NS,10/7/22,10:54:20,Raymond,16,N,B,M,No Value,Travel,"30.015010,-97.306596",,0,0
+NS,10/7/22,10:55:40,Raymond,16,N,B,M,No Value,Nudge.ground ,"30.015101,-97.306644",Dirt/hay,0,0
+NS,10/7/22,10:56:46,Raymond,16,N,B,M,No Value,Nudge.ground ,"30.015083,-97.306530",,0,1
+NS,10/7/22,10:56:59,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015115,-97.306451",Hay,1,0
+NS,10/7/22,11:00:03,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015103,-97.306454",,0,0
+NS,10/7/22,11:02:04,Loretta,13,Y,B,F,No Value,Nudge.ground ,"30.015087,-97.306546",,0,1
+NS,10/7/22,11:03:42,Willie,20,Y,B,M,No Value,Rest,"30.015005,-97.306492",,1,0
+NS,10/7/22,11:08:54,Willie,20,Y,B,M,No Value,Rest,"30.014992,-97.306157",,0,1
+NS,10/7/22,11:12:19,Hank,9,Y,B,M,George,Rest.proxim,"30.014993,-97.305968",,1,0
+NS,10/7/22,11:17:28,Hank,9,Y,B,M,George,Rest.proxim,"30.014587,-97.306240",,0,1
+NS,10/7/22,11:17:36,George,7,Y,B,M,Hank,Rest.proxim,"30.014651,-97.306402",,1,0
+NS,10/7/22,11:22:55,George,7,Y,B,M,Hank,Rest.proxim,"30.014697,-97.306302",,0,1
+NS,10/7/22,11:23:53,Dahlia,4,N,B,F,Molly,Rest.proxim,"30.014694,-97.306306",,1,0
+NS,10/7/22,11:29:06,Dahlia,4,N,B,F,Molly,Rest.proxim,"30.014707,-97.306476",,0,1
+NS,10/7/22,11:29:20,Molly,14,N,B,F,Dahlia,Rest.proxim,"30.014764,-97.306526",,1,0
+NS,10/7/22,11:34:23,Molly,14,N,B,F,Dahlia,Rest.proxim,"30.014698,-97.306472",,0,1
+NS,10/21/22,12:49:59,Loretta,13,Y,B,F,No Value,Rest,"30.015123,-97.307546",,1,0
+NS,10/21/22,12:55:20,Loretta,13,Y,B,F,No Value,Rest,"30.014954,-97.306564",,0,1
+NS,10/21/22,12:56:13,Raymond,16,N,B,M,No Value,Rest,"30.014891,-97.306527",,1,0
+NS,10/21/22,13:01:12,Raymond,16,N,B,M,No Value,Rest,"30.014594,-97.306499",,0,1
+NS,10/21/22,13:02:59,George,7,Y,B,M,No Value,Rest,"30.014635,-97.306614",,1,0
+NS,10/21/22,13:08:14,George,7,Y,B,M,No Value,Rest,"30.014718,-97.306307",,0,1
+NS,10/21/22,13:09:14,Molly,14,N,B,F,Pixie,Rest.proxim,"30.014763,-97.306247",,1,0
+NS,10/21/22,13:14:37,Molly,14,N,B,F,Pixie,Rest.proxim,"30.014667,-97.306426",,0,1
+NS,10/21/22,13:14:47,Pixie,15,N,B,F,Dahlia,Rest.proxim,"30.014584,-97.306398",,1,0
+NS,10/21/22,13:19:56,Pixie,15,N,B,F,Dahlia,Rest.proxim,"30.014738,-97.306561",,0,1
+NS,10/21/22,13:21:45,Willie,20,Y,B,M,Hank,Rest.proxim,"30.014579,-97.306368",,1,0
+NS,10/21/22,13:27:24,Willie,20,Y,B,M,Hank,Rest.proxim,"30.015037,-97.306011",,0,1
+NS,10/21/22,13:27:45,Dahlia,4,N,B,F,No Value,Rest,"30.015027,-97.306070",,1,0
+NS,10/21/22,13:33:05,Dahlia,4,N,B,F,No Value,Rest,"30.015068,-97.306072",,0,1
+NS,10/21/22,13:33:16,Hank,9,Y,B,M,No Value,Travel,"30.014963,-97.306067",,1,0
+NS,10/21/22,13:34:24,Hank,9,Y,B,M,No Value,Pee,"30.014969,-97.306096",,0,0
+NS,10/21/22,13:34:32,Hank,9,Y,B,M,No Value,Take.alt.rt,"30.014952,-97.306071",,0,0
+NS,10/21/22,13:35:09,Hank,9,Y,B,M,No Value,Poop,"30.014967,-97.306065",,0,0
+NS,10/21/22,13:35:59,Hank,9,Y,B,M,No Value,Drink,"30.014832,-97.306154",Puddle,0,0
+NS,10/21/22,13:37:55,Hank,9,Y,B,M,No Value,Nudge.ground ,"30.014714,-97.306271",Dirt,0,0
+NS,10/21/22,13:38:38,Hank,9,Y,B,M,No Value,Nudge.ground ,"30.014441,-97.306313",,0,0
+NS,10/21/22,13:39:06,Hank,9,Y,B,M,No Value,Sniff.obj,"30.014689,-97.306249",Dirt,0,1
+NS,10/21/22,13:51:08,Kitty,12,Y,B,F,No Value,Rest,"30.014593,-97.305797",,1,0
+NS,10/21/22,13:56:23,Kitty,12,Y,B,F,No Value,Rest,"30.014753,-97.305888",,0,1
+AJ,9/23/22,9:00:42 AM,Thomas,18,N,Y,M,No Value,Grunt,,,1,0
+AJ,9/23/22,9:01:05 AM,Thomas,18,N,Y,M,No Value,Travel,,,0,0
+AJ,9/23/22,9:01:31 AM,Thomas,18,N,Y,M,No Value,Poop,,,0,0
+AJ,9/23/22,9:01:57 AM,Thomas,18,N,Y,M,No Value,Pee,,,0,0
+AJ,9/23/22,9:02:41 AM,Thomas,18,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/23/22,9:03:37 AM,Thomas,18,N,Y,M,No Value,Travel,,,0,0
+AJ,9/23/22,9:04:37 AM,Thomas,18,N,Y,M,Georgie,Snout.touch,,,0,0
+AJ,9/23/22,9:05:40 AM,Thomas,18,N,Y,M,No Value,Rest,,,0,0
+AJ,9/23/22,9:06:58 AM,Georgie,8,Y,Y,F,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,9:07:12 AM,Georgie,8,Y,Y,F,No Value,Travel,,,0,0
+AJ,9/23/22,9:07:23 AM,Georgie,8,Y,Y,F,No Value,Drink,,,0,0
+AJ,9/23/22,9:07:52 AM,Georgie,8,Y,Y,F,No Value,Travel,,,0,0
+AJ,9/23/22,9:08:42 AM,Georgie,8,Y,Y,F,Dora,Rest.proxim,,,0,0
+AJ,9/23/22,9:12:09 AM,Georgie,8,Y,Y,F,Atlas,Rest.proxim,,,0,0
+AJ,9/23/22,9:12:22 AM,Georgie,8,Y,Y,F,Bates,Rest.proxim,,,0,1
+AJ,9/23/22,9:14:22 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,9:14:33 AM,Rebel,17,Y,Y,M,Eleanor,Nudge.ground ,,,0,0
+AJ,9/23/22,9:21:05 AM,Atlas,1,Y,Y,M,Bates,Rest.proxim,,,1,0
+AJ,9/23/22,9:21:34 AM,Atlas,1,Y,Y,M,Dora,Rest.proxim,,,0,0
+AJ,9/23/22,9:21:46 AM,Atlas,1,Y,Y,M,Georgie,Rest.proxim,,,0,0
+AJ,9/23/22,9:26:15 AM,Atlas,1,Y,Y,M,Georgie,Rest.proxim,,,0,1
+AJ,9/23/22,9:26:28 AM,Bates,2,N,Y,M,Atlas,Rest.proxim,,,1,0
+AJ,9/23/22,9:26:39 AM,Bates,2,N,Y,M,Dora,Rest.proxim,,,0,0
+AJ,9/23/22,9:26:50 AM,Bates,2,N,Y,M,Georgie,Rest.proxim,,,0,0
+AJ,9/23/22,9:30:13 AM,Bates,2,N,Y,M,No Value,Grunt,,,0,0
+AJ,9/23/22,9:31:38 AM,Dora,5,Y,Y,F,Bates,Rest.proxim,,,1,0
+AJ,9/23/22,9:32:06 AM,Dora,5,Y,Y,F,Georgie,Rest.proxim,,,0,0
+AJ,9/23/22,9:32:20 AM,Dora,5,Y,Y,F,Atlas,Rest.proxim,,,0,0
+AJ,9/23/22,9:43:17 AM,Imogen,11,N,Y,F,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,9:43:37 AM,Imogen,11,N,Y,F,No Value,Travel,,,0,0
+AJ,9/23/22,9:44:01 AM,Imogen,11,N,Y,F,No Value,Pee,,,0,0
+AJ,9/23/22,9:44:09 AM,Imogen,11,N,Y,F,No Value,Gets.disp,,displaced by pig not in study see photo,0,0
+AJ,9/23/22,9:44:46 AM,Imogen,11,N,Y,F,No Value,Rest,,resting by herself in  the trees,0,0
+AJ,9/23/22,9:45:59 AM,Imogen,11,N,Y,F,No Value,Wag.tail,,,0,0
+AJ,9/23/22,9:46:34 AM,Imogen,11,N,Y,F,No Value,Nudge.ground ,,,0,0
+AJ,9/23/22,9:46:46 AM,Imogen,11,N,Y,F,No Value,Travel,,,0,0
+AJ,9/23/22,9:46:54 AM,Imogen,11,N,Y,F,No Value,Travel,,avoided the pig who displced her,0,0
+AJ,9/23/22,9:50:39 AM,Rebel,17,Y,Y,M,No Value,Pee,,,0,0
+AJ,9/23/22,9:50:57 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,,,0,0
+AJ,9/23/22,9:51:29 AM,Rebel,17,Y,Y,M,No Value,Travel,,,0,0
+AJ,9/23/22,9:51:54 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,,,0,0
+AJ,9/23/22,9:54:23 AM,Rebel,17,Y,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/23/22,10:00:06 AM,Eleanor,6,N,Y,F,No Value,Rest,,,1,0
+AJ,9/23/22,10:02:23 AM,Eleanor,6,N,Y,F,No Value,Wag.tail,,,0,0
+AJ,9/23/22,10:04:47 AM,Eleanor,6,N,Y,F,No Value,Rest,,,0,1
+AJ,9/23/22,10:05:05 AM,Horatio,10,N,Y,M,No Value,Rest.proxim,,oreo pig not in study,1,0
+AJ,9/23/22,10:10:10 AM,Horatio,10,N,Y,M,No Value,Rest,,,0,1
+AJ,9/23/22,10:17:20 AM,Bates,2,N,Y,M,No Value,Rest,,,1,0
+AJ,9/23/22,10:18:55 AM,Bates,2,N,Y,M,No Value,Travel,,,0,0
+AJ,9/23/22,10:22:02 AM,Bates,2,N,Y,M,No Value,Grunt,,,0,0
+AJ,9/23/22,10:22:26 AM,Bates,2,N,Y,M,No Value,Rest,,,0,1
+AJ,9/23/22,11:36:27 AM,Wilbur,19,N,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,11:37:14 AM,Wilbur,19,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/23/22,11:41:54 AM,Wilbur,19,N,Y,M,No Value,Nudge.ground ,,,0,1
+AJ,9/23/22,11:45:05 AM,Bianca,3,Y,Y,F,No Value,Nudge.ground ,,,1,0
+AJ,9/23/22,11:45:16 AM,Bianca,3,Y,Y,F,No Value,Wag.tail,,,0,0
+AJ,9/23/22,11:46:42 AM,Bianca,3,Y,Y,F,No Value,Travel,,,0,0
+AJ,9/23/22,11:47:11 AM,Bianca,3,Y,Y,F,No Value,Poop,,,0,0
+AJ,9/23/22,11:47:30 AM,Bianca,3,Y,Y,F,No Value,Travel,,,0,0
+AJ,9/23/22,11:48:10 AM,Bianca,3,Y,Y,F,No Value,Other,,got in water puddle,0,0
+AJ,9/23/22,11:48:33 AM,Bianca,3,Y,Y,F,No Value,Drink,,,0,0
+AJ,9/23/22,11:50:04 AM,Bianca,3,Y,Y,F,No Value,Rest,,in water,0,1
+AJ,9/30/22,9:29:21 AM,Georgie,8,Y,Y,F,No Value,Grunt,,,1,0
+AJ,9/30/22,9:29:45 AM,Georgie,8,Y,Y,F,No Value,Yawn.not.contaig,,,0,0
+AJ,9/30/22,9:30:30 AM,Georgie,8,Y,Y,F,No Value,Travel,,,0,0
+AJ,9/30/22,9:31:48 AM,Georgie,8,Y,Y,F,No Value,Rest,,,0,0
+AJ,9/30/22,9:33:14 AM,Georgie,8,Y,Y,F,No Value,Grunt,,,0,0
+AJ,9/30/22,9:34:23 AM,Georgie,8,Y,Y,F,No Value,Rest,,,0,1
+AJ,9/30/22,9:35:48 AM,Horatio,10,N,Y,M,No Value,Sniff.obj,,sniffing white pig with black head not in study,1,0
+AJ,9/30/22,9:36:25 AM,Horatio,10,N,Y,M,No Value,Yawn.not.contaig,,,0,0
+AJ,9/30/22,9:36:48 AM,Horatio,10,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,9:36:57 AM,Horatio,10,N,Y,M,No Value,Snout.touch,,all black pig not in study,0,0
+AJ,9/30/22,9:38:52 AM,Horatio,10,N,Y,M,No Value,Travel,,,0,0
+AJ,9/30/22,9:39:05 AM,Horatio,10,N,Y,M,No Value,Drink,,,0,0
+AJ,9/30/22,9:40:00 AM,Horatio,10,N,Y,M,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,9:40:29 AM,Horatio,10,N,Y,M,No Value,Travel,,,0,1
+AJ,9/30/22,9:41:31 AM,Bates,2,N,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,9:42:07 AM,Bates,2,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,9:44:03 AM,Bates,2,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,9:45:44 AM,Bates,2,N,Y,M,No Value,Travel,,,0,0
+AJ,9/30/22,9:46:48 AM,Bates,2,N,Y,M,No Value,Nudge.ground ,,,0,1
+AJ,9/30/22,9:47:19 AM,Thomas,18,N,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,9:48:33 AM,Thomas,18,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,9:52:58 AM,Thomas,18,N,Y,M,Wilbur,Gets.disp,,,0,1
+AJ,9/30/22,9:53:19 AM,Atlas,1,Y,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,9:54:36 AM,Atlas,1,Y,Y,M,No Value,Travel,,,0,0
+AJ,9/30/22,9:57:48 AM,Atlas,1,Y,Y,M,No Value,Poop,,,0,0
+AJ,9/30/22,9:58:31 AM,Atlas,1,Y,Y,M,Bates,Attempt.disp,,,0,1
+AJ,9/30/22,9:59:45 AM,Dora,5,Y,Y,F,No Value,Rest,,,1,0
+AJ,9/30/22,10:01:41 AM,Dora,5,Y,Y,F,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,10:05:04 AM,Dora,5,Y,Y,F,No Value,Nudge.ground ,,,0,1
+AJ,9/30/22,10:05:40 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,10:05:52 AM,Rebel,17,Y,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,10:10:45 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,,,0,1
+AJ,9/30/22,10:13:42 AM,Imogen,11,N,Y,F,No Value,Wag.tail,,,1,0
+AJ,9/30/22,10:14:27 AM,Imogen,11,N,Y,F,No Value,Nudge.ground ,,,0,0
+AJ,9/30/22,10:14:48 AM,Imogen,11,N,Y,F,No Value,Rest,,,0,0
+AJ,9/30/22,10:19:01 AM,Imogen,11,N,Y,F,No Value,Rest,,,0,1
+AJ,9/30/22,10:19:45 AM,Wilbur,19,N,Y,M,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,10:20:40 AM,Wilbur,19,N,Y,M,No Value,Wag.tail,,,0,0
+AJ,9/30/22,10:22:38 AM,Wilbur,19,N,Y,M,No Value,Travel,,,0,0
+AJ,9/30/22,10:23:08 AM,Wilbur,19,N,Y,M,No Value,Rest,,,0,0
+AJ,9/30/22,10:25:09 AM,Wilbur,19,N,Y,M,No Value,Rest,,,0,1
+AJ,9/30/22,10:32:20 AM,Bianca,3,Y,Y,F,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,10:32:37 AM,Bianca,3,Y,Y,F,No Value,Grunt,,,0,0
+AJ,9/30/22,10:32:47 AM,Bianca,3,Y,Y,F,No Value,Travel,,,0,0
+AJ,9/30/22,10:36:38 AM,Bianca,3,Y,Y,F,No Value,Sniff.obj,,sniffing an oreo pig not in study,0,0
+AJ,9/30/22,10:37:38 AM,Bianca,3,Y,Y,F,No Value,Wag.tail,,,0,1
+AJ,9/30/22,10:38:32 AM,Eleanor,6,N,Y,F,No Value,Nudge.ground ,,,1,0
+AJ,9/30/22,10:38:58 AM,Eleanor,6,N,Y,F,No Value,Wag.tail,,,0,0
+AJ,9/30/22,10:39:08 AM,Eleanor,6,N,Y,F,No Value,Other,,2 pigs sniffed her rear end. she didn’t react,0,0
+AJ,9/30/22,10:39:27 AM,Eleanor,6,N,Y,F,No Value,Drink,,,0,0
+AJ,9/30/22,10:41:30 AM,Eleanor,6,N,Y,F,No Value,Rest,,,0,0
+AJ,9/30/22,10:43:51 AM,Eleanor,6,N,Y,F,No Value,Rest,,,0,1
+AJ,10/7/22,9:25:51 AM,Dora,5,Y,Y,F,No Value,Pee,"30.014734,-97.307306",,1,0
+AJ,10/7/22,9:26:11 AM,Dora,5,Y,Y,F,No Value,Travel,"30.014734,-97.307306",,0,0
+AJ,10/7/22,9:26:53 AM,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.014859,-97.307616",,0,0
+AJ,10/7/22,9:29:38 AM,Dora,5,Y,Y,F,Rebel,Other,"30.017331,-97.305403",Rebel sniffed her butt but she didn’t react,0,0
+AJ,10/7/22,9:30:07 AM,Dora,5,Y,Y,F,No Value,Gets.disp,"30.014825,-97.307112",very large gray spotted pig sniffed her but and she did move,0,0
+AJ,10/7/22,9:31:21 AM,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.014881,-97.307481",,0,1
+AJ,10/7/22,9:31:29 AM,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.014736,-97.307292",,1,0
+AJ,10/7/22,9:32:42 AM,Horatio,10,N,Y,M,No Value,Wag.tail,"30.002828,-97.304309",,0,0
+AJ,10/7/22,9:34:38 AM,Horatio,10,N,Y,M,No Value,Travel,"30.014888,-97.307516",,0,0
+AJ,10/7/22,9:37:22 AM,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.016972,-97.305707",,0,1
+AJ,10/7/22,9:37:35 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,"30.014850,-97.307569",,1,0
+AJ,10/7/22,9:40:14 AM,Rebel,17,Y,Y,M,No Value,Wag.tail,"30.016598,-97.306318",,0,0
+AJ,10/7/22,9:43:30 AM,Rebel,17,Y,Y,M,No Value,Other,"30.004631,-97.296054",Rubbing face on dinner table. Another pig did it and then Rebel did- mimicry?,0,1
+AJ,10/7/22,9:46:10 AM,Bates,2,N,Y,M,No Value,Drink,"30.014724,-97.307314",out of puddle,1,0
+AJ,10/7/22,9:46:35 AM,Bates,2,N,Y,M,No Value,Travel,"30.014638,-97.307208",,0,0
+AJ,10/7/22,9:46:43 AM,Bates,2,N,Y,M,No Value,Poop,"30.014852,-97.307261",,0,0
+AJ,10/7/22,9:47:44 AM,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014671,-97.307438",in foresty tree area,0,0
+AJ,10/7/22,9:48:20 AM,Bates,2,N,Y,M,No Value,Travel,"30.014710,-97.307336",,0,0
+AJ,10/7/22,9:50:05 AM,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.015932,-97.305955",,0,0
+AJ,10/7/22,9:50:50 AM,Bates,2,N,Y,M,No Value,Wag.tail,"30.014907,-97.307339",,0,0
+AJ,10/7/22,9:51:26 AM,Bates,2,N,Y,M,Eleanor,Nudge.ground ,"30.014917,-97.307416",,0,1
+AJ,10/7/22,9:51:51 AM,Thomas,18,N,Y,M,No Value,Nudge.ground ,"30.014825,-97.307442",foaming at the mouth,1,0
+AJ,10/7/22,9:52:13 AM,Thomas,18,N,Y,M,No Value,Wag.tail,"30.015028,-97.306848",,0,0
+AJ,10/7/22,9:54:58 AM,Thomas,18,N,Y,M,No Value,Attempt.disp,"30.017370,-97.305416",brown pig not in study had a white stripe on back,0,0
+AJ,10/7/22,9:55:30 AM,Thomas,18,N,Y,M,No Value,Travel,"30.014611,-97.307268",got off dinner table after trying to displace other pig,0,0
+AJ,10/7/22,9:56:51 AM,Thomas,18,N,Y,M,No Value,Nudge.ground ,"30.014862,-97.307332",,0,1
+AJ,10/7/22,9:57:11 AM,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015636,-97.307173",,1,0
+AJ,10/7/22,9:57:59 AM,Atlas,1,Y,Y,M,No Value,Travel,"30.015028,-97.306848",,0,0
+AJ,10/7/22,9:58:10 AM,Atlas,1,Y,Y,M,Horatio,Attempt.disp,"30.014981,-97.307395",displacement successful,0,0
+AJ,10/7/22,10:00:04 AM,Atlas,1,Y,Y,M,No Value,Travel,"30.015028,-97.306848",,0,0
+AJ,10/7/22,10:00:58 AM,Atlas,1,Y,Y,M,No Value,Travel,"30.012296,-97.307142",,0,0
+AJ,10/7/22,10:01:49 AM,Atlas,1,Y,Y,M,Horatio,Attempt.disp,"30.013779,-97.308125",displacement success,0,0
+AJ,10/7/22,10:03:24 AM,Imogen,11,N,Y,F,No Value,Wag.tail,"30.015028,-97.306848",,1,0
+AJ,10/7/22,10:04:31 AM,Imogen,11,N,Y,F,No Value,Travel,"30.015436,-97.307413",,0,0
+AJ,10/7/22,10:04:57 AM,Imogen,11,N,Y,F,No Value,Sniff.obj,"30.015436,-97.307413",sniffing another pigs backside,0,0
+AJ,10/7/22,10:05:51 AM,Imogen,11,N,Y,F,No Value,Rest.proxim,"30.014878,-97.308156","with black wrinkly pig, in tree area ",0,0
+AJ,10/7/22,10:08:25 AM,Imogen,11,N,Y,F,No Value,Rest.proxim,"30.014955,-97.307482",see previous,0,1
+AJ,10/7/22,10:09:29 AM,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.014779,-97.307672",,1,0
+AJ,10/7/22,10:09:43 AM,Eleanor,6,N,Y,F,No Value,Wag.tail,"30.014831,-97.307410",,0,0
+AJ,10/7/22,10:11:38 AM,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015056,-97.307407",with 2 pink pigs and a gray spotted pig (not rebel),0,0
+AJ,10/7/22,10:12:45 AM,Eleanor,6,N,Y,F,No Value,Nip,"30.014880,-97.307295",gray pig w black spots not in study,0,0
+AJ,10/7/22,10:13:23 AM,Eleanor,6,N,Y,F,No Value,Pee,"30.014896,-97.307209",,0,0
+AJ,10/7/22,10:13:50 AM,Eleanor,6,N,Y,F,No Value,Nip,"30.015021,-97.307401",pink pig not in study,0,0
+AJ,10/7/22,10:14:05 AM,Eleanor,6,N,Y,F,No Value,Attempt.disp,"30.014763,-97.307404",nipped the pink pig and displaced them,0,0
+AJ,10/7/22,10:14:47 AM,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.014886,-97.307389",,0,1
+AJ,10/7/22,10:15:03 AM,Georgie,8,Y,Y,F,No Value,Rest,"30.015054,-97.307697",,1,0
+AJ,10/7/22,10:20:24 AM,Georgie,8,Y,Y,F,Dora,Rest.proxim,"30.017588,-97.305296",,0,1
+AJ,10/7/22,10:22:08 AM,Wilbur,19,N,Y,M,No Value,Rest.proxim,"30.014813,-97.307386",2 pigs not in study,1,0
+AJ,10/7/22,10:25:12 AM,Wilbur,19,N,Y,M,No Value,Attempt.disp,"30.014900,-97.307667",wilbur is displacingg meeeee,0,0
+AJ,10/7/22,10:26:27 AM,Wilbur,19,N,Y,M,No Value,Nudge.ground ,"30.012350,-97.305282",dirt,0,0
+AJ,10/7/22,10:27:31 AM,Wilbur,19,N,Y,M,No Value,Travel,"30.015305,-97.307291",,0,1
+AJ,10/7/22,10:27:46 AM,Bianca,3,Y,Y,F,Bates,Rest.proxim,"30.015344,-97.307275",w bates and another white pig with black spots,1,0
+AJ,10/7/22,10:33:24 AM,Bianca,3,Y,Y,F,No Value,Rest.proxim,"30.014848,-97.307160",see previous,0,1
+AJ,10/21/22,11:37:52 AM,Wilbur,19,N,Y,M,No Value,Travel,"30.014862,-97.307033",,1,0
+AJ,10/21/22,11:38:48 AM,Wilbur,19,N,Y,M,No Value,Nudge.ground ,"30.014947,-97.307144",,0,0
+AJ,10/21/22,11:40:35 AM,Wilbur,19,N,Y,M,No Value,Wag.tail,"30.015224,-97.307397",,0,0
+AJ,10/21/22,11:43:46 AM,Wilbur,19,N,Y,M,No Value,Nudge.ground ,"30.014781,-97.307375",,0,1
+AJ,10/21/22,11:44:17 AM,Imogen,11,N,Y,F,No Value,Nudge.ground ,"30.014999,-97.306948",,1,0
+AJ,10/21/22,11:44:29 AM,Imogen,11,N,Y,F,No Value,Wag.tail,"30.014965,-97.307355",,0,0
+AJ,10/21/22,11:44:38 AM,Imogen,11,N,Y,F,Wilbur,Nudge.ground ,"30.014996,-97.307175",,0,0
+AJ,10/21/22,11:45:34 AM,Imogen,11,N,Y,F,No Value,Travel,"30.014999,-97.306948",,0,0
+AJ,10/21/22,11:45:47 AM,Imogen,11,N,Y,F,Rebel,Attempt.disp,"30.014934,-97.307323",successful,0,0
+AJ,10/21/22,11:49:53 AM,Imogen,11,N,Y,F,No Value,Nudge.ground ,"30.014999,-97.306948",,0,1
+AJ,10/21/22,11:50:16 AM,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.014749,-97.307544",,1,0
+AJ,10/21/22,11:50:37 AM,Horatio,10,N,Y,M,No Value,Wag.tail,"30.014816,-97.307390",,0,0
+AJ,10/21/22,11:55:02 AM,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.014840,-97.307346",,0,1
+AJ,10/21/22,11:57:29 AM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,"30.017934,-97.307536",,1,0
+AJ,10/21/22,11:58:15 AM,Rebel,17,Y,Y,M,No Value,Wag.tail,"30.014758,-97.307366",,0,0
+AJ,10/21/22,12:02:43 PM,Rebel,17,Y,Y,M,No Value,Nudge.ground ,"30.014074,-97.307267",,0,1
+AJ,10/21/22,12:02:55 PM,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.014705,-97.307453",,1,0
+AJ,10/21/22,12:03:48 PM,Bianca,3,Y,Y,F,No Value,Wag.tail,"30.014718,-97.307412",,0,0
+AJ,10/21/22,12:05:50 PM,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.014866,-97.307411",,0,0
+AJ,10/21/22,12:06:58 PM,Bianca,3,Y,Y,F,No Value,Travel,"30.014841,-97.307391",,0,0
+AJ,10/21/22,12:07:37 PM,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.014842,-97.307403",,0,1
+AJ,10/21/22,12:07:53 PM,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014702,-97.307309",,1,0
+AJ,10/21/22,12:10:33 PM,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014823,-97.307437",,0,1
+AJ,10/21/22,12:13:56 PM,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.013776,-97.301886",,1,0
+AJ,10/21/22,12:19:27 PM,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.014853,-97.307342",,0,1
+AJ,10/21/22,12:19:46 PM,Georgie,8,Y,Y,F,Atlas,Nudge.ground ,"30.014815,-97.307342",,1,0
+AJ,10/21/22,12:21:03 PM,Georgie,8,Y,Y,F,No Value,Sniff.obj,"30.014563,-97.307770",sniffing a pile of hay,0,0
+AJ,10/21/22,12:25:11 PM,Georgie,8,Y,Y,F,No Value,Nudge.ground ,"30.014999,-97.306948",,0,1
+AJ,10/21/22,12:25:15 PM,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.014842,-97.307456",,1,0
+AJ,10/21/22,12:27:47 PM,Atlas,1,Y,Y,M,No Value,Travel,"30.014752,-97.307581",,0,0
+AJ,10/21/22,12:30:15 PM,Atlas,1,Y,Y,M,Georgie,Nudge.ground ,"30.014838,-97.307496",,0,1
+AJ,10/21/22,12:30:27 PM,Thomas,18,N,Y,M,No Value,Rest,"30.014846,-97.307472",,1,0
+AJ,10/21/22,12:35:14 PM,Thomas,18,N,Y,M,No Value,Rest,"30.014740,-97.307466",,0,1
+AJ,10/21/22,12:35:25 PM,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.014819,-97.307424",,1,0
+AJ,10/21/22,12:36:10 PM,Eleanor,6,N,Y,F,No Value,Wag.tail,"30.014740,-97.307486",,0,0
+AJ,10/21/22,12:36:19 PM,Eleanor,6,N,Y,F,No Value,Travel,"30.014883,-97.307270",,0,0
+AJ,10/21/22,12:36:48 PM,Eleanor,6,N,Y,F,Dora,Nudge.ground ,"30.014855,-97.307329",,0,0
+AJ,10/21/22,12:40:24 PM,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.014831,-97.307531",,0,1
+NS,9/23/22,9:07:15,Imogen,11,N,Y,F,No Value,Wag.tail,"30.015058,-97.307120",,1,0
+NS,9/23/22,9:07:33,Imogen,11,N,Y,F,No Value,Nudge.ground ,"30.015058,-97.307120",,0,0
+NS,9/23/22,9:07:45,Imogen,11,N,Y,F,No Value,Rest,"30.014723,-97.307470",Laying in straw pile,0,0
+NS,9/23/22,9:12:18,Imogen,11,N,Y,F,No Value,Rest,"30.018278,-97.307556",,0,1
+NS,9/23/22,9:12:41,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.015058,-97.307120",,1,0
+NS,9/23/22,9:14:06,Horatio,10,N,Y,M,No Value,Wag.tail,"30.016559,-97.307477",,0,0
+NS,9/23/22,9:14:30,Horatio,10,N,Y,M,No Value,Travel,"30.014770,-97.307433",,0,0
+NS,9/23/22,9:14:45,Horatio,10,N,Y,M,No Value,Take.alt.rt,"30.014749,-97.307497",Going off path in woods,0,0
+NS,9/23/22,9:15:10,Horatio,10,N,Y,M,No Value,Other,"30.014716,-97.307459",Sniff conspecific,0,0
+NS,9/23/22,9:15:29,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.014707,-97.307488",,0,0
+NS,9/23/22,9:15:38,Horatio,10,N,Y,M,No Value,Wag.tail,"30.014759,-97.307524",,0,0
+NS,9/23/22,9:16:26,Horatio,10,N,Y,M,Other,Wag.tail,"30.014761,-97.307535",Wagging tail and standing still. Next to Mercutio and Falstaff,0,0
+NS,9/23/22,9:17:22,Horatio,10,N,Y,M,Other,Rest,"30.015058,-97.307120",Lay next to Mercutio and Falstaff,0,0
+NS,9/23/22,9:19:52,Eleanor,6,N,Y,F,Other,Nudge.ground ,"30.018012,-97.307555",Eat dirt with Jordan,1,0
+NS,9/23/22,9:21:23,Eleanor,6,N,Y,F,Other,Nudge.ground ,"30.018009,-97.307546",Starts digging in the ground with snout and eating mud next to Jordan,0,0
+NS,9/23/22,9:23:38,Eleanor,6,N,Y,F,Unknown,Attempt.disp,"30.015058,-97.307120",Displace marbled pig with tusks (pic),0,0
+NS,9/23/22,9:24:25,Eleanor,6,N,Y,F,Other,Nudge.ground ,"30.015058,-97.307120","Eat dirt
+With Jordan",0,0
+NS,9/23/22,9:25:34,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015058,-97.307120",,0,1
+NS,9/23/22,9:29:39,Thomas,18,N,Y,M,No Value,Rest,"30.018330,-97.307561",,1,0
+NS,9/23/22,9:31:29,Thomas,18,N,Y,M,No Value,Other,"30.014706,-97.307584",Wakes up,0,0
+NS,9/23/22,9:31:41,Thomas,18,N,Y,M,No Value,Rest,"30.014896,-97.307515",Resting again,0,0
+NS,9/23/22,9:35:04,Thomas,18,N,Y,M,No Value,Rest,"30.016607,-97.307477",Still resting,0,1
+NS,9/23/22,9:35:44,Rebel,17,Y,Y,M,Other,Sniff.consp,"30.015058,-97.307120",With Defiance,1,0
+NS,9/23/22,9:38:23,Rebel,17,Y,Y,M,Other,Rest.proxim,"30.015058,-97.307120",Sleep next to Defiance,0,0
+NS,9/23/22,9:41:12,Rebel,17,Y,Y,M,No Value,Rest,"30.014936,-97.307512",,0,1
+NS,9/23/22,9:42:20,Atlas,1,Y,Y,M,No Value,Sniff.obj,"30.015500,-97.307511",Dinner table,1,0
+NS,9/23/22,9:43:21,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015058,-97.307120",,0,0
+NS,9/23/22,9:44:57,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.017477,-97.307537",Dirt,0,0
+NS,9/23/22,9:46:49,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.014799,-97.307427",,0,1
+NS,9/23/22,10:02:30,Georgie,8,Y,Y,F,Bates,Rest.proxim,"30.014979,-97.307469",With Bates and Champion,1,0
+NS,9/23/22,10:07:31,Georgie,8,Y,Y,F,Other,Rest.proxim,"30.018160,-97.307551",With Bates and Champion,0,1
+NS,9/23/22,10:10:39,Dora,5,Y,Y,F,No Value,Rest.proxim,"30.016924,-97.307529",With Dora and gray pig,1,0
+NS,9/23/22,10:16:20,Dora,5,Y,Y,F,No Value,Rest.proxim,"30.015147,-97.307393",Still resting,0,1
+NS,9/23/22,11:31:43,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014782,-97.307387",,1,0
+NS,9/23/22,11:34:54,Bates,2,N,Y,M,Other,Other,"30.018187,-97.307551",Vivian tired to bite Bates’s tail but Bates moved away,0,0
+NS,9/23/22,11:35:52,Bates,2,N,Y,M,Other,Other,"30.016531,-97.307444",Tail bite Edith? (pic),0,0
+NS,9/23/22,11:36:35,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.015058,-97.307120",,0,1
+NS,9/23/22,11:39:38,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.015672,-97.307476",,1,0
+NS,9/23/22,11:42:29,Bianca,3,Y,Y,F,Other,Other,"30.018091,-97.307541",Snapped at by Daley,0,0
+NS,9/23/22,11:44:47,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.015058,-97.307120",,0,1
+NS,9/23/22,11:45:03,Wilbur,19,N,Y,M,No Value,Nudge.ground ,"30.014902,-97.307353",,1,0
+NS,9/23/22,11:46:56,Wilbur,19,N,Y,M,No Value,Nudge.ground ,"30.016585,-97.307479",Eat pellets and dirt,0,0
+NS,9/23/22,11:49:16,Wilbur,19,N,Y,M,Other,Grunt,"30.004645,-97.300148",Grunt as Mercutio approaches,0,0
+NS,9/23/22,11:50:14,Wilbur,19,N,Y,M,No Value,Nudge.ground ,"30.016527,-97.307509",,0,0
+NS,9/23/22,11:50:24,Wilbur,19,N,Y,M,No Value,Rest,"30.014947,-97.307404",Lay down,0,1
+NS,9/30/22,9:29:15,Atlas,1,Y,Y,M,No Value,Grunt,"30.014934,-97.307460",,1,0
+NS,9/30/22,9:29:47,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.014933,-97.307449",,0,0
+NS,9/30/22,9:30:45,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,9/30/22,9:31:58,Atlas,1,Y,Y,M,Unknown,Get.disp,"30.014553,-97.307577",Displaced by black pig with white forehead mark (pic),0,0
+NS,9/30/22,9:32:30,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,9/30/22,9:34:16,Atlas,1,Y,Y,M,Othello,Gets.disp,"30.017490,-97.306175",Pic,0,0
+NS,9/30/22,9:35:40,Eleanor,6,N,Y,F,No Value,Rest,"30.015069,-97.307448",,1,0
+NS,9/30/22,9:36:44,Eleanor,6,N,Y,F,Unknown,Other,"30.015069,-97.307448",Licked by unknown black and white (vid),0,0
+NS,9/30/22,9:38:00,Eleanor,6,N,Y,F,No Value,Other,"30.015069,-97.307448",Get up,0,0
+NS,9/30/22,9:38:21,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,9/30/22,9:40:27,Eleanor,6,N,Y,F,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,9/30/22,9:41:35,Thomas,18,N,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,1,0
+NS,9/30/22,9:42:30,Thomas,18,N,Y,M,Mercutio,Grunt,"30.015069,-97.307448",,0,0
+NS,9/30/22,9:43:02,Thomas,18,N,Y,M,No Value,Nudge.ground ,"30.014891,-97.307408",Dirt,0,0
+NS,9/30/22,9:46:44,Thomas,18,N,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,1
+NS,9/30/22,9:49:05,Georgie,8,Y,Y,F,Dora,Rest.proxim,"30.016843,-97.306443",,1,0
+NS,9/30/22,9:51:51,Georgie,8,Y,Y,F,Dora,Grunt,"30.017832,-97.306012","Grunts as Dora gets up, then go back to resting",0,0
+NS,9/30/22,9:54:05,Georgie,8,Y,Y,F,Dora,Rest,"30.017520,-97.306176",,0,1
+NS,9/30/22,9:55:10,Rebel,17,Y,Y,M,No Value,Nudge.ground ,"30.014957,-97.307475",Dirt,1,0
+NS,9/30/22,10:00:15,Rebel,17,Y,Y,M,No Value,Nudge.ground ,"30.017846,-97.306003",Dirt,0,1
+NS,9/30/22,10:01:26,Horatio,10,N,Y,M,No Value,Travel,"30.014892,-97.307411",,1,0
+NS,9/30/22,10:02:59,Horatio,10,N,Y,M,Unknown,Nudge.ground ,"30.015069,-97.307448",Eat dirt with unknown black pig with white belly (pic),0,0
+NS,9/30/22,10:03:51,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.014708,-97.307495",,0,0
+NS,9/30/22,10:04:36,Horatio,10,N,Y,M,Unknown,Rest,"30.015069,-97.307448",Rest next to same unknown large black pig white belly,0,0
+NS,9/30/22,10:06:30,Horatio,10,N,Y,M,Unknown,Rest,"30.017138,-97.306384",,0,1
+NS,9/30/22,10:07:57,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.017117,-97.306359",Hay,1,0
+NS,9/30/22,10:11:00,Bates,2,N,Y,M,No Value,Travel,"30.017246,-97.306263",,0,0
+NS,9/30/22,10:11:13,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014943,-97.307529",Dirt,0,0
+NS,9/30/22,10:11:36,Bates,2,N,Y,M,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,9/30/22,10:11:59,Bates,2,N,Y,M,No Value,Wag.tail,"30.015069,-97.307448",,0,0
+NS,9/30/22,10:12:11,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014980,-97.307511",Dirt,0,0
+NS,9/30/22,10:12:27,Bates,2,N,Y,M,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,9/30/22,10:12:55,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,1
+NS,9/30/22,10:14:12,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.014891,-97.307433",,1,0
+NS,9/30/22,10:14:20,Dora,5,Y,Y,F,No Value,Grunt,"30.014897,-97.307419",Approach observer,0,0
+NS,9/30/22,10:14:55,Dora,5,Y,Y,F,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,9/30/22,10:15:12,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Hay,0,0
+NS,9/30/22,10:15:32,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,9/30/22,10:15:43,Dora,5,Y,Y,F,Wilbur,Other,"30.014867,-97.307364",Bit on face (no wound) by Wilbur? (Pic),0,0
+NS,9/30/22,10:16:44,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,9/30/22,10:16:54,Dora,5,Y,Y,F,Wilbur,Get.disp,"30.014939,-97.307407",,0,0
+NS,9/30/22,10:17:19,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,9/30/22,10:19:19,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.016156,-97.306852",,0,1
+NS,9/30/22,10:19:58,Imogen,11,N,Y,F,No Value,Rest,"30.015069,-97.307448",Other pig about 2m away. Gray with white face (pic),1,0
+NS,9/30/22,10:25:12,Imogen,11,N,Y,F,No Value,Rest,"30.017857,-97.305998",,0,1
+NS,9/30/22,10:26:50,Bianca,3,Y,Y,F,No Value,Sniff.obj,"30.016513,-97.306587",Dirt,0,0
+NS,9/30/22,10:29:33,Bianca,3,Y,Y,F,No Value,Sniff.obj,"30.017158,-97.306314",Tree,0,0
+NS,9/30/22,10:29:45,Bianca,3,Y,Y,F,No Value,Sniff.obj,"30.014973,-97.307301",Ground,0,0
+NS,9/30/22,10:30:13,Bianca,3,Y,Y,F,No Value,Other,"30.015069,-97.307448",Rub snout on tree branch,0,0
+NS,9/30/22,10:31:08,Bianca,3,Y,Y,F,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,9/30/22,10:31:47,Bianca,3,Y,Y,F,No Value,Drink,"30.015138,-97.307351",,0,1
+NS,9/30/22,10:36:02,Wilbur,19,N,Y,M,No Value,Rest,"30.017512,-97.305717",,1,0
+NS,9/30/22,10:36:25,Wilbur,19,N,Y,M,No Value,Grunt,"30.014880,-97.307424",,0,0
+NS,9/30/22,10:36:35,Wilbur,19,N,Y,M,No Value,Rest,"30.014831,-97.307364",,0,0
+NS,9/30/22,10:41:05,Wilbur,19,N,Y,M,No Value,Rest,"30.016868,-97.306449",,0,1
+NS,10/7/22,9:25:37,Imogen,11,N,Y,F,No Value,Wag.tail,"30.014849,-97.307288",,1,0
+NS,10/7/22,9:25:55,Imogen,11,N,Y,F,No Value,Other,"30.014836,-97.307456",Lay down,0,0
+NS,10/7/22,9:26:06,Imogen,11,N,Y,F,Other,Snout.tch,"30.014834,-97.307453",Black and white male tusks (not Dora),0,0
+NS,10/7/22,9:27:18,Imogen,11,N,Y,F,Maybelle,Sniff.consp,"30.014864,-97.307456",Pink pig (pic),0,0
+NS,10/7/22,9:27:55,Imogen,11,N,Y,F,No Value,Other,"30.015069,-97.307448",Rub face and body against branch,0,0
+NS,10/7/22,9:28:15,Imogen,11,N,Y,F,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,10/7/22,9:28:56,Imogen,11,N,Y,F,No Value,Sniff.obj,"30.015069,-97.307448",Ground,0,0
+NS,10/7/22,9:29:32,Imogen,11,N,Y,F,No Value,Nudge.ground ,"30.014746,-97.307379",Dirt,0,0
+NS,10/7/22,9:30:41,Imogen,11,N,Y,F,No Value,Nudge.ground ,"30.014711,-97.307349",Dirt,0,1
+NS,10/7/22,9:31:29,Bianca,3,Y,Y,F,No Value,Sniff.obj,"30.014646,-97.307327",Ground,1,0
+NS,10/7/22,9:31:46,Bianca,3,Y,Y,F,No Value,Grunt,"30.014619,-97.307372",,0,0
+NS,10/7/22,9:32:05,Bianca,3,Y,Y,F,No Value,Travel,"30.014601,-97.307279",,0,0
+NS,10/7/22,9:32:13,Bianca,3,Y,Y,F,No Value,Drink,"30.014675,-97.307336",From puddle,0,0
+NS,10/7/22,9:33:07,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",,0,0
+NS,10/7/22,9:34:07,Bianca,3,Y,Y,F,No Value,Pee,"30.014627,-97.307326",,0,0
+NS,10/7/22,9:34:27,Bianca,3,Y,Y,F,No Value,Grunt,"30.015069,-97.307448",,0,0
+NS,10/7/22,9:34:42,Bianca,3,Y,Y,F,No Value,Sniff.obj,"30.015069,-97.307448",Hay,0,0
+NS,10/7/22,9:35:09,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Hay,0,0
+NS,10/7/22,9:36:30,Bianca,3,Y,Y,F,No Value,Other,"30.014626,-97.307330",Grab bunch of hay in mouth and carry and eat it while walking,0,1
+NS,10/7/22,9:39:29,Thomas,18,N,Y,M,No Value,Sniff.obj,"30.015069,-97.307448",Dinner table,1,0
+NS,10/7/22,9:39:55,Thomas,18,N,Y,M,No Value,Other,"30.015069,-97.307448",Rub face against dinner table,0,0
+NS,10/7/22,9:40:11,Thomas,18,N,Y,M,Dora,Attempt.disp,"30.015069,-97.307448",Displace Dora,0,0
+NS,10/7/22,9:40:30,Thomas,18,N,Y,M,Mercutio,Attempt.disp,"30.015069,-97.307448",Displace black and white pig with tusks (pic),0,0
+NS,10/7/22,9:41:22,Thomas,18,N,Y,M,No Value,Wag.tail,"30.015069,-97.307448",,0,0
+NS,10/7/22,9:42:41,Thomas,18,N,Y,M,No Value,Sniff.obj,"30.015069,-97.307448",Ground,0,0
+NS,10/7/22,9:42:57,Thomas,18,N,Y,M,No Value,Other,"30.015069,-97.307448",Lay down,0,0
+NS,10/7/22,9:44:02,Thomas,18,N,Y,M,No Value,Rest,"30.015069,-97.307448",,0,1
+NS,10/7/22,9:44:35,Thomas,18,N,Y,M,No Value,Rest,"30.015069,-97.307448",,0,1
+NS,10/7/22,9:49:21,Eleanor,6,N,Y,F,No Value,Grunt,"30.015069,-97.307448",,1,0
+NS,10/7/22,9:50:58,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Hay,0,0
+NS,10/7/22,9:53:40,Eleanor,6,N,Y,F,Horatio,Nudge.ground ,"30.014835,-97.307321",Hay,0,0
+NS,10/7/22,9:54:05,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015069,-97.307448",Hay,0,1
+NS,10/7/22,9:55:04,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,1,0
+NS,10/7/22,9:57:00,Bates,2,N,Y,M,No Value,Other,"30.015069,-97.307448",Step on top of dinner table,0,0
+NS,10/7/22,9:57:20,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014856,-97.307409",Pellets,0,0
+NS,10/7/22,10:00:19,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Pellets,0,1
+NS,10/7/22,10:00:43,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.014846,-97.307480",Hay,1,0
+NS,10/7/22,10:03:59,Dora,5,Y,Y,F,Imogen,Get.disp,"30.015069,-97.307448",,0,0
+NS,10/7/22,10:05:03,Dora,5,Y,Y,F,Atlas,Nudge.ground ,"30.015069,-97.307448",Eat dirt with rump touching Atlas,0,0
+NS,10/7/22,10:06:04,Dora,5,Y,Y,F,No Value,Sniff.obj,"30.015069,-97.307448",Dinner table,0,1
+NS,10/7/22,10:06:29,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,1,0
+NS,10/7/22,10:07:38,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,10/7/22,10:08:49,Atlas,1,Y,Y,M,Unknown,Attempt.disp,"30.015069,-97.307448",Displaces black and white pig with tusks (pic),0,0
+NS,10/7/22,10:09:16,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Dirt,0,0
+NS,10/7/22,10:10:57,Atlas,1,Y,Y,M,No Value,Travel,"30.015069,-97.307448",Travel while grunting,0,0
+NS,10/7/22,10:11:28,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015069,-97.307448",Hay,0,1
+NS,10/7/22,10:12:14,Horatio,10,N,Y,M,No Value,Wag.tail,"30.015069,-97.307448",,1,0
+NS,10/7/22,10:12:43,Horatio,10,N,Y,M,No Value,Grunt,"30.015069,-97.307448",,0,0
+NS,10/7/22,10:13:11,Horatio,10,N,Y,M,No Value,Grunt,"30.015069,-97.307448",,0,0
+NS,10/7/22,10:15:09,Horatio,10,N,Y,M,No Value,Sniff.obj,"30.015069,-97.307448",Dirt,0,0
+NS,10/7/22,10:16:20,Horatio,10,N,Y,M,No Value,Wag.tail,"30.015069,-97.307448",Standing still with tail wagging,0,0
+NS,10/7/22,10:17:00,Horatio,10,N,Y,M,Inigo,Grunt,"30.015069,-97.307448",Grunting at black and white splotched pig with tusks (pic),0,1
+NS,10/7/22,10:19:00,Rebel,17,Y,Y,M,Juliet Dorothy,Rest.proxim,"30.015069,-97.307448",Pic,1,0
+NS,10/7/22,10:24:17,Rebel,17,Y,Y,M,Juliet Dorothy,Rest.proxim,"30.015069,-97.307448",Still resting with same group,0,1
+NS,10/7/22,10:24:53,Georgie,8,Y,Y,F,Dora,Rest.proxim,"30.014970,-97.307486",Rest near Dora but not touching. Facing opposite sides,1,0
+NS,10/7/22,10:28:19,Georgie,8,Y,Y,F,No Value,Grunt,"30.014980,-97.307450",Grunt while still laying down,0,0
+NS,10/7/22,10:30:30,Georgie,8,Y,Y,F,Juliet Dorothy,Rest.proxim,"30.014929,-97.307583",Still resting near Dora,0,0
+NS,10/7/22,10:30:51,Wilbur,19,N,Y,M,No Value,Sniff.obj,"30.015069,-97.307448",Ground,1,0
+NS,10/7/22,10:32:16,Wilbur,19,N,Y,M,No Value,Other,"30.015069,-97.307448","Standing, appearing to look back at NS",0,0
+NS,10/7/22,10:32:41,Wilbur,19,N,Y,M,No Value,Travel,"30.015069,-97.307448",,0,0
+NS,10/7/22,10:32:49,Wilbur,19,N,Y,M,No Value,Sniff.obj,"30.014917,-97.307479",Hay,0,0
+NS,10/7/22,10:33:04,Wilbur,19,N,Y,M,No Value,Rest,"30.015069,-97.307448",,0,0
+NS,10/7/22,10:35:45,Wilbur,19,N,Y,M,No Value,Sniff.obj,"30.015069,-97.307448",Ground,0,1
+NS,10/21/22,11:39:55,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014816,-97.307352",Hay,1,0
+NS,10/21/22,11:40:42,Bates,2,N,Y,M,No Value,Wag.tail,"30.015123,-97.307546",,0,0
+NS,10/21/22,11:40:56,Bates,2,N,Y,M,Justice,Get.disp,"30.014697,-97.307460",Gray pig tusks (pic),0,0
+NS,10/21/22,11:41:41,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.015123,-97.307546",,0,0
+NS,10/21/22,11:43:07,Bates,2,N,Y,M,No Value,Nudge.ground ,"30.014818,-97.307338",Dirt,0,0
+NS,10/21/22,11:44:34,Bates,2,N,Y,M,Unknown,Get.disp,"30.015123,-97.307546",Unknown marbled pig with tusks pic,0,1
+NS,10/21/22,11:45:16,Georgie,8,Y,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",,1,0
+NS,10/21/22,11:46:42,Georgie,8,Y,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",Dirt,0,0
+NS,10/21/22,11:47:09,Georgie,8,Y,Y,F,No Value,Travel,"30.015123,-97.307546",,0,0
+NS,10/21/22,11:48:13,Georgie,8,Y,Y,F,No Value,Drink,"30.015123,-97.307546",,0,0
+NS,10/21/22,11:49:14,Georgie,8,Y,Y,F,No Value,Travel,"30.015123,-97.307546",,0,0
+NS,10/21/22,11:49:27,Georgie,8,Y,Y,F,No Value,Pee,"30.014715,-97.307367",,0,0
+NS,10/21/22,11:49:37,Georgie,8,Y,Y,F,No Value,Travel,"30.014711,-97.307380",,0,0
+NS,10/21/22,11:49:46,Georgie,8,Y,Y,F,No Value,Nudge.ground ,"30.014796,-97.307372",Hay,0,0
+NS,10/21/22,11:50:21,Georgie,8,Y,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",Hay,0,1
+NS,10/21/22,11:50:58,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",Hay,1,0
+NS,10/21/22,11:52:57,Dora,5,Y,Y,F,Unknown,Attempt.disp,"30.015123,-97.307546",Small spotted pig (pic),0,0
+NS,10/21/22,11:53:30,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.014907,-97.307292",Hay,0,0
+NS,10/21/22,11:56:03,Dora,5,Y,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",Hay,0,1
+NS,10/21/22,11:56:46,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",,1,0
+NS,10/21/22,11:58:57,Eleanor,6,N,Y,F,Dora,Attempt.disp,"30.015123,-97.307546",Displaces Dora,0,0
+NS,10/21/22,11:59:29,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.014899,-97.307297",Hay,0,0
+NS,10/21/22,12:01:58,Eleanor,6,N,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",Hay,0,1
+NS,10/21/22,12:02:44,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.015123,-97.307546",Hay,1,0
+NS,10/21/22,12:07:15,Horatio,10,N,Y,M,No Value,Nudge.ground ,"30.014219,-97.307434",,0,1
+NS,10/21/22,12:08:29,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015123,-97.307546",,1,0
+NS,10/21/22,12:13:16,Atlas,1,Y,Y,M,No Value,Nudge.ground ,"30.015123,-97.307546",,0,1
+NS,10/21/22,12:13:43,Thomas,18,N,Y,M,No Value,Rest,"30.014712,-97.307443",,1,0
+NS,10/21/22,12:18:53,Thomas,18,N,Y,M,No Value,Rest,"30.015123,-97.307546",,0,1
+NS,10/21/22,12:21:59,Rebel,17,Y,Y,M,Dorothy Rose,Rest.proxim,"30.014822,-97.307140",2 pink pigs (pic),1,0
+NS,10/21/22,12:28:15,Rebel,17,Y,Y,M,Dorothy Rose,Rest.proxim,"30.014953,-97.307432",Same group,0,1
+NS,10/21/22,12:32:48,Bianca,3,Y,Y,F,No Value,Nudge.ground ,"30.015123,-97.307546",,1,0
+NS,10/21/22,12:34:37,Bianca,3,Y,Y,F,No Value,Wag.tail,"30.015123,-97.307546",,0,0
+NS,10/21/22,12:34:45,Bianca,3,Y,Y,F,No Value,Sniff.obj,"30.014764,-97.307504",Dirt,0,0
+NS,10/21/22,12:37:41,Bianca,3,Y,Y,F,Unknown,Sniff.consp,"30.014646,-97.307634",Black sleeping pig with white back left foot (pic),0,1
+NS,10/21/22,12:38:58,Wilbur,19,N,Y,M,No Value,Rest,"30.015123,-97.307546",,1,0
+NS,10/21/22,12:44:13,Wilbur,19,N,Y,M,No Value,Rest,"30.015123,-97.307546",,0,1
+NS,10/21/22,14:13:26,Imogen,11,N,Y,F,No Value,Rest,"30.015123,-97.307546",Resting very far from other pigs,1,0
+NS,10/21/22,14:18:55,Imogen,11,N,Y,F,No Value,Rest,"30.014716,-97.308274",,0,1
