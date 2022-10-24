@@ -27,9 +27,6 @@ svy <- read_csv("~/Documents/GitHub/PigPersonality/CaregiverSurveyMOCK.csv")
 meta <- read_csv("~/Documents/GitHub/PigPersonality/PigSample.csv")
 ```
 
-it won't let me open files from documents, only from desktop 😳 so my working director must have been set to my desktop, but when I try to fix it it doesn't work!
-
-Temporary fix, open copies from using base (readr) I hate my life I wish I were dead why am I so fucking stupid
 
 ## Cleaning Data
 
@@ -40,8 +37,8 @@ colnames(meta) [colnames(meta) == "Name"] <- "Pig"
 
 Put meta data into df based on pig
 ```{r}
-obs_m <- inner_join(obs, meta, by = "Pig")
-svy_m <- inner_join(svy, meta, by = "Pig") # Idk how to do this because Qualtrics will actually put them as numbers. I need to first change the numbers into the pigs' names. There must be an easy way to do this bc the meta data has numbered columns.
+obs_m <- inner_join(obs, meta, by = "PigID")
+svy_m <- inner_join(svy, meta, by = "PigID")
 ```
 Wait why did it change from 475 objects to 472? It deleted 2 rows? Oh they were rows with "no value" from the observational data as the pig name so they need to be omitted
 

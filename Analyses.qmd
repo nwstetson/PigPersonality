@@ -1,0 +1,185 @@
+---
+title: "Pig Personality"
+author: "Noah Stetson"
+format: html
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This is the analysis for my senior thesis
+
+It is on personality in pigs
+
+## Loading library
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(corrr)
+library(psych)
+library(irr)
+```
+
+## Loading datasets
+
+```{r}
+obs <- read_csv("~/Documents/GitHub/PigPersonality/Obs_Oct21_Clean.csv") # behavior observations
+svy <- read_csv("~/Documents/GitHub/PigPersonality/CaregiverSurveyMOCKCleaner.csv") # survey data (mock data for now)
+meta <- read_csv("~/Documents/GitHub/PigPersonality/PigSample.csv") # meta data (pig demographics)
+```
+
+Put meta data into df based on pig id number
+
+```{r}
+obs_m <- inner_join(obs, meta, by = "PigID")
+svy_m <- inner_join(svy, meta, by = "PigID")
+```
+
+# Preliminary Analyses
+
+## Overview of Personality Scores
+
+```{r}
+# generate a table of each pig's personality scores (one from Dan's scoring, one from Tracey's score, and calculate and average)
+```
+
+## Internal Reliability
+
+### Inter-item correlation
+
+(correlations between test items)
+
+```{r}
+# Make DF with just test items
+svy_items <- svy %>% select(14:48)
+
+# Overall average inter-item correlation for all surveys completed (each pig has 2 surveys)
+svy_items_corr <- svy_items %>% correlate() %>% colMeans(na.rm = TRUE) # Having trouble removing NA
+
+
+mean(svy_items_corr)
+
+data.frame(svy_items_corr %>% 
+  ggplot(aes(x = svy_items_corr)) +
+    geom_histogram(bins = 10, alpha = .5) +
+    geom_vline(xintercept = mean(svy_items_corr), color = "dodger blue") +
+    xlab("Mean inter-item correlation") +
+    theme_minimal()
+```
+
+### Inter-total correlation
+
+(correlations between scores)
+
+```{r}
+# Make df with just scores
+svy_scores <- svy %>% select(49:61)
+
+svy_scores_corr <- svy_scores %>% correlate() %>% colMeans(na.rm = TRUE)  # Having trouble removing NA
+
+mean(svy_scores_corr)
+
+data.frame(svy_scores_corr %>% 
+  ggplot(aes(x = svy_scores_corr)) +
+    geom_histogram(bins = 10, alpha = .5) +
+    geom_vline(xintercept = mean(svy_scores_corr), color = "dodger blue") +
+    xlab("Mean inter-total correlation") +
+    theme_minimal()
+```
+
+### Chronbach's alpha
+
+```{r}
+psych::alpha(svy_items)
+
+psych::alpha(svy_items)$total$std.alpha #this gets the alpha value itself
+```
+
+### Maybe also do composite reliability?
+
+```{r}
+# https://www.r-bloggers.com/2016/08/five-ways-to-calculate-internal-consistency
+
+# scroll down to "Composite Reliability" for instructions
+
+```
+
+## Inter-observer Reliability
+
+### Cohen's Kappa
+
+```{r}
+# Generate df containing survey scores and rater
+svy_scores_raters <- svy %>% select(11,49:61)
+# idk if I need to include PigID but that's column 12
+
+kappa2(svy_scores_raters[, c("1", "2")], weight = "unweighted")
+# doesn't work because of how the DF is set up
+# do I need to set up the DF differently, or should I run a different test?
+# or run this one but in  different way?
+```
+
+# Primary Analyses
+
+Do personality scores correlate with observable behaviors?
+
+## Aggression Towards Other Pigs
+
+Hypothesis: A pig's Aggression Towards Pigs score (SC15) positively correlates with number of counts of obs\$Bite
+
+```{r}
+# Correlation between each pig's Aggression Towards Pigs score vs the number of times they bit another pig
+
+# Make a graph
+```
+
+## Dominance Over Other Pigs
+
+Hypothesis: A pig's Dominance Over Other Pigs score (SC16) positively correlates with number of counts of obs\$Attempt.displace and negatively correlates with number of counts of \$Get.displaced
+
+#### Attempts at Displacement
+
+```{r}
+# Correlation between pig's SC16 vs # of times they attempted to displace another pig
+
+# Make a graph
+```
+
+#### Getting Displaced
+
+```{r}
+# Correlation between pig's SC16 vs # of times they got displaced by another pig
+
+# Make a graph
+```
+
+## Active Engagement
+
+Hypothesis: Active Engagement score negatively correlated with number of times pig was resting
+
+```{r}
+# Correlation between each pig's Active Engagement score vs number of times they were recorded to be resting
+
+# Make a graph
+```
+
+# Additional Analyses
+
+## Subscale Analyses
+
+```{r}
+# Compare sex, group, and presence/absence of traumatic background with personality traits accross all pigs
+# Maybe average [trait] score for [group 1] and [group 2] or something like that
+
+# Make social networks for Yaupon and Beautyberry
+```
+
+## Potential Moderators
+
+```{r}
+# Compare length of time volunteer has known pig with correlations bewteen surveys and traits from Primary Analyses
+```
