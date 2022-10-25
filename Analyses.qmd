@@ -10,7 +10,9 @@ editor: visual
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## This is the analysis for my undergraduate thesis on personality in pigs 🐷� �#### (currently using mock data for survey results because the actual one only has 7/40 surveys completed) 🙊
+## This is the analysis for my undergraduate thesis on personality in pigs 🐷
+
+## (currently using mock data for survey results because the actual one only has 7/40 surveys completed) 🙊
 
 #### 🐽 = questions I have
 
@@ -53,11 +55,12 @@ svy_m <- inner_join(svy, meta, by = "PigID")
 
 run this chunk together or else 🙈
 
+I bet there's a shorter way to do this but oh well
+
 ```{r}
 svy_wide <- svy_m %>% 
   pivot_longer(cols = 50:61, names_to = "facet") 
 svy_wide <- svy_wide %>% rename_at('value', ~'facet.value')
-
 
 svy_wide <-svy_wide %>% 
   pivot_longer(cols = 14:48, names_to = "item")
@@ -71,23 +74,24 @@ svy_wide <- svy_wide %>% rename_at('value', ~'item.value')
 
 ### As a table
 
-🐽 Idk how to make it into a table hehe
+🐽 How can I get this to average each pig's scores across raters (in the real data, each pig will be scored twice for each facet)
 
 ```{r}
-# but I will make a table here
+Pig_Scores <- svy_m %>%
+  select(Name, 50:61)
+
+view(Pig_Scores)
 ```
 
 ### As a graph
 
-🐽 Is there another visualization I could use that might summarize this better?
-
-Will maybe add +facet_wrap (\~ Sex/Group/etc.) later to compare between different groups idk
+🐽 What kind of visualization could I use to summarize this better?
 
 ```{r}
 ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
   geom_point() +
   geom_line(alpha=.5) +
-    theme_minimal() +
+    theme_classic() +
   xlab("Personality Facet") +
   ylab("Score") +
   ggtitle("Differences in Personality Scores Between Pigs")
@@ -99,7 +103,7 @@ ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
 
 (correlations between test items)
 
-🐽 How do I remove the NAs in svy_items_corr? When I try to run it, it says `Error in colMeans(., na.rm = TRUE) : 'x' must be numeric`, but even when I try to do `as.numeric` it doesn't work
+#### 🐽 My main issue right now: How do I remove the NAs in svy_items_corr? When I try to run it, it says `Error in colMeans(., na.rm = TRUE) : 'x' must be numeric`, but even when I try to do `as.numeric` it doesn't work
 
 ```{r}
 # Make DF with just test items
@@ -108,6 +112,8 @@ svy_items <- svy %>% select(14:48)
 # Overall average inter-item correlation for all surveys completed (each pig has 2 surveys)
 svy_items_corr <- svy_items %>% correlate() %>% colMeans(na.rm = TRUE) # Having trouble removing NA
 
+as.numeric(svy_items_corr)
+# still doesn't work
 
 # Get average correlation between all the items
 mean(svy_items_corr) 
@@ -115,7 +121,7 @@ mean(svy_items_corr)
 
 #### Make average correlations into a histogram
 
-(won't work until I can remove the NAs 😰)
+🐽 (won't work until I can remove the NAs 😰)
 
 ```{r}
 data.frame(svy_items_corr %>% 
@@ -144,7 +150,7 @@ mean(svy_scores_corr)
 
 ### Make into histogram
 
-(also won't work until I can remove NAs)
+🐽 (also won't work until I can remove NAs)
 
 ```{r}
 data.frame(svy_scores_corr %>% 
@@ -160,9 +166,10 @@ data.frame(svy_scores_corr %>%
 `check.keys = TRUE` accounts for reverse-scored items just FYI
 
 ```{r}
-psych::alpha(svy_items, check.keys = TRUE) 
+psych::alpha(svy_items, check.keys = TRUE)
 
-ppsych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this gets the alpha value itself
+psych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this just gets the alpha value itself
+# 0.6342141 (it's mock data though!!)
 ```
 
 🐽 Should I also do composite reliability?
@@ -178,17 +185,27 @@ ppsych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this gets the alpha
 
 ### Cohen's Kappa
 
-🐽 How do I set up the date frame for this?
+🐽 How do I set up the date frame/run this? I definitely don't think I'm doing this part right
 
 ```{r}
+
+# Attempt 1
 # Generate df containing survey scores and rater
 svy_scores_raters <- svy %>% select(11,49:61)
 #  idk if I need to include PigID but that's column 12
-
 kappa2(svy_scores_raters[, c("1", "2")], weight = "unweighted")
 # doesn't work because of how the DF is set up
 # do I need to set up the DF differently, or should I run a different test?
 # or run this one but in  different way?
+# Does not work
+
+#Attempt 2 (doing it by score)
+sc1_raters <- svy %>% 
+  pivot_longer(cols = 'Rater', 'SC1', names_to = 'Score')
+sc1_raters <- svy %>% select('Rater', 'SC1')
+cohen.kappa(x=cbind(1, 2))
+# Runs, but puts 0 for everything so must not be right either
+
 ```
 
 # Primary Analyses
@@ -197,12 +214,12 @@ Do personality scores correlate with observable behaviors?
 
 🐽 This part I just made up and don't really know what to do so definitely let me know if you have better ideas on what I could do here
 
-## Replicability/Repeatability (idk) of Behaviors
+## Replicability/Repeatability (I don't even remember which one) of Behaviors
 
 🐽 Eli Strauss said to do this but idk what that is but I was trying to act cool and normal so I pretended that I knew what he was talking about the whole time
 
 ```{r}
-# Put replicability stuff here
+# Put replicability(?) stuff here
 ```
 
 ## Aggression Towards Other Pigs
@@ -251,6 +268,17 @@ Hypothesis: Active Engagement score negatively correlated with number of times p
 
 ```{r}
 # Compare sex, group, and presence/absence of traumatic background with personality traits accross all pigs
+
+# Is there a sex difference in personality scores?
+ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
+  geom_point() +
+  geom_line(alpha=.5) +
+  theme_classic()
+  xlab("Personality Facet") +
+  ylab("Score") +
+  ggtitle("Differences in Personality Scores Between Pigs") +
+  facet_wrap (~ Sex)
+  
 # Maybe average [trait] score for [group 1] and [group 2] or something like that
 
 # Make social networks for Yaupon and Beautyberry
@@ -259,5 +287,5 @@ Hypothesis: Active Engagement score negatively correlated with number of times p
 ## Potential Moderators
 
 ```{r}
-# Compare length of time volunteer has known pig with correlations bewteen surveys and traits from Primary Analyses
+# Compare length of time volunteer has known pig with correlations bewteen surveys and traits from Primary Analyses???
 ```
