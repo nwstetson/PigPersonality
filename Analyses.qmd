@@ -70,11 +70,11 @@ svy_wide <- svy_wide %>% rename_at('value', ~'item.value')
 
 # Preliminary Analyses
 
-## Overview of Personality Scores
+## Overview of Personality Survey Scores
 
 ### As a table
 
-🐽 How can I get this to average each pig's scores across raters (in the real data, each pig will be scored twice for each facet)
+🐽 How can I get this to average each pig's scores across raters? (in the real data, each pig will be scored twice for each facet)
 
 ```{r}
 Pig_Scores <- svy_m %>%
@@ -214,12 +214,17 @@ Do personality scores correlate with observable behaviors?
 
 🐽 This part I just made up and don't really know what to do so definitely let me know if you have better ideas on what I could do here
 
-## Replicability/Repeatability (I don't even remember which one) of Behaviors
+## Repeatability of Behaviors
 
-🐽 Eli Strauss said to do this but idk what that is but I was trying to act cool and normal so I pretended that I knew what he was talking about the whole time
+🐽 Eli Strauss said to do this but idk how to do it but I was trying to act cool and normal so I pretended that I knew what he was talking about the whole time
 
 ```{r}
-# Put replicability(?) stuff here
+# Put repeatability stuff here
+# Something like this? https://cran.r-project.org/web/packages/rptR/vignettes/rptR.html
+
+repeatability(obs)
+
+table(obs$Behavior) #Here's an overview of occurances of behaviors
 ```
 
 ## Aggression Towards Other Pigs
