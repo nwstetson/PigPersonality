@@ -97,6 +97,52 @@ ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
   ggtitle("Differences in Personality Scores Between Pigs")
 ```
 
+## Overview of Behaviors
+
+### As a table
+
+🐽 How do I make a new df for observational data that does counts of each behavior
+
+Like this:
+
+Pig \| Behavior \| Counts
+
+Atlas \| Sniff.obj \| 3
+
+Atlas \| Get.disp \| 1
+
+```{r}
+table(obs$Behavior) #Here's an overview of occurances of behaviors for now
+```
+
+### As a graph
+
+🐽 Too messy! How do I make it look like the scatterplot I did above, but with "Behavior" on x-axis
+
+```{r}
+ggplot (obs, aes(x= reorder (Behavior, Behavior, table))) +
+  geom_bar(color = "black", fill = "#0577B1") +
+  theme_classic() +
+  xlab("Behavior") +
+  ylab("Count") +
+  ggtitle("Behavior Across Pigs") +
+  coord_flip() +
+  facet_wrap (~ Pig)
+```
+
+🐽 It doesn't work if I try to use the same code as the scatter plot for survey scores, but modified for observations
+
+```{r}
+ggplot(obs, aes(x= reorder (Behavior, Behavior, table, group = Pig, color = Pig))) +
+  geom_point() +
+  geom_line(alpha=.5) +
+    theme_classic() +
+  xlab("Behavior") +
+  ylab("Count") +
+  ggtitle("Behavior Across Pigs")
+  
+```
+
 ## Internal Reliability
 
 ### Inter-item correlation
@@ -223,18 +269,6 @@ Do personality scores correlate with observable behaviors?
 # Something like this? https://cran.r-project.org/web/packages/rptR/vignettes/rptR.html
 
 repeatability(obs)
-
-table(obs$Behavior) #Here's an overview of occurances of behaviors
-```
-
-## Aggression Towards Other Pigs
-
-Hypothesis: A pig's Aggression Towards Pigs score (SC15) positively correlates with number of counts of obs\$Bite
-
-```{r}
-# Correlation between each pig's Aggression Towards Pigs score vs the number of times they bit another pig
-
-# Make a graph
 ```
 
 ## Dominance Over Other Pigs
@@ -259,13 +293,15 @@ Hypothesis: A pig's Dominance Over Other Pigs score (SC16) positively correlates
 
 ## Active Engagement
 
-Hypothesis: Active Engagement score negatively correlated with number of times pig was resting
+Hypothesis: Active Engagement score negatively correlated with number of times pig was resting (obs\$Rest)
 
 ```{r}
 # Correlation between each pig's Active Engagement score vs number of times they were recorded to be resting
 
 # Make a graph
 ```
+
+Idk what else I can do! I changed my survey measure and I think that was a mistake because my ethogram was designed to work with a different survey where different items were meant to do with facets the survey was testing
 
 # Additional Analyses
 
