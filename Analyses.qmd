@@ -10,11 +10,7 @@ editor: visual
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## This is the analysis for my senior thesis
-
-## (currently using mock data for survey results because the actual one only has 7/40 surveys completed) 🙊
-
-It is on personality in pigs 🐷
+## This is the analysis for my undergraduate thesis on personality in pigs 🐷� �#### (currently using mock data for survey results because the actual one only has 7/40 surveys completed) 🙊
 
 #### 🐽 = questions I have
 
@@ -75,7 +71,7 @@ svy_wide <- svy_wide %>% rename_at('value', ~'item.value')
 
 ### As a table
 
-#### 🐽 Idk how to make it into a table hehe
+🐽 Idk how to make it into a table hehe
 
 ```{r}
 # but I will make a table here
@@ -83,7 +79,7 @@ svy_wide <- svy_wide %>% rename_at('value', ~'item.value')
 
 ### As a graph
 
-#### 🐽 Is there another visualization I could use that might summarize this better?
+🐽 Is there another visualization I could use that might summarize this better?
 
 Will maybe add +facet_wrap (\~ Sex/Group/etc.) later to compare between different groups idk
 
@@ -103,7 +99,7 @@ ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
 
 (correlations between test items)
 
-#### 🐽 How do I remove the NAs in svy_items_corr? When I try to run it, it says `Error in colMeans(., na.rm = TRUE) : 'x' must be numeric`, but even when I try to do `as.numeric` it doesn't work
+🐽 How do I remove the NAs in svy_items_corr? When I try to run it, it says `Error in colMeans(., na.rm = TRUE) : 'x' must be numeric`, but even when I try to do `as.numeric` it doesn't work
 
 ```{r}
 # Make DF with just test items
@@ -134,7 +130,7 @@ data.frame(svy_items_corr %>%
 
 (correlations between scores)
 
-#### 🐽 Same issue with removing NAs as listed above
+🐽 Same issue with removing NAs as listed above
 
 ```{r}
 # Make df with just scores
@@ -169,7 +165,7 @@ psych::alpha(svy_items, check.keys = TRUE)
 ppsych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this gets the alpha value itself
 ```
 
-### 🐽 Should I also do composite reliability?
+🐽 Should I also do composite reliability?
 
 ```{r}
 # https://www.r-bloggers.com/2016/08/five-ways-to-calculate-internal-consistency
@@ -182,7 +178,7 @@ ppsych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this gets the alpha
 
 ### Cohen's Kappa
 
-🐽
+🐽 How do I set up the date frame for this?
 
 ```{r}
 # Generate df containing survey scores and rater
@@ -199,7 +195,15 @@ kappa2(svy_scores_raters[, c("1", "2")], weight = "unweighted")
 
 Do personality scores correlate with observable behaviors?
 
-#### 🐽 This part I just made up and don't really know what to do so definitely let me know if you have better ideas on what I could do here
+🐽 This part I just made up and don't really know what to do so definitely let me know if you have better ideas on what I could do here
+
+## Replicability/Repeatability (idk) of Behaviors
+
+🐽 Eli Strauss said to do this but idk what that is but I was trying to act cool and normal so I pretended that I knew what he was talking about the whole time
+
+```{r}
+# Put replicability stuff here
+```
 
 ## Aggression Towards Other Pigs
 
