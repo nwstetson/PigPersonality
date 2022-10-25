@@ -11,7 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## This is the analysis for my senior thesis
 
-It is on personality in pigs
+## (currently using mock data for survey results because the actual one only has 7/40 surveys completed) 🙊
+
+It is on personality in pigs 🐷
+
+#### 🚨  = questions I have
 
 ## Loading library
 
@@ -22,29 +26,71 @@ library(ggplot2)
 library(corrr)
 library(psych)
 library(irr)
+library(readr)
 ```
 
 ## Loading datasets
 
+Pulled from GitHub so you don't need to change these or download the CSV files!!
+
 ```{r}
-obs <- read_csv("~/Documents/GitHub/PigPersonality/Obs_Oct21_Clean.csv") # behavior observations
-svy <- read_csv("~/Documents/GitHub/PigPersonality/CaregiverSurveyMOCKCleaner.csv") # survey data (mock data for now)
-meta <- read_csv("~/Documents/GitHub/PigPersonality/PigSample.csv") # meta data (pig demographics)
+obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Oct21_Clean.csv")  # behavior observations (2/3 of the way done)
+
+svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/CaregiverSurveyMOCKCleaner.csv")  # survey data (mock data for now)
+
+meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv") # meta data (pig demographics)
 ```
+
+## Cleaning Data
 
 Put meta data into df based on pig id number
 
 ```{r}
 obs_m <- inner_join(obs, meta, by = "PigID")
 svy_m <- inner_join(svy, meta, by = "PigID")
+
+```
+
+### Make wide version of survey results
+
+run this chunk together or else 🙈
+
+```{r}
+svy_wide <- svy_m %>% 
+  pivot_longer(cols = 50:61, names_to = "facet") 
+svy_wide <- svy_wide %>% rename_at('value', ~'facet.value')
+
+
+svy_wide <-svy_wide %>% 
+  pivot_longer(cols = 14:48, names_to = "item")
+
+svy_wide <- svy_wide %>% rename_at('value', ~'item.value')
 ```
 
 # Preliminary Analyses
 
 ## Overview of Personality Scores
 
+### As a table
+
+🚨 Idk how to make it into a table hehe
+
 ```{r}
-# generate a table of each pig's personality scores (one from Dan's scoring, one from Tracey's score, and calculate and average)
+# but I will make a table here
+```
+
+### As a graph
+
+🚨 Is there another visualization I could use that might summarize this better?
+
+```{r}
+ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
+  geom_point() +
+  geom_line(alpha=.5) +
+    theme_minimal() +
+  xlab("Personality Facet") +
+  ylab("Score") +
+  ggtitle("Differences in Personality Scores Between Pigs")
 ```
 
 ## Internal Reliability
@@ -61,8 +107,12 @@ svy_items <- svy %>% select(14:48)
 svy_items_corr <- svy_items %>% correlate() %>% colMeans(na.rm = TRUE) # Having trouble removing NA
 
 
-mean(svy_items_corr)
+mean(svy_items_corr) # get average correlation between all the items
+```
 
+#### Make average correlations into a histogram
+
+```{r}
 data.frame(svy_items_corr %>% 
   ggplot(aes(x = svy_items_corr)) +
     geom_histogram(bins = 10, alpha = .5) +
