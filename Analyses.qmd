@@ -4,6 +4,8 @@ author: "Noah Stetson"
 date: "`r Sys.Date()`"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
@@ -53,19 +55,12 @@ svy_m <- inner_join(svy, meta, by = "PigID")
 
 ### Make wide version of survey results
 
-run this chunk together or else 🙈
-
-I bet there's a shorter way to do this but oh well
-
 ```{r}
 svy_wide <- svy_m %>% 
-  pivot_longer(cols = 50:61, names_to = "facet") 
-svy_wide <- svy_wide %>% rename_at('value', ~'facet.value')
+  pivot_longer(cols = 50:61, names_to = "facet", values_to ='facet.value') 
 
 svy_wide <-svy_wide %>% 
-  pivot_longer(cols = 14:48, names_to = "item")
-
-svy_wide <- svy_wide %>% rename_at('value', ~'item.value')
+  pivot_longer(cols = 14:48, names_to = "item", values_to = 'item.value')
 ```
 
 # Preliminary Analyses
@@ -112,7 +107,17 @@ Atlas \| Sniff.obj \| 3
 Atlas \| Get.disp \| 1
 
 ```{r}
-table(obs$Behavior) #Here's an overview of occurances of behaviors for now
+behavior_table = table(obs$Pig, obs$Behavior) #Here's an overview of occurances of behaviors for now
+behavior_counts <- data.frame(rbind(behavior_table))
+
+# Don't have pig as row name
+row.names(behavior_counts) <- 1:nrow(behavior_counts)
+# Well fuck now it's removed the pig names entirely. I just want it to make the old row name into row 1 and make a new row name which is the row number
+
+# Make wide version
+behavior_counts_wide <-behavior_counts %>% 
+  pivot_longer(cols = 2:20 , names_to = "Behavior", values_to = 'Occurances')
+# Oops it's not separated by pig now because I accidentally made pig be a row label and not a row itself
 ```
 
 ### As a graph
@@ -155,11 +160,10 @@ ggplot(obs, aes(x= reorder (Behavior, Behavior, table, group = Pig, color = Pig)
 # Make DF with just test items
 svy_items <- svy %>% select(14:48)
 
+as.numeric(unlist(svy_items)) #force it to be numeric bc it thinks the NAs are like actual letters
+
 # Overall average inter-item correlation for all surveys completed (each pig has 2 surveys)
 svy_items_corr <- svy_items %>% correlate() %>% colMeans(na.rm = TRUE) # Having trouble removing NA
-
-as.numeric(svy_items_corr)
-# still doesn't work
 
 # Get average correlation between all the items
 mean(svy_items_corr) 
