@@ -21,10 +21,9 @@ library(readr)
 ```{r}
 obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Oct21_Clean.csv", show_col_types = FALSE)  # behavior observations (2/3 of the way done)
 
-svy_current <- Dan_Oct24  # current survey data (7 responses)
+svy_current <- read_csv("~/Desktop/Dan_Oct24.csv")  # current survey data (7 responses)
 
 meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv", show_col_types = FALSE) # meta data (pig demographics)
-
 ```
 
 ## Cleaning Data
@@ -74,7 +73,7 @@ summary(current_svy_items)
 
 ### As a table
 
-🐽 How can I get this to average each pig's scores across raters? (in the real data, each pig will be scored twice for each facet)
+🐽 How can I get this to average each pig's scores across raters?
 
 ```{r}
 current_pig_scores <- current_m %>%
@@ -93,6 +92,80 @@ ggplot(current_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) 
   ggtitle("Differences in Personality Scores Between Pigs")
 ```
 
+## Overview of Behaviors
+
+### As a table
+
+🐽 How do I make a new df for observational data that does counts of each behavior
+
+Like this:
+
+Pig \| Behavior \| Counts
+
+Atlas \| Sniff.obj \| 3
+
+Atlas \| Get.disp \| 1
+
+```{r}
+behavior_table = table(obs$Pig, obs$Behavior) #Here's an overview of occurances of behaviors for now
+behavior_counts <- data.frame(rbind(behavior_table)) # Don't have pig as row name
+
+
+# SUmm if I save it as a CSV and reupload it it works I literally wanna die rn
+# Also change "Pig" to say "name"
+write.csv(behavior_counts, "~/Desktop/behavior_counts_Oct26.csv")
+behavior_counts <- read_csv("~/Desktop/behavior_counts_Oct26.csv")
+
+# Make wide version
+behavior_counts_wide <-behavior_counts %>% 
+  pivot_longer(cols = 2:20 , names_to = "Behavior", values_to = 'Count')
+
+
+# Also make verion with meta data
+behavior_m <- inner_join(behavior_counts, meta, by = "Name")
+```
+
+### As a graph
+
+🐽 Too messy! How do I make it look like the scatterplot I did above, but with "Behavior" on x-axis
+
+```{r}
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = Name, color = Name)) +
+  geom_point() +
+    theme_classic() +
+  xlab("Behavior") +
+  ylab("Counts") +
+  ggtitle("Differences in Behavior Between Pigs")
+```
+
+### Sex differences in getting displaced???
+
+Males maybeee get displaced less???
+
+```{r}
+ggplot(behavior_m, aes(x=Get.disp, fill=Sex)) + 
+   theme_classic() +
+  xlab("Get Displaced") +
+  ylab("Counts") +
+  ggtitle("How Often Do Pigs Get Displaced?") +
+  geom_density(alpha = 0.4) +
+  theme_minimal() +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
+```
+
+### Background differences in getting displaced
+
+```{r}
+ggplot(behavior_m, aes(x=Get.disp, fill=Background)) + 
+  theme_classic() +
+  xlab("Get Displaced") +
+  ylab("Counts") +
+  ggtitle("Do Pigs From Abuse/Neglect Backgrounds Get Displaced More?") +
+  geom_density(alpha = 0.4) +
+  theme_minimal() +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
+```
+
 ## Internal Reliability
 
 ### Inter-item correlation
@@ -106,7 +179,9 @@ current_svy_items_corr <- current_svy_items %>% correlate()
 
 view(current_svy_items_corr) # works so far
 
-# current_svy_items_corr <- current_svy_items_corr %>% colMeans(na.rm = TRUE) # Doesn't run because it's not numeric
+write.csv(current_svy_items_corr, "~/Desktop/Oct_26_Corr.csv") # Save as CSV and REMOVE NAS BY HAND
+
+current_svy_items_corr <- current_svy_items_corr %>% colMeans(na.rm = TRUE) # Doesn't run because it's not numeric
 
  # Make it numeric
 current_item_corr <- char2numeric(current_svy_items_corr)
@@ -139,4 +214,29 @@ AHHHHH IT WON'T WORK BECAUSE DAN DIDN'T FILL OUT A QUESTION
 # psych::alpha(current_svy_items, check.keys = TRUE)
 
 # psych::alpha(current_svy_items, check.keys = TRUE)$total$std.alpha #this just gets the alpha value itself
+```
+
+Does get.disp correlated with SC12 (dominance over pigs)
+
+```{r}
+behavior_and_scores <- inner_join(behavior_m, Pig_Scores, by = "Name")
+
+
+ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
+         geom_point() +
+          stat_smooth(method = "lm") +
+    xlab("Times Displaced") +
+  ylab("Dominance Score") +
+  ggtitle("Do Pigs that Score Higher on Dominance Get Displaced Less?")
+```
+
+Active Engagement with Resting
+
+```{r}
+ggplot(behavior_and_scores, aes(x=Travel, y=SC9)) +
+         geom_point() +
+          stat_smooth(method = "lm") +
+    xlab("Times Traveling") +
+  ylab("Active Engagement Score") +
+  ggtitle("Do Pigs that Score High on Active Engagement Travel More?")
 ```

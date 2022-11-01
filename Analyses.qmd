@@ -51,6 +51,12 @@ Put meta data into df based on pig id number
 ```{r}
 obs_m <- inner_join(obs, meta, by = "PigID")
 svy_m <- inner_join(svy, meta, by = "PigID")
+
+# DF with just test items
+svy_items <- svy %>% select(4:38)
+
+# DF with just scores
+pig_scores <- svyt_m %>% select(Name, 40:51)
 ```
 
 ### Make wide version of survey results
@@ -67,6 +73,13 @@ svy_wide <-svy_wide %>%
 
 ## Overview of Personality Survey Scores
 
+```{r}
+summary(pig_scores) # Summary of personality scores
+summary(svy_items) # Summary of item scoring
+
+sd(current_pig_scores$SC1) # Maybe turn SDs into a table and do something with that?
+```
+
 ### As a table
 
 🐽 How can I get this to average each pig's scores across raters? (in the real data, each pig will be scored twice for each facet)
@@ -81,6 +94,8 @@ view(Pig_Scores)
 ### As a graph
 
 🐽 What kind of visualization could I use to summarize this better?
+
+## Sort by main facet not sub-facet
 
 ```{r}
 ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
@@ -110,14 +125,21 @@ Atlas \| Get.disp \| 1
 behavior_table = table(obs$Pig, obs$Behavior) #Here's an overview of occurances of behaviors for now
 behavior_counts <- data.frame(rbind(behavior_table))
 
-# Don't have pig as row name
-row.names(behavior_counts) <- 1:nrow(behavior_counts)
-# Well fuck now it's removed the pig names entirely. I just want it to make the old row name into row 1 and make a new row name which is the row number
+
+write.csv(behavior_counts, "~/Desktop/behavior_counts_Oct26.csv") # Convert to Excel file to magically add row numbers idk
+# Then manually change row "Pig" to say "name"
+
+#Then re-upload and it works hehe
+behavior_counts <- read_csv("~/Desktop/behavior_counts_Oct26.csv")
+
 
 # Make wide version
 behavior_counts_wide <-behavior_counts %>% 
-  pivot_longer(cols = 2:20 , names_to = "Behavior", values_to = 'Occurances')
-# Oops it's not separated by pig now because I accidentally made pig be a row label and not a row itself
+  pivot_longer(cols = 2:20 , names_to = "Behavior", values_to = 'Count')
+
+
+# Also make verion with meta data
+behavior_m <- inner_join(behavior_counts, meta, by = "Name")
 ```
 
 ### As a graph
@@ -125,27 +147,26 @@ behavior_counts_wide <-behavior_counts %>%
 🐽 Too messy! How do I make it look like the scatterplot I did above, but with "Behavior" on x-axis
 
 ```{r}
-ggplot (obs, aes(x= reorder (Behavior, Behavior, table))) +
-  geom_bar(color = "black", fill = "#0577B1") +
-  theme_classic() +
-  xlab("Behavior") +
-  ylab("Count") +
-  ggtitle("Behavior Across Pigs") +
-  coord_flip() +
-  facet_wrap (~ Pig)
-```
-
-🐽 It doesn't work if I try to use the same code as the scatter plot for survey scores, but modified for observations
-
-```{r}
-ggplot(obs, aes(x= reorder (Behavior, Behavior, table, group = Pig, color = Pig))) +
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = Name, color = Name)) +
   geom_point() +
-  geom_line(alpha=.5) +
     theme_classic() +
   xlab("Behavior") +
-  ylab("Count") +
-  ggtitle("Behavior Across Pigs")
-  
+  ylab("Counts") +
+  ggtitle("Differences in Behavior Between Pigs")
+```
+
+```{r}
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = Name, color = Name)) +
+  geom_point() +
+    theme_classic() +
+  xlab("Behavior") +
+  ylab("Counts") +
+  ggtitle("Differences in Behavior Between Pigs")
+
+
+# use mutate
+# make new row for behavior category
+# stacked bar chart
 ```
 
 ## Internal Reliability
@@ -154,30 +175,28 @@ ggplot(obs, aes(x= reorder (Behavior, Behavior, table, group = Pig, color = Pig)
 
 (correlations between test items)
 
-#### 🐽 My main issue right now: How do I remove the NAs in svy_items_corr? When I try to run it, it says `Error in colMeans(., na.rm = TRUE) : 'x' must be numeric`, but even when I try to do `as.numeric` it doesn't work
-
 ```{r}
 # Make DF with just test items
 svy_items <- svy %>% select(14:48)
 
-as.numeric(unlist(svy_items)) #force it to be numeric bc it thinks the NAs are like actual letters
 
-# Overall average inter-item correlation for all surveys completed (each pig has 2 surveys)
-svy_items_corr <- svy_items %>% correlate() %>% colMeans(na.rm = TRUE) # Having trouble removing NA
+svy_items_corr <- svy_items %>% correlate() %>% select(-term)
+svy_items_corr <- colMeans(svy_items_corr, na.rm = TRUE)
+
 
 # Get average correlation between all the items
-mean(svy_items_corr) 
+mean(svy_items_corr)
+# -0.00331298
 ```
 
 #### Make average correlations into a histogram
 
-🐽 (won't work until I can remove the NAs 😰)
+🐽
 
 ```{r}
-data.frame(svy_items_corr %>% 
-  ggplot(aes(x = svy_items_corr)) +
+ggplot(aes(x = svy_items_corr)) +
     geom_histogram(bins = 10, alpha = .5) +
-    geom_vline(xintercept = mean(svy_items_corr), color = "dodger blue") +
+    geom_vline(xintercept = mean(current_svy_items_corr), color = "dodger blue") +
     xlab("Mean inter-item correlation") +
     theme_minimal()
 ```
@@ -186,21 +205,20 @@ data.frame(svy_items_corr %>%
 
 (correlations between scores)
 
-🐽 Same issue with removing NAs as listed above
-
 ```{r}
 # Make df with just scores
 svy_scores <- svy %>% select(49:61)
 
-svy_scores_corr <- svy_scores %>% correlate() %>% colMeans(na.rm = TRUE)  # Having trouble removing NA
+svy_scores_corr <- svy_scores %>% correlate() %>% select(-term)
+svy_scores_corr <- colMeans(svy_scores_corr, na.rm = TRUE)
 
 mean(svy_scores_corr)
-
+# 0.01505786
 ```
 
 ### Make into histogram
 
-🐽 (also won't work until I can remove NAs)
+🐽
 
 ```{r}
 data.frame(svy_scores_corr %>% 
@@ -211,7 +229,7 @@ data.frame(svy_scores_corr %>%
     theme_minimal()
 ```
 
-### Chronbach's alpha
+### Cronbach's alpha
 
 `check.keys = TRUE` accounts for reverse-scored items just FYI
 
@@ -232,6 +250,8 @@ psych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this just gets the a
 ```
 
 ## Inter-observer Reliability
+
+Might not be useful
 
 ### Cohen's Kappa
 
@@ -329,8 +349,69 @@ ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
 # Make social networks for Yaupon and Beautyberry
 ```
 
+### Sex differences in getting displaced???
+
+Males maybeee get displaced less???
+
+```{r}
+ggplot(behavior_m, aes(x=Get.disp, fill=Sex)) + 
+   theme_classic() +
+  xlab("Get Displaced") +
+  ylab("Counts") +
+  ggtitle("How Often Do Pigs Get Displaced?") +
+  geom_density(alpha = 0.4) +
+  theme_minimal() +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
+```
+
+### Background differences in getting displaced
+
+```{r}
+ggplot(behavior_m, aes(x=Get.disp, fill=Background)) + 
+  theme_classic() +
+  xlab("Get Displaced") +
+  ylab("Counts") +
+  ggtitle("Do Pigs From Abuse/Neglect Backgrounds Get Displaced More?") +
+  geom_density(alpha = 0.4) +
+  theme_minimal() +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
+```
+
+### Does get.disp correlated with SC12 (dominance over pigs)
+
+-   compare by sex
+
+```{r}
+behavior_and_scores <- inner_join(behavior_m, Pig_Scores, by = "Name")
+
+
+ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
+         geom_point() +
+          stat_smooth(method = "lm") +
+    xlab("Times Displaced") +
+  ylab("Dominance Score") +
+  ggtitle("Do Pigs that Score Higher on Dominance Get Displaced Less?")
+```
+
+### Active Engagement vs Resting (Josh said don't do this bc engagment might not be the opposite of resting smh)
+
+```{r}
+ggplot(behavior_and_scores, aes(x=Travel, y=SC9)) +
+         geom_point() +
+          stat_smooth(method = "lm") +
+    xlab("Times Traveling") +
+  ylab("Active Engagement Score") +
+  ggtitle("Do Pigs that Score High on Active Engagement Travel More?")
+```
+
 ## Potential Moderators
 
 ```{r}
 # Compare length of time volunteer has known pig with correlations bewteen surveys and traits from Primary Analyses???
+```
+
+Factor analysis
+
+```{r}
+
 ```
