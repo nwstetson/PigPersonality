@@ -34,12 +34,10 @@ library(readr)
 
 Pulled from GitHub so you don't need to change these or download the CSV files!!
 
-When I have the actual survey data, I will upload that to GitHub and update the url for `svy` to be for the actual file instead of for the mock data file that I generated in Qualtrics
-
 ```{r}
-obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Oct21_Clean.csv", show_col_types = FALSE)  # behavior observations (2/3 of the way done)
+obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Clean.csv", show_col_types = FALSE)  # behavior observations
 
-svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/CaregiverSurveyMOCKCleaner.csv", show_col_types = FALSE)  # survey data (mock data for now)
+svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data (from Dan and Tracey)
 
 meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv", show_col_types = FALSE) # meta data (pig demographics)
 ```
@@ -49,24 +47,27 @@ meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/mai
 Put meta data into df based on pig id number
 
 ```{r}
-obs_m <- inner_join(obs, meta, by = "PigID")
-svy_m <- inner_join(svy, meta, by = "PigID")
+svy_m <- inner_join(meta, svy, by = "PigID")
+obs_m <- inner_join(meta, obs, by = "PigName")
 
 # DF with just test items
 svy_items <- svy %>% select(4:38)
 
 # DF with just scores
-pig_scores <- svyt_m %>% select(Name, 40:51)
+pig_scores <- svy_m %>% select(PigName, 50:61)
 ```
 
-### Make wide version of survey results
+### Make wide/tidy? version of survey results
 
 ```{r}
 svy_wide <- svy_m %>% 
-  pivot_longer(cols = 50:61, names_to = "facet", values_to ='facet.value') 
+  pivot_longer(cols = 50:61, names_to = "sub.facet", values_to ='subfacet.value') 
 
 svy_wide <-svy_wide %>% 
-  pivot_longer(cols = 14:48, names_to = "item", values_to = 'item.value')
+  pivot_longer(cols = 15:49, names_to = "item", values_to = 'item.value')
+
+svy_wide <-svy_wide %>% 
+  pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
 ```
 
 # Preliminary Analyses
@@ -77,7 +78,7 @@ svy_wide <-svy_wide %>%
 summary(pig_scores) # Summary of personality scores
 summary(svy_items) # Summary of item scoring
 
-sd(current_pig_scores$SC1) # Maybe turn SDs into a table and do something with that?
+sd(pig_scores$SC1:SC12) # Maybe turn SDs into a table and do something with that?
 ```
 
 ### As a table
@@ -85,20 +86,19 @@ sd(current_pig_scores$SC1) # Maybe turn SDs into a table and do something with t
 🐽 How can I get this to average each pig's scores across raters? (in the real data, each pig will be scored twice for each facet)
 
 ```{r}
-Pig_Scores <- svy_m %>%
-  select(Name, 50:61)
+Avg_Scores <- 
+  select(Name, rowMeans(pig_scores[1:2, 3:4, 5:6, 7:8, 9:10])
 
-view(Pig_Scores)
 ```
 
 ### As a graph
 
 🐽 What kind of visualization could I use to summarize this better?
 
-## Sort by main facet not sub-facet
+## Sort by main facet
 
 ```{r}
-ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
+ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)) +
   geom_point() +
   geom_line(alpha=.5) +
     theme_classic() +
@@ -122,15 +122,18 @@ Atlas \| Sniff.obj \| 3
 Atlas \| Get.disp \| 1
 
 ```{r}
-behavior_table = table(obs$Pig, obs$Behavior) #Here's an overview of occurances of behaviors for now
+behavior_table = table(obs$PigName, obs$Behavior)
+
+view(behavior_table)
 behavior_counts <- data.frame(rbind(behavior_table))
 
 
-write.csv(behavior_counts, "~/Desktop/behavior_counts_Oct26.csv") # Convert to Excel file to magically add row numbers idk
-# Then manually change row "Pig" to say "name"
+write.csv(behavior_counts, "~/Desktop/behavior_counts_Nov7.csv") # Convert to Excel file to magically add row numbers idk
+```
 
+```{r}
 #Then re-upload and it works hehe
-behavior_counts <- read_csv("~/Desktop/behavior_counts_Oct26.csv")
+behavior_counts <- read_csv("~/Desktop/behavior_counts_Nov7.csv")
 
 
 # Make wide version
@@ -139,15 +142,17 @@ behavior_counts_wide <-behavior_counts %>%
 
 
 # Also make verion with meta data
-behavior_m <- inner_join(behavior_counts, meta, by = "Name")
+behavior_m <- inner_join(behavior_counts, meta, by = "PigName")
 ```
 
 ### As a graph
 
 🐽 Too messy! How do I make it look like the scatterplot I did above, but with "Behavior" on x-axis
 
+Organize behaviors into categories
+
 ```{r}
-ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = Name, color = Name)) +
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, color = PigName)) +
   geom_point() +
     theme_classic() +
   xlab("Behavior") +
@@ -156,7 +161,7 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = Name, color = Na
 ```
 
 ```{r}
-ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = Name, color = Name)) +
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, color = PigName)) +
   geom_point() +
     theme_classic() +
   xlab("Behavior") +
@@ -335,7 +340,7 @@ Idk what else I can do! I changed my survey measure and I think that was a mista
 # Compare sex, group, and presence/absence of traumatic background with personality traits accross all pigs
 
 # Is there a sex difference in personality scores?
-ggplot(svy_wide, aes(x= facet, y= facet.value, group = Name, color = Name)) +
+ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)) +
   geom_point() +
   geom_line(alpha=.5) +
   theme_classic()
@@ -382,7 +387,7 @@ ggplot(behavior_m, aes(x=Get.disp, fill=Background)) +
 -   compare by sex
 
 ```{r}
-behavior_and_scores <- inner_join(behavior_m, Pig_Scores, by = "Name")
+behavior_and_scores <- inner_join(behavior_m, Pig_Scores, by = "PigName")
 
 
 ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
