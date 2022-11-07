@@ -24,7 +24,7 @@ Date,Time,PigName,With/To,Behavior,Location,Notes,GPS,Start,Stop,Observer
 9/23/22,9:14:30,Horatio,No Value,Travel,"30.014770,-97.307433",,,0,0,NS
 9/23/22,9:14:33 AM,Rebel,Eleanor,Nudge.ground,,,,0,0,AJ
 9/23/22,9:14:45,Horatio,No Value,Travel,"30.014749,-97.307497",Going off path in woods,,0,0,NS
-9/23/22,9:15:10,Horatio,Unknown,sniff.consp,"30.014716,-97.307459",,,0,0,NS
+9/23/22,9:15:10,Horatio,Unknown,Sniff.consp,"30.014716,-97.307459",,,0,0,NS
 9/23/22,9:15:29,Horatio,No Value,Nudge.ground,"30.014707,-97.307488",,,0,0,NS
 9/23/22,9:15:38,Horatio,No Value,Wag.tail,"30.014759,-97.307524",,,0,0,NS
 9/23/22,9:16:26,Horatio,Other,Wag.tail,"30.014761,-97.307535",Wagging tail and standing still. Next to Mercutio and Falstaff,,0,0,NS
@@ -49,7 +49,7 @@ With Jordan",,0,0,NS
 9/23/22,9:32:06 AM,Dora,Georgie,Rest.proxim,,,,0,0,AJ
 9/23/22,9:32:20 AM,Dora,Atlas,Rest.proxim,,,,0,0,AJ
 9/23/22,9:35:04,Thomas,No Value,Rest,"30.016607,-97.307477",Still resting,,0,1,NS
-9/23/22,9:35:44,Rebel,Defiance,sniff.consp,"30.015058,-97.307120",With Defiance,,1,0,NS
+9/23/22,9:35:44,Rebel,Defiance,Sniff.consp,"30.015058,-97.307120",With Defiance,,1,0,NS
 9/23/22,9:38:23,Rebel,Defiance,Rest.proxim,"30.015058,-97.307120",Sleep next to Defiance,,0,0,NS
 9/23/22,9:41:12,Rebel,No Value,Rest,"30.014936,-97.307512",,,0,1,NS
 9/23/22,9:42:20,Atlas,No Value,Sniff.obj,"30.015500,-97.307511",Dinner table,,1,0,NS
@@ -204,7 +204,7 @@ With Jordan",,0,0,NS
 9/30/22,9:34:16,Atlas,Unknown,Get.disp,"30.017490,-97.306175",Pic,,0,0,NS
 9/30/22,9:34:23 AM,Georgie,No Value,Rest,,,,0,1,AJ
 9/30/22,9:35:40,Eleanor,No Value,Rest,"30.015069,-97.307448",,,1,0,NS
-9/30/22,9:35:48 AM,Horatio,Unknown,sniff.consp,,sniffing white pig with black head not in study,,1,0,AJ
+9/30/22,9:35:48 AM,Horatio,Unknown,Sniff.consp,,sniffing white pig with black head not in study,,1,0,AJ
 9/30/22,9:36:25 AM,Horatio,No Value,Yawn.not.contaig,,,,0,0,AJ
 9/30/22,9:36:44,Eleanor,Unknown,Other,"30.015069,-97.307448",Licked by unknown pig (vid),,0,0,NS
 9/30/22,9:36:48 AM,Horatio,No Value,Wag.tail,,,,0,0,AJ
@@ -289,7 +289,7 @@ With Jordan",,0,0,NS
 9/30/22,10:36:02,Wilbur,No Value,Rest,"30.017512,-97.305717",,,1,0,NS
 9/30/22,10:36:25,Wilbur,No Value,Grunt,"30.014880,-97.307424",,,0,0,NS
 9/30/22,10:36:35,Wilbur,No Value,Rest,"30.014831,-97.307364",,,0,0,NS
-9/30/22,10:36:38 AM,Bianca,No Value,sniff.consp,,sniffing an oreo pig not in study,,0,0,AJ
+9/30/22,10:36:38 AM,Bianca,No Value,Sniff.consp,,sniffing an oreo pig not in study,,0,0,AJ
 9/30/22,10:37:38 AM,Bianca,No Value,Wag.tail,,,,0,1,AJ
 9/30/22,10:38:32 AM,Eleanor,No Value,Nudge.ground,,,,1,0,AJ
 9/30/22,10:38:58 AM,Eleanor,No Value,Wag.tail,,,,0,0,AJ
@@ -386,7 +386,7 @@ Pixie, Dahlia, and Kitty within 2 m",,1,0,NS
 10/7/22,9:26:06,Imogen,Other,Snout.touch,"30.014834,-97.307453",Black and white male tusks (not Dora),,0,0,NS
 10/7/22,9:26:11 AM,Dora,No Value,Travel,"30.014734,-97.307306",,,0,0,AJ
 10/7/22,9:26:53 AM,Dora,No Value,Nudge.ground,"30.014859,-97.307616",,,0,0,AJ
-10/7/22,9:27:18,Imogen,Unknown,sniff.consp,"30.014864,-97.307456",Pink pig (pic),,0,0,NS
+10/7/22,9:27:18,Imogen,Unknown,Sniff.consp,"30.014864,-97.307456",Pink pig (pic),,0,0,NS
 10/7/22,9:27:55,Imogen,No Value,Other,"30.015069,-97.307448",Rub face and body against branch,,0,0,NS
 10/7/22,9:28:15,Imogen,No Value,Travel,"30.015069,-97.307448",,,0,0,NS
 10/7/22,9:28:56,Imogen,No Value,Sniff.obj,"30.015069,-97.307448",Ground,,0,0,NS
@@ -452,7 +452,7 @@ Pixie, Dahlia, and Kitty within 2 m",,1,0,NS
 10/7/22,10:03:24 AM,Imogen,No Value,Wag.tail,"30.015028,-97.306848",,,1,0,AJ
 10/7/22,10:03:59,Dora,Imogen,Get.disp,"30.015069,-97.307448",,,0,0,NS
 10/7/22,10:04:31 AM,Imogen,No Value,Travel,"30.015436,-97.307413",,,0,0,AJ
-10/7/22,10:04:57 AM,Imogen,No Value,sniff.consp,"30.015436,-97.307413",sniffing another pigs backside,,0,0,AJ
+10/7/22,10:04:57 AM,Imogen,No Value,Sniff.consp,"30.015436,-97.307413",sniffing another pigs backside,,0,0,AJ
 10/7/22,10:05:03,Dora,Atlas,Nudge.ground,"30.015069,-97.307448",Eat dirt with rump touching Atlas,,0,0,NS
 10/7/22,10:05:51 AM,Imogen,No Value,Rest.proxim,"30.014878,-97.308156","with black wrinkly pig, in tree area ",,0,0,AJ
 10/7/22,10:06:04,Dora,No Value,Sniff.obj,"30.015069,-97.307448",Dinner table,,0,1,NS
@@ -507,7 +507,7 @@ Pixie, Dahlia, and Kitty within 2 m",,1,0,NS
 10/7/22,10:43:22 AM,Loretta,No Value,Other,"30.005931,-97.297381",lifting up dinner table with snout,,0,0,AJ
 10/7/22,10:43:31,Pixie,No Value,Nudge.ground,"30.015038,-97.306465",Hay,,0,0,NS
 10/7/22,10:44:45 AM,Loretta,No Value,Travel,"30.014973,-97.306310",,,0,0,AJ
-10/7/22,10:45:26,Pixie,Loretta,sniff.consp,"30.015069,-97.306485",Sniff Loretta,,0,1,NS
+10/7/22,10:45:26,Pixie,Loretta,Sniff.consp,"30.015069,-97.306485",Sniff Loretta,,0,1,NS
 10/7/22,10:45:34 AM,Loretta,Pixie,Other,"30.013831,-97.307797",got sniffed,,0,0,AJ
 10/7/22,10:46:01,Kitty,No Value,Grunt,"30.015117,-97.306492",,,1,0,NS
 10/7/22,10:46:20 AM,Loretta,No Value,Drink,"30.015207,-97.306007",,,0,1,AJ
@@ -628,7 +628,7 @@ Pixie, Dahlia, and Kitty within 2 m",,1,0,NS
 10/21/22,12:36:10 PM,Eleanor,No Value,Wag.tail,"30.014740,-97.307486",,,0,0,AJ
 10/21/22,12:36:19 PM,Eleanor,No Value,Travel,"30.014883,-97.307270",,,0,0,AJ
 10/21/22,12:36:48 PM,Eleanor,Dora,Nudge.ground,"30.014855,-97.307329",,,0,0,AJ
-10/21/22,12:37:41,Bianca,Unknown,sniff.consp,"30.014646,-97.307634",Black sleeping pig (pic),,0,1,NS
+10/21/22,12:37:41,Bianca,Unknown,Sniff.consp,"30.014646,-97.307634",Black sleeping pig (pic),,0,1,NS
 10/21/22,12:38:58,Wilbur,No Value,Rest,"30.015123,-97.307546",,,1,0,NS
 10/21/22,12:40:24 PM,Eleanor,No Value,Nudge.ground,"30.014831,-97.307531",,,0,1,AJ
 10/21/22,12:44:13,Wilbur,No Value,Rest,"30.015123,-97.307546",,,0,1,NS
@@ -776,7 +776,7 @@ Bates",,0,0,NS
 10/28/22,10:21:09 AM,Dahlia,Raymond,Rest.proxim,"30.015369,-97.306098",and george,,0,1,AJ
 10/28/22,10:21:32 AM,George,Molly,Rest.proxim,"30.015277,-97.306286",and raymond. in cabin,,1,0,AJ
 10/28/22,10:21:46,Raymond,No Value,Rest.proxim,"30.015246,-97.306159",,,0,1,NS
-10/28/22,10:22:18,Pixie,Hank,sniff.consp,"30.015219,-97.306234",Sniff Hank in big cabin,,0,0,NS
+10/28/22,10:22:18,Pixie,Hank,Sniff.consp,"30.015219,-97.306234",Sniff Hank in big cabin,,0,0,NS
 10/28/22,10:23:30,Pixie,No Value,Travel,"30.020114,-97.308457",,,0,0,NS
 10/28/22,10:23:32 AM,George,No Value,Grunt,"30.014554,-97.306299",,,0,0,AJ
 10/28/22,10:24:05,Pixie,No Value,Pee,"30.015215,-97.306235",,,0,0,NS
@@ -843,7 +843,7 @@ Bates",,0,0,NS
 10/28/22,11:04:17 AM,Kitty,No Value,Sniff.obj,"30.015265,-97.306237",blue ball,,0,0,AJ
 10/28/22,11:05:30 AM,Kitty,No Value,Other,"30.015319,-97.306245",scratching on cabin,,0,0,AJ
 10/28/22,11:05:53,George,No Value,Travel,"30.019407,-97.308133",,,0,0,NS
-10/28/22,11:06:02,George,Pixie,sniff.consp,"30.015243,-97.306236",Sniff pixie,,0,0,NS
+10/28/22,11:06:02,George,Pixie,Sniff.consp,"30.015243,-97.306236",Sniff pixie,,0,0,NS
 10/28/22,11:06:25 AM,Kitty,No Value,Travel,"30.015232,-97.306153",went back in cabin,,0,0,AJ
 10/28/22,11:06:35,George,No Value,Other,"30.015239,-97.306177",Rub head on cabin,,0,0,NS
 10/28/22,11:07:09,George,Pixie,Other,"30.015260,-97.306240",Walking as Pixie squeals at him. Ignoring her,,0,0,NS
@@ -897,7 +897,7 @@ Bates",,0,0,NS
 11/4/22,9:34:50,Horatio,No Value,Other,"30.015034,-97.307303",Nesting,,0,0,NS
 11/4/22,9:35:00,Horatio,Unknown,Rest.proxim,"30.014670,-97.307511",Black pig with tusks (pic),,0,0,NS
 11/4/22,9:36:30 AM,Bates,No Value,Nudge.ground,"30.019615,-97.306688",,,0,1,AJ
-11/4/22,9:36:51 AM,Imogen,No Value,sniff.consp,"30.014747,-97.307411",sniffing a small grey pig not in study,,1,0,AJ
+11/4/22,9:36:51 AM,Imogen,No Value,Sniff.consp,"30.014747,-97.307411",sniffing a small grey pig not in study,,1,0,AJ
 11/4/22,9:36:59,Horatio,No Value,Rest.proxim,"30.015034,-97.307303",Black pig with tusks (pic),,0,1,NS
 11/4/22,9:37:15 AM,Imogen,No Value,Wag.tail,"30.014834,-97.307407",,,0,0,AJ
 11/4/22,9:37:29 AM,Imogen,Dora,Snout.touch,"30.014742,-97.307484",,,0,0,AJ
@@ -907,7 +907,7 @@ Bates",,0,0,NS
 11/4/22,9:42:57 AM,Dora,No Value,Nudge.ground,"30.014813,-97.307551",dirt,,1,0,AJ
 11/4/22,9:43:19 AM,Dora,No Value,Grunt,"30.014976,-97.307237",,,0,0,AJ
 11/4/22,9:43:30,Thomas,No Value,Drink,"30.015034,-97.307303",From water container,,0,1,NS
-11/4/22,9:48:12 AM,Dora,Horatio,sniff.consp,"30.019397,-97.306711",sniffing each other,,0,1,AJ
+11/4/22,9:48:12 AM,Dora,Horatio,Sniff.consp,"30.019397,-97.306711",sniffing each other,,0,1,AJ
 11/4/22,9:48:38,Imogen,No Value,Rest,"30.015034,-97.307303",,,1,0,NS
 11/4/22,9:50:31 AM,Horatio,Other,Rest.proxim,"30.015012,-97.306874",oreo pig not in study,,1,0,AJ
 11/4/22,9:53:28,Imogen,No Value,Other,"30.015034,-97.307303",Get up and shake off,,0,0,NS
@@ -985,7 +985,7 @@ Bates",,0,0,NS
 11/4/22,10:47:38,Dahlia,No Value,Nudge.ground,"30.015095,-97.306565",Dirt,,0,0,NS
 11/4/22,10:51:57,Dahlia,No Value,Nudge.ground,"30.015075,-97.306468",,,0,1,NS
 11/4/22,10:52:08,Kitty,No Value,Travel,"30.015068,-97.306509",,,1,0,NS
-11/4/22,10:52:20,Kitty,Hank,sniff.consp,"30.015031,-97.306496",Sniff Hank,,0,0,NS
+11/4/22,10:52:20,Kitty,Hank,Sniff.consp,"30.015031,-97.306496",Sniff Hank,,0,0,NS
 11/4/22,10:52:24 AM,Willie,Raymond,Rest.proxim,"30.016348,-97.304765",,,0,1,AJ
 11/4/22,10:52:50 AM,Pixie,Kitty,Get.disp,"30.015108,-97.306814",,,1,0,AJ
 11/4/22,10:52:54,Kitty,Pixie,Attempt.disp,"30.015001,-97.306489",Displaced Pixie,,0,0,NS

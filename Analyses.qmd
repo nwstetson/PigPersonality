@@ -14,9 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## This is the analysis for my undergraduate thesis on personality in pigs 🐷
 
-## (currently using mock data for survey results because the actual one only has 7/40 surveys completed) 🙊
-
-#### 🐽 = questions I have
+## 🐽 = questions I have
 
 ## Loading library
 
@@ -88,7 +86,6 @@ sd(pig_scores$SC1:SC12) # Maybe turn SDs into a table and do something with that
 ```{r}
 Avg_Scores <- 
   select(Name, rowMeans(pig_scores[1:2, 3:4, 5:6, 7:8, 9:10])
-
 ```
 
 ### As a graph
@@ -101,6 +98,31 @@ Avg_Scores <-
 ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)) +
   geom_point() +
   geom_line(alpha=.5) +
+    theme_classic() +
+  xlab("Personality Facet") +
+  ylab("Score") +
+  ggtitle("Differences in Personality Scores Between Pigs") +
+  guides(col = guide_legend(nrow = 10)) +
+  guides(color = guide_legend(title = "Pig")
+```
+
+Jitter should be a better way to visualize it, but the points are stretched out in lings instead of dancing around and idk what's up with that
+
+```{r}
+ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)) +
+  geom_jitter()+
+    theme_classic() +
+  xlab("Personality Facet") +
+  ylab("Score") +
+  ggtitle("Differences in Personality Scores Between Pigs") +
+  guides(col = guide_legend(nrow = 10))
+```
+
+As a bar graph I guess
+
+```{r}
+ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, fill = PigName)) +
+  geom_bar(stat = "identity") +
     theme_classic() +
   xlab("Personality Facet") +
   ylab("Score") +
@@ -124,11 +146,13 @@ Atlas \| Get.disp \| 1
 ```{r}
 behavior_table = table(obs$PigName, obs$Behavior)
 
-view(behavior_table)
 behavior_counts <- data.frame(rbind(behavior_table))
 
 
-write.csv(behavior_counts, "~/Desktop/behavior_counts_Nov7.csv") # Convert to Excel file to magically add row numbers idk
+write.csv(behavior_counts, "~/Desktop/behavior_counts_Nov7.csv") 
+# Convert to Excel file to magically add row numbers idk
+# Also rename the first row to PigName
+
 ```
 
 ```{r}
@@ -138,7 +162,7 @@ behavior_counts <- read_csv("~/Desktop/behavior_counts_Nov7.csv")
 
 # Make wide version
 behavior_counts_wide <-behavior_counts %>% 
-  pivot_longer(cols = 2:20 , names_to = "Behavior", values_to = 'Count')
+  pivot_longer(cols = 2:21 , names_to = "Behavior", values_to = 'Count')
 
 
 # Also make verion with meta data
@@ -149,29 +173,17 @@ behavior_m <- inner_join(behavior_counts, meta, by = "PigName")
 
 🐽 Too messy! How do I make it look like the scatterplot I did above, but with "Behavior" on x-axis
 
-Organize behaviors into categories
+Organize behaviors into categories using mutate function and do a stacked bar chart situation
 
 ```{r}
-ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, color = PigName)) +
-  geom_point() +
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, fill = PigName)) +
+  geom_bar(stat = "identity") +
     theme_classic() +
   xlab("Behavior") +
   ylab("Counts") +
-  ggtitle("Differences in Behavior Between Pigs")
-```
-
-```{r}
-ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, color = PigName)) +
-  geom_point() +
-    theme_classic() +
-  xlab("Behavior") +
-  ylab("Counts") +
-  ggtitle("Differences in Behavior Between Pigs")
-
-
-# use mutate
-# make new row for behavior category
-# stacked bar chart
+  ggtitle("Differences in Behavior Between Pigs") +
+  guides(col = guide_legend(nrow = 10)) +
+  guides(fill = guide_legend(title = "Pig")
 ```
 
 ## Internal Reliability
