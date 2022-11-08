@@ -408,8 +408,7 @@ idk
 ```{r}
 # Is there a sex difference in personality scores?
 ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, group = PigName, color = PigName)) +
-  geom_point() +
-  geom_line(alpha=.5) +
+  geom_boxplot(color = "navy", fill='lightsteelblue1') +
   theme_classic() +
   xlab("Personality Facet") +
   ylab("Score") +
