@@ -36,7 +36,7 @@ Pulled from GitHub so you don't need to change these or download the CSV files!!
 ```{r}
 obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Clean.csv", show_col_types = FALSE)  # behavior observations
 
-svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data (from Dan and Tracey)
+svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data (from 1 and 2)
 
 meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv", show_col_types = FALSE) # meta data (pig demographics)
 ```
@@ -53,10 +53,10 @@ obs_m <- inner_join(meta, obs, by = "PigName")
 svy_items <- svy %>% select(4:38)
 
 # DF with just scores
-pig_scores <- svy_m %>% select(PigName, 50:61)
+pig_scores <- svy_m %>% select(PigName, 50:61, Rater)
 ```
 
-### Make wide/tidy? version of survey results
+### Make wide/tidy(?) version of survey results
 
 ```{r}
 svy_wide <- svy_m %>% 
@@ -75,8 +75,11 @@ svy_wide <-svy_wide %>%
 
 ```{r}
 summary(pig_scores) # Summary of personality scores
-summary(svy_items) # Summary of item scoring
 
+```
+
+```{r}
+summary(svy_items) # Summary of item scoring
 ```
 
 Find standard deviations for each personality sub-facet
@@ -124,7 +127,7 @@ ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)
   guides(col = guide_legend(nrow = 10, title = "Pig"))
 ```
 
-Okay a box plot
+## Okay a box plot (I think this is probably the best way to visualize the scores)
 
 ```{r}
 ggplot(svy_wide, aes(x= facet, y= facet.value)) +
@@ -136,7 +139,7 @@ ggplot(svy_wide, aes(x= facet, y= facet.value)) +
   
 ```
 
-Sub-facets
+## Sub-facets
 
 ```{r}
 ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value)) +
@@ -191,6 +194,15 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, fill = 
   ylab("Counts") +
   ggtitle("Differences in Behavior Between Pigs") +
   guides(fill = guide_legend(nrow = 10, title = "Pig"))
+```
+
+```{r}
+ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
+  geom_boxplot(color = "navy", fill='lightsteelblue1') +
+  theme_classic() +
+  xlab("Behavior") +
+  ylab("Counts") +
+  ggtitle("Differences in Behavior Between Pigs")
 ```
 
 ## Internal Reliability
@@ -251,7 +263,7 @@ svy_scores_corr_df <- data.frame(rbind(svy_scores_corr))
 
 ### Make into histogram
 
-🐽
+🐽 Idk if this is even important
 
 ```{r}
 data.frame(svy_scores_corr %>% 
@@ -282,9 +294,19 @@ psych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this just gets the a
 
 ```
 
-## Inter-observer Reliability
+## Inter-rater Reliability
 
-Might not be useful
+Do rater 1 and rater 2 score each pig in a similar way
+
+```{r}
+ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Sex)) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_manual(values = c("#faff75", "#9381e3")) +
+  xlab("Personality Sub-Facet") +
+  ylab("Score") +
+  ggtitle("Variation in Personality Scores Across 20 Pigs")
+```
 
 ### Cohen's Kappa
 
@@ -343,7 +365,25 @@ ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
   xlab("Times Displaced") +
   ylab("Dominance Score") +
   ggtitle("Do Pigs that Score Higher on Dominance Get Displaced Less?")
-# maybeee
+
+
+# Pearson's correlation
+cor(behavior_and_scores$Get.disp, behavior_and_scores$SC12)
+# -0.1822779
+```
+
+```{r}
+# Calculate z-scores for each x and each y
+disp_dominance$z(behavior_and_scores$Get.disp) <- (behavior_and_scores$Get.disp - mean(behavior_and_scores$Get.disp)) / sd(behavior_and_scores$Get.disp)
+
+disp_dominance$z(behavior_and_scores$SC12) <- (behavior_and_scores$SC12 - mean(behavior_and_scores$SC12)) / sd(behavior_and_scores$SC12)
+
+# Calculate the cross-product:  zx * zy
+disp_dominance$z(behavior_and_scores$Get.disp)z(behavior_and_scores$SC12) <- disp_dominance$z(behavior_and_scores$Get.disp) * disp_dominance$z(behavior_and_scores$SC12)
+
+# let's look at the dataframe
+# notice the cross products:
+disp_dominance
 ```
 
 What if it's split by sex?
