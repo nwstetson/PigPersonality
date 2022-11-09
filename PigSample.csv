@@ -1,4 +1,4 @@
-PigName,PigID,Group,GroupSize,Sex,Time.Arrived/Born.at.CTPR,Age.Months.Arrive.CTPR,Background,Background.Notes,BioFam,ArrivedWith,PigNotes
+PigName,PigID,Group,GroupSize,Sex,Time.Arrived/Born.at.CTPR,Age.Months.Arrive.CTPR,Background,BackgroundNotes,BioFam,ArrivedWith,PigNotes
 Atlas,1,Y,46,M,16-Oct,Unknown,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
 Bates,2,Y,46,M,,n/a,Other,Born at CTPR,Jellybeans,,Bates's mother Cora was pregnant with him when she arrived
 Bianca,3,Y,46,F,16-Oct,Unknown,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
