@@ -22,11 +22,12 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-library(corrr)
-library(psych)
+library(corrr) # might not need this
+library(psych) # might not need this
 library(irr) # might not need this
 library(readr)
 library(corrplot) # might not need this
+library(irr)
 ```
 
 ## Loading datasets
@@ -69,12 +70,20 @@ svy_wide <-svy_wide %>%
   pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
 ```
 
+Set up survey data for correlations
+
+```{r}
+write.csv(svy, "~/Desktop/survey_to_fix.csv")
+```
+
 # Preliminary Analyses
 
 ## Overview of Personality Survey Scores
 
 ```{r}
 summary(pig_scores) # Summary of personality scores
+
+describe(pig_scores)
 
 ```
 
@@ -103,31 +112,6 @@ Avg_Scores <-
 🐽 What kind of visualization could I use to summarize this better?
 
 ## Sort by main facet
-
-```{r}
-ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)) +
-  geom_point() +
-  geom_line(alpha=.5) +
-    theme_classic() +
-  xlab("Personality Facet") +
-  ylab("Score") +
-  ggtitle("Differences in Personality Scores Across Pigs") +
-  guides(col = guide_legend(nrow = 10, title = "Pig"))
-```
-
-🐽 Jitter should be a better way to visualize it, but the points are stretched out in lines instead of dancing around and idk what's up with that
-
-```{r}
-ggplot(svy_wide, aes(x= facet, y= facet.value, group = PigName, color = PigName)) +
-  geom_jitter()+
-    theme_classic() +
-  xlab("Personality Facet") +
-  ylab("Score") +
-  ggtitle("Differences in Personality Scores Across Pigs") +
-  guides(col = guide_legend(nrow = 10, title = "Pig"))
-```
-
-## Okay a box plot (I think this is probably the best way to visualize the scores)
 
 ```{r}
 ggplot(svy_wide, aes(x= facet, y= facet.value)) +
@@ -182,19 +166,7 @@ behavior_m <- inner_join(behavior_counts, meta, by = "PigName")
 
 ### As a graph
 
-🐽 Too messy! How do I make it look like the scatterplot I did above, but with "Behavior" on x-axis
-
-Organize behaviors into categories using mutate function and do a stacked bar chart situation
-
-```{r}
-ggplot(behavior_counts_wide, aes(x= Behavior, y= Count, group = PigName, fill = PigName)) +
-  geom_bar(stat = "identity") +
-    theme_classic() +
-  xlab("Behavior") +
-  ylab("Counts") +
-  ggtitle("Differences in Behavior Between Pigs") +
-  guides(fill = guide_legend(nrow = 10, title = "Pig"))
-```
+🐽 Need to organize behaviors into sub-categories so this is easier to visualize
 
 ```{r}
 ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
@@ -209,7 +181,7 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
 
 ### Inter-item correlation
 
-(correlations between test items)
+(correlations between test items that go for the same construct)
 
 🐽 Having an issue removing NAs again (might be because one question accidentally got left blank)
 
@@ -230,18 +202,6 @@ mean(svy_items_corr)
 svy_items_corr_df <- data.frame(rbind(svy_items_corr_rm_NA))
 ```
 
-#### Make average correlations into a histogram
-
-🐽 does not work
-
-```{r}
-ggplot(svy_items_corr_df, aes(x = svy_items_corr)) +
-    geom_histogram(bins = 10, alpha = .5) +
-    geom_vline(xintercept = mean(svy_items_corr)) +
-    xlab("Mean inter-item correlation") +
-    theme_minimal()
-```
-
 ### Inter-total correlation
 
 (correlations between scores)
@@ -259,19 +219,6 @@ mean(svy_scores_corr)
 
 # Make into DF so I can put it as a histogram
 svy_scores_corr_df <- data.frame(rbind(svy_scores_corr))
-```
-
-### Make into histogram
-
-🐽 Idk if this is even important
-
-```{r}
-data.frame(svy_scores_corr %>% 
-  ggplot(aes(x = svy_scores_corr)) +
-    geom_histogram(bins = 10, alpha = .5) +
-    geom_vline(xintercept = mean(svy_scores_corr), color = "dodger blue") +
-    xlab("Mean inter-total correlation") +
-    theme_minimal()
 ```
 
 ### Cronbach's alpha
@@ -296,16 +243,26 @@ psych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this just gets the a
 
 ## Inter-rater Reliability
 
-Do rater 1 and rater 2 score each pig in a similar way
+Do rater 1 and rater 2 score each pig in a similar way?
+
+🐽 How do I calculate the correlation between these?
+
+Also how do I reorder the tick marks
 
 ```{r}
-ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Sex)) +
+ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
   geom_boxplot() +
   theme_classic() +
-  scale_fill_manual(values = c("#faff75", "#9381e3")) +
+  scale_fill_manual(values = c("powderblue", "goldenrod1")) + #change colors and add outline
   xlab("Personality Sub-Facet") +
   ylab("Score") +
   ggtitle("Variation in Personality Scores Across 20 Pigs")
+```
+
+```{r}
+relInterIntra(svy_wide, nrater=2, raterLabels=NULL, rho0inter=0.6,
+               rho0intra=0.8, conf.level=.95)
+
 ```
 
 ### Cohen's Kappa
@@ -369,21 +326,7 @@ ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
 
 # Pearson's correlation
 cor(behavior_and_scores$Get.disp, behavior_and_scores$SC12)
-# -0.1822779
-```
-
-```{r}
-# Calculate z-scores for each x and each y
-disp_dominance$z(behavior_and_scores$Get.disp) <- (behavior_and_scores$Get.disp - mean(behavior_and_scores$Get.disp)) / sd(behavior_and_scores$Get.disp)
-
-disp_dominance$z(behavior_and_scores$SC12) <- (behavior_and_scores$SC12 - mean(behavior_and_scores$SC12)) / sd(behavior_and_scores$SC12)
-
-# Calculate the cross-product:  zx * zy
-disp_dominance$z(behavior_and_scores$Get.disp)z(behavior_and_scores$SC12) <- disp_dominance$z(behavior_and_scores$Get.disp) * disp_dominance$z(behavior_and_scores$SC12)
-
-# let's look at the dataframe
-# notice the cross products:
-disp_dominance
+# -0.1822779 #umm this looks pretty weak right
 ```
 
 What if it's split by sex?
@@ -402,16 +345,17 @@ ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
 
 ```{r}
 # Correlation between pig's SC12 vs # of times they attempted to displace another pig
+ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC12)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Times Attempt Displace") +
+  ylab("Dominance Score") +
+  ggtitle("Do Pigs that Score Higher on Dominance Displace Pigs More?")
 
-# Make a graph
-```
 
-#### Getting Displaced
-
-```{r}
-# Correlation between pig's SC12 vs # of times they got displaced by another pig
-
-# Make a graph
+# Pearson's correlation
+cor(behavior_and_scores$Attempt.disp, behavior_and_scores$SC12)
+# 0.1807212 #also weak
 ```
 
 ## Active Engagement
@@ -427,6 +371,10 @@ ggplot(behavior_and_scores, aes(x=Travel, y=SC9)) +
   xlab("Times Traveling") +
   ylab("Active Engagement Score") +
   ggtitle("Do Pigs that Score High on Active Engagement Travel More?")
+
+# Pearson's correlation
+cor(behavior_and_scores$Travel, behavior_and_scores$SC9)
+#0.3479849
 ```
 
 # Additional Analyses
@@ -446,16 +394,47 @@ Make social networks for Yaupon and Beautyberry
 idk
 
 ```{r}
-# Is there a sex difference in personality scores?
-ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, group = PigName, color = PigName)) +
-  geom_boxplot(color = "navy", fill='lightsteelblue1') +
+ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Sex)) +
+  geom_boxplot() +
   theme_classic() +
+  scale_fill_manual(values = c("powderblue", "goldenrod1")) +
+  xlab("Personality Sub-Facet") +
+  ylab("Score") +
+  ggtitle("Sex Differences in Personality Scores Across 20 Pigs")
+
+```
+
+```{r}
+ggplot(svy_wide, aes(x= facet, y= facet.value, fill = Sex)) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_manual(values = c("powderblue", "goldenrod1")) +
   xlab("Personality Facet") +
   ylab("Score") +
-  ggtitle("Differences in Personality Scores Accross Pigs") +
-  facet_wrap (~ Sex) +
-  guides(col = guide_legend(nrow = 10, title = "Pig"))
+  ggtitle("Sex Differences in Personality Scores Across 20 Pigs")
 
+```
+
+```{r}
+ggplot(svy_wide, aes(x= facet, y= facet.value, fill = Background)) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_manual(values = c("seagreen1", "lightblue1")) +
+  xlab("Personality Sub-Facet") +
+  ylab("Score") +
+  ggtitle("Variation in Personality Scores Across 20 Pigs")
+```
+
+Background difference?
+
+```{r}
+ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Background)) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_manual(values = c("seagreen1", "lightblue1")) +
+  xlab("Personality Sub-Facet") +
+  ylab("Score") +
+  ggtitle("Variation in Personality Scores Across 20 Pigs")
 ```
 
 ### Sex differences in getting displaced???
@@ -463,7 +442,7 @@ ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, group = PigName, color = P
 Males maybeee get displaced less???
 
 ```{r}
-ggplot(behavior_m, aes(x=Get.disp, fill=Sex)) + 
+ggplot(behavior_m, aes(x=Get.disp, fill = Sex)) + 
    theme_classic() +
   xlab("Times Getting Displaced") +
   ylab("umm math i think") +
@@ -476,10 +455,10 @@ ggplot(behavior_m, aes(x=Get.disp, fill=Sex)) +
 ### Background differences in getting displaced
 
 ```{r}
-ggplot(behavior_m, aes(x=Get.disp, fill=Background...8)) + #fix name in DF later
+ggplot(behavior_m, aes(x=Get.disp, fill=Background)) + #fix name in DF later
   theme_classic() +
   xlab("Get Displaced") +
-  ylab("Counts") +
+  ylab("Proportion") +
   ggtitle("Do Pigs From Abuse/Neglect Backgrounds Get Displaced More?") +
   geom_density(alpha = 0.4) +
   theme_minimal() +
