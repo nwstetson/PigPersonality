@@ -39,7 +39,12 @@ obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main
 
 svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data (from 1 and 2)
 
-svy_avg <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with averages between raters)
+svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with averages between raters)
+
+D_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_D.csv", show_col_types = FALSE) # survey data from rater D
+T_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_T.csv", show_col_types = FALSE) # survey data from rater T
+Avg_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_Avg.csv", show_col_types = FALSE) # survey data from averages of raters
+
 
 meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv", show_col_types = FALSE) # meta data (pig demographics)
 ```
@@ -51,15 +56,14 @@ Put meta data into df based on pig id number
 ```{r}
 svy_m <- inner_join(meta, svy, by = "PigID")
 obs_m <- inner_join(meta, obs, by = "PigName")
-svy_avg_m <- inner_join(meta, svy_avg, by = "PigID")
+svy_avg_m <- inner_join(meta, svy_by_rater, by = "PigID")
 
 # DF with just test items
-svy_items <- svy %>% select(4:38)
-svy_avg_items <- svy_avg %>% select(5:109)
-
-# DF with just scores
-pig_scores <- svy_m %>% select(PigName, 50:61)
-pig_avg_scores <- svy_avg_m %>% select(PigName, 110:145)
+svy_items <- svy %>% select(PigID, 4:38)
+svy_items_avg <- svy_by_rater %>% select(PigID, 3:37) # all
+# DF with just sub facet scores
+pig_scores <- svy_m %>% select(PigID, 50:61)
+svy_scores_avg <- svy_by_rater %>% select(PigID, 38:49) # all
 ```
 
 ### Make wide/tidy(?) version of survey results
@@ -73,6 +77,18 @@ svy_wide <-svy_wide %>%
 
 svy_wide <-svy_wide %>% 
   pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
+```
+
+#### Deal with this later
+
+```{r}
+svy_tidy <-svy_avg_m %>%
+  pivot_longer(cols = 14:48, names_to = "items.d", values_to ="items.d.value") 
+
+svy_tidy <-svy_tidy %>%
+  pivot_longer(cols = 38:49, names_to = "sub.facet.t", values_to ='subfacet.t.value') 
+svy_tidy <-svy_tidy %>%
+  pivot_longer(cols = 50:53, names_to = "facet.t", values_to ='facet.t.value') 
 ```
 
 ### Tidy data with averages
@@ -153,9 +169,11 @@ ggplot(svy_wide, aes(x= facet, y= facet.value)) +
 ## Sub-facets
 
 ```{r}
-svy_wide$sub.facet <- factor(svy_avg_wide$sub.facet.avg, levels=rev(unique(svy_avg_wide$sub.facet.avg)))
+svy_scores_avg$sub.facet <- factor(svy_avg_wide$sub.facet.avg, levels=rev(unique(svy_avg_wide$sub.facet.avg)))
 
-ggplot(svy_wide, aes(x= sub.facet.avg, y= subfacet.value.avg)) +
+
+
+ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value)) +
   geom_boxplot(color = "navy", fill='lightsteelblue1') +
   theme_classic() +
   xlab("Personality Sub-Facet") +
