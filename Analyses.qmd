@@ -37,6 +37,8 @@ Pulled from GitHub so you don't need to change these or download the CSV files!!
 ```{r}
 obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Clean.csv", show_col_types = FALSE)  # behavior observations
 
+behavior_counts <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/behavior_counts.csv", show_col_types = FALSE) # behavior observations but tidyer
+
 svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data
 
 svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with scores split between raters)
@@ -60,6 +62,8 @@ obs_m <- inner_join(meta, obs, by = "PigName")
 svy_avg_m <- inner_join(meta, svy_by_rater, by = "PigID")
 ```
 
+### Survey data
+
 Test items only version
 
 ```{r}
@@ -80,19 +84,6 @@ svy_sf <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Av
 
 ### Make wide/tidy(?) version of survey results
 
-unorganized results version
-
-```{r}
-svy_wide <-svy_avg_m %>% 
-  pivot_longer(cols = 14:48, names_to = "item.avg", values_to = 'item.avg.value')
-
-svy_wide <- svy_m %>% 
-  pivot_longer(cols = 50:61, names_to = "sub.facet.avg", values_to ='subfacet.value') 
-
-svy_wide <-svy_wide %>% 
-  pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
-```
-
 Items
 
 ```{r}
@@ -109,34 +100,57 @@ items_tidy <-items_tidy %>%
 Facet scores
 
 ```{r}
-svy_f <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','F1.D':'F4.D','F1.T':'F4.T','F1.Avg':'F4.Avg')
+facets_tidy <-svy_f %>% 
+  pivot_longer(cols = 'Time.Known.D':'Time.Known.Avg', names_to = "Time.Known", values_to = 'Time.Known.Value')
+facets_tidy <-facets_tidy %>% 
+  pivot_longer(cols = 'F1.D':'F4.D', names_to = "facet.D", values_to = 'facet.D.value')
+facets_tidy <-facets_tidy %>% 
+  pivot_longer(cols = 'F1.T':'F4.T', names_to = "facet.T", values_to = 'facet.T.value')
+facets_tidy <-facets_tidy %>% 
+  pivot_longer(cols = 'F1.Avg':'F4.Avg', names_to = "facet.Avg", values_to = 'facet.Avg.value')
 ```
 
 Sub-facet scores
 
 ```{r}
-svy_f <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','SC1.D':'SC12.D','SC1.T':'SC12.T','SC1.Avg':'SC12.Avg') # All of them
+subfacets_tidy <-svy_sf %>% 
+  pivot_longer(cols = 'Time.Known.D':'Time.Known.Avg', names_to = "Time.Known", values_to = 'Time.Known.Value')
+subfacets_tidy <-subfacets_tidy %>% 
+  pivot_longer(cols = 'SC1.D':'SC12.D', names_to = "subfacet.D", values_to = 'subfacet.D.value')
+subfacets_tidy <-subfacets_tidy %>% 
+  pivot_longer(cols = 'SC1.T':'SC12.T', names_to = "subfacet.T", values_to = 'subfacet.T.value')
+subfacets_tidy <-subfacets_tidy %>% 
+  pivot_longer(cols = 'SC1.Avg':'SC12.Avg', names_to = "subfacet.Avg", values_to = 'subfacet.Avg.value')
+```
+
+### Behavior Observations
+
+```{r}
+# Make wide version
+behavior_counts_wide <-behavior_counts %>% 
+  pivot_longer(cols = 2:21 , names_to = "Behavior", values_to = 'Count')
+
+
+# Also make verion with meta data
+behavior_m <- inner_join(behavior_counts, meta, by = "PigName")
 ```
 
 # Preliminary Analyses
 
 ## Overview of Personality Survey Scores
 
+Item rating
+
 ```{r}
-summary(pig_scores) # Summary of personality scores
-describe(pig_scores)
+all_items <- svy_items %>% select(16:120)
+describe(all_items)
 ```
 
-```{r}
-summary(svy_items) # Summary of item scoring
-describe(svy_items)
-```
-
-Find standard deviations for each personality sub-facet (average respondent scores for each pig)
+Sub-facet scores
 
 ```{r}
-apply(svy_avg[ , c('SC1.Avg', 'SC2.Avg', 'SC3.Avg', 'SC4.Avg', 'SC5.Avg', 'SC6.Avg',
-                      'SC7.Avg', 'SC8.Avg', 'SC9.Avg', 'SC10.Avg', 'SC11.Avg', 'SC12.Avg')], 2, sd)
+all_sf <- svy_sf %>% select(16:51)
+describe(all_sf)
 ```
 
 ### As a graph
@@ -146,36 +160,25 @@ apply(svy_avg[ , c('SC1.Avg', 'SC2.Avg', 'SC3.Avg', 'SC4.Avg', 'SC5.Avg', 'SC6.A
 ## Sort by main facet
 
 ```{r}
-ggplot(svy_wide, aes(x= facet, y= facet.value)) +
+facets_tidy$facet.Avg <- factor(facets_tidy$facet.Avg, levels=rev(unique(facets_tidy$facet.Avg)))
+
+
+ggplot(facets_tidy, aes(x= facet.Avg, y= facet.Avg.value)) +
   geom_boxplot(color = "navy", fill='lightsteelblue1') +
   theme_classic() +
   xlab("Personality Facet") +
   ylab("Score") +
+  coord_flip() +
   ggtitle("Variation in Personality Scores Across 20 Pigs")
 ```
 
 ## Sub-facets
 
 ```{r}
-svy_scores_avg$sub.facet <- factor(svy_avg_wide$sub.facet.avg, levels=rev(unique(svy_avg_wide$sub.facet.avg)))
+subfacets_tidy$subfacet.Avg <- factor(subfacets_tidy$subfacet.Avg, levels=rev(unique(subfacets_tidy$subfacet.Avg)))
 
 
-
-ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value)) +
-  geom_boxplot(color = "navy", fill='lightsteelblue1') +
-  theme_classic() +
-  xlab("Personality Sub-Facet") +
-  ylab("Score") +
-  coord_flip() +
-  ggtitle("Variation in Personality Scores Across 20 Pigs")
-```
-
-Old version
-
-```{r}
-svy_avg_wide$sub.facet.Avg <- factor(svy_wide$sub.facet, levels=rev(unique(svy_wide$sub.facet)))
-
-ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value)) +
+ggplot(subfacets_tidy, aes(x= subfacet.Avg, y= subfacet.Avg.value)) +
   geom_boxplot(color = "navy", fill='lightsteelblue1') +
   theme_classic() +
   xlab("Personality Sub-Facet") +
@@ -185,34 +188,6 @@ ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value)) +
 ```
 
 ## Overview of Behaviors
-
-### As a table
-
-```{r}
-behavior_table = table(obs$PigName, obs$Behavior)
-
-behavior_counts <- data.frame(rbind(behavior_table))
-
-
-write.csv(behavior_counts, "~/Desktop/behavior_counts_Nov7.csv") 
-# Convert to Excel file to magically add row numbers idk
-# Also rename the first row to PigName
-
-```
-
-```{r}
-#Then re-upload and it works hehe
-behavior_counts <- read_csv("~/Desktop/behavior_counts_Nov7.csv")
-
-
-# Make wide version
-behavior_counts_wide <-behavior_counts %>% 
-  pivot_longer(cols = 2:21 , names_to = "Behavior", values_to = 'Count')
-
-
-# Also make verion with meta data
-behavior_m <- inner_join(behavior_counts, meta, by = "PigName")
-```
 
 ### As a graph
 
