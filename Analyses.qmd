@@ -37,14 +37,15 @@ Pulled from GitHub so you don't need to change these or download the CSV files!!
 ```{r}
 obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Clean.csv", show_col_types = FALSE)  # behavior observations
 
-svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data (from 1 and 2)
+svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data
 
-svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with averages between raters)
+svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with scores split between raters)
 
 D_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_D.csv", show_col_types = FALSE) # survey data from rater D
-T_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_T.csv", show_col_types = FALSE) # survey data from rater T
-Avg_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_Avg.csv", show_col_types = FALSE) # survey data from averages of raters
 
+T_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_T.csv", show_col_types = FALSE) # survey data from rater T
+
+Avg_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_Avg.csv", show_col_types = FALSE) # survey data from averages of raters
 
 meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv", show_col_types = FALSE) # meta data (pig demographics)
 ```
@@ -57,77 +58,64 @@ Put meta data into df based on pig id number
 svy_m <- inner_join(meta, svy, by = "PigID")
 obs_m <- inner_join(meta, obs, by = "PigName")
 svy_avg_m <- inner_join(meta, svy_by_rater, by = "PigID")
+```
 
-# DF with just test items
-svy_items <- svy %>% select(PigID, 4:38)
-svy_items_avg <- svy_by_rater %>% select(PigID, 3:37) # all
-# DF with just sub facet scores
-pig_scores <- svy_m %>% select(PigID, 50:61)
-svy_scores_avg <- svy_by_rater %>% select(PigID, 38:49) # all
+Test items only version
+
+```{r}
+svy_items <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','D1.D':'D35.D','D1.T':'D35.T','D1.Avg':'D35.Avg')
+```
+
+Facet scores only version
+
+```{r}
+svy_f <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','F1.D':'F4.D','F1.T':'F4.T','F1.Avg':'F4.Avg')
+```
+
+Sub-facet scores only version
+
+```{r}
+svy_sf <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','SC1.D':'SC12.D','SC1.T':'SC12.T','SC1.Avg':'SC12.Avg') # All of them
 ```
 
 ### Make wide/tidy(?) version of survey results
 
-```{r}
-svy_wide <- svy_m %>% 
-  pivot_longer(cols = 50:61, names_to = "sub.facet", values_to ='subfacet.value') 
+unorganized results version
 
-svy_wide <-svy_wide %>% 
-  pivot_longer(cols = 15:49, names_to = "item", values_to = 'item.value')
+```{r}
+svy_wide <-svy_avg_m %>% 
+  pivot_longer(cols = 14:48, names_to = "item.avg", values_to = 'item.avg.value')
+
+svy_wide <- svy_m %>% 
+  pivot_longer(cols = 50:61, names_to = "sub.facet.avg", values_to ='subfacet.value') 
 
 svy_wide <-svy_wide %>% 
   pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
 ```
 
-#### Deal with this later
+Items
 
 ```{r}
-svy_tidy <-svy_avg_m %>%
-  pivot_longer(cols = 14:48, names_to = "items.d", values_to ="items.d.value") 
-
-svy_tidy <-svy_tidy %>%
-  pivot_longer(cols = 38:49, names_to = "sub.facet.t", values_to ='subfacet.t.value') 
-svy_tidy <-svy_tidy %>%
-  pivot_longer(cols = 50:53, names_to = "facet.t", values_to ='facet.t.value') 
+items_tidy <-svy_items %>% 
+  pivot_longer(cols = 'Time.Known.D':'Time.Known.Avg', names_to = "Time.Known", values_to = 'Time.Known.Value')
+items_tidy <-items_tidy %>% 
+  pivot_longer(cols = 'D1.D':'D35.D', names_to = "item.D", values_to = 'item.D.value')
+items_tidy <-items_tidy %>% 
+  pivot_longer(cols = 'D1.T':'D35.T', names_to = "item.T", values_to = 'item.T.value')
+items_tidy <-items_tidy %>% 
+  pivot_longer(cols = 'D1.Avg':'D35.Avg', names_to = "item.Avg", values_to = 'item.Avg.value')
 ```
 
-### Tidy data with averages
-
-(don't run yet)
-
-## 🐽
+Facet scores
 
 ```{r}
-svy_avg_scores <- svy_avg_m %>% 
-  pivot_longer(cols = 16:120, names_to = "item", values_to ='item.value') 
-# how to tell it to skip count and do every 3 (16, 19, 22, ...) to have sub.facet.D,T, and .Avg
-
-svy_avg_wide <- svy_avg_wide %>% 
-  pivot_longer(cols = 16:51, names_to = "sub.facet", values_to ='subfacet.value') 
-
-svy_avg_wide <- svy_avg_wide %>% 
-  pivot_longer(cols = 16:27, names_to = "facet", values_to ='facet.value') 
-
-
+svy_f <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','F1.D':'F4.D','F1.T':'F4.T','F1.Avg':'F4.Avg')
 ```
 
+Sub-facet scores
+
 ```{r}
-svy_avg_wide <- svy_avg_m %>% 
-  pivot_longer(cols = 5,8,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,104,107, names_to = "sub.facet.D", values_to ='subfacet.value.D') 
-
-svy_avg_wide <- svy_avg_wide %>% 
-  pivot_longer(cols = 6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96,99,102,105,108, names_to = "sub.facet.T", values_to ='subfacet.value.T') 
-
-
-svy_avg_wide <- svy_avg_wide %>% 
-  pivot_longer(cols = 7,10,13,16,19,22,25,28,31,34,37,40,43,46,49,52,55,58,61,64,67,70,73,76,79,82,85,88,91,94,97,100,103,106,109, names_to = "sub.facet.Avg", values_to ='subfacet.value.Avg') 
-
-
-svy_avg_wide <-svy_avg_wide %>% 
-  pivot_longer(cols = 15:49, names_to = "item", values_to = 'item.value') # x3 for Tracey
-
-svy_avg_wide <-svy_avg_wide %>% 
-  pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value') # x3 for Averages
+svy_f <- svy_avg_m %>% select(1:12,'Time.Known.D','Time.Known.T','Time.Known.Avg','SC1.D':'SC12.D','SC1.T':'SC12.T','SC1.Avg':'SC12.Avg') # All of them
 ```
 
 # Preliminary Analyses
