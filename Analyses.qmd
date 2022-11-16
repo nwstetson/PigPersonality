@@ -398,6 +398,18 @@ irr_sc12 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality
 kappa2(irr_sc12[,c(1,2)], "equal")
 ```
 
+### Graph comparing Kappa scores between sub-facets
+
+```{r}
+irr_results <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_results.csv", show_col_types = FALSE)
+
+head(irr_results)
+
+ggplot(irr_results, aes(x = Sub.facet, y = Kappa) ) + 
+  geom_col()
+
+```
+
 # Primary Analyses
 
 Do personality scores correlate with observable behaviors?
@@ -582,5 +594,4 @@ ggplot(behavior_m, aes(x=Get.disp, fill=Background)) + #fix name in DF later
 Factor analysis
 
 ```{r}
-
 ```
