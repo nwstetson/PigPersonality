@@ -320,6 +320,8 @@ kappa2(irr_sc4[,c(1,2)], "equal")
 
 #### SC5 (General Aggression)
 
+Kappa = 0.202
+
 ```{r}
 irr_sc5 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc5.csv", show_col_types = FALSE)
 
@@ -327,6 +329,8 @@ kappa2(irr_sc5[,c(1,2)], "equal")
 ```
 
 #### SC6 (Situational Aggression)
+
+Kappa = -0.0165
 
 ```{r}
 irr_sc6 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc6.csv", show_col_types = FALSE)
@@ -336,6 +340,8 @@ kappa2(irr_sc6[,c(1,2)], "equal")
 
 #### SC7 (Excitability)
 
+Kappa = -0.132
+
 ```{r}
 irr_sc7 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc7.csv", show_col_types = FALSE)
 
@@ -343,6 +349,8 @@ kappa2(irr_sc7[,c(1,2)], "equal")
 ```
 
 #### SC8 (Playfulness)
+
+Kappa = 0.0446
 
 ```{r}
 irr_sc8 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc8.csv", show_col_types = FALSE)
@@ -352,6 +360,8 @@ kappa2(irr_sc8[,c(1,2)], "equal")
 
 #### SC9 (Active Engagement)
 
+Kappa = 0.199
+
 ```{r}
 irr_sc9 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc9.csv", show_col_types = FALSE)
 
@@ -359,6 +369,8 @@ kappa2(irr_sc9[,c(1,2)], "equal")
 ```
 
 #### SC10 (Companionability)
+
+Kappa = 0.13
 
 ```{r}
 irr_sc10 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc10.csv", show_col_types = FALSE)
@@ -368,6 +380,8 @@ kappa2(irr_sc10[,c(1,2)], "equal")
 
 #### SC11 (Aggression Towards Pigs)
 
+Kappa = 0.101
+
 ```{r}
 irr_sc11 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc11.csv", show_col_types = FALSE)
 
@@ -376,9 +390,9 @@ kappa2(irr_sc11[,c(1,2)], "equal")
 
 #### SC12 (Dominance Over Other Pigs)
 
-```{r}
-irr_sc12 <- svy %>% select('Rater', 'PigID', 'SC12')
+Kappa = 0.269
 
+```{r}
 irr_sc12 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc12.csv", show_col_types = FALSE)
 
 kappa2(irr_sc12[,c(1,2)], "equal")
