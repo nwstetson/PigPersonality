@@ -265,7 +265,23 @@ ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
 
 I generated all these data frames by hand because I am stupid and dumb and a silly little goose
 
+#### How to interpret (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/)
+
+0 - 0.2: No agreement
+
+.21-.39: Minimal
+
+.40-.59: Weak
+
+.60-.79: Moderate
+
+.80-.90: Strong
+
+Above .90: Almost perfect
+
 #### SC1 (Fear of Humans)
+
+Kappa = 0.27
 
 ```{r}
 irr_sc1 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc1.csv", show_col_types = FALSE)
@@ -275,6 +291,8 @@ kappa2(irr_sc1[,c(1,2)], "equal")
 
 #### SC2 (Nonsocial Fear)
 
+Kappa = 0.167
+
 ```{r}
 irr_sc2 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc2.csv", show_col_types = FALSE)
 
@@ -283,30 +301,87 @@ kappa2(irr_sc2[,c(1,2)], "equal")
 
 #### SC3 (Fear of Pigs)
 
+Kappa = 0.0832
+
 ```{r}
 irr_sc3 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc3.csv", show_col_types = FALSE)
-
+ 
 kappa2(irr_sc3[,c(1,2)], "equal")
 ```
 
 #### SC4 (Fear of Handling)
 
+Kappa = 0.27
+
 ```{r}
-irr_sc4 <- svy %>% select('Rater', 'PigID', 'SC4')
-
 irr_sc4 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc4.csv", show_col_types = FALSE)
-
 kappa2(irr_sc4[,c(1,2)], "equal")
 ```
 
 #### SC5 (General Aggression)
 
 ```{r}
-irr_sc5 <- svy %>% select('Rater', 'PigID', 'SC5')
-
 irr_sc5 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc5.csv", show_col_types = FALSE)
 
 kappa2(irr_sc5[,c(1,2)], "equal")
+```
+
+#### SC6 (Situational Aggression)
+
+```{r}
+irr_sc6 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc6.csv", show_col_types = FALSE)
+
+kappa2(irr_sc6[,c(1,2)], "equal")
+```
+
+#### SC7 (Excitability)
+
+```{r}
+irr_sc7 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc7.csv", show_col_types = FALSE)
+
+kappa2(irr_sc7[,c(1,2)], "equal")
+```
+
+#### SC8 (Playfulness)
+
+```{r}
+irr_sc8 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc8.csv", show_col_types = FALSE)
+
+kappa2(irr_sc8[,c(1,2)], "equal")
+```
+
+#### SC9 (Active Engagement)
+
+```{r}
+irr_sc9 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc9.csv", show_col_types = FALSE)
+
+kappa2(irr_sc9[,c(1,2)], "equal")
+```
+
+#### SC10 (Companionability)
+
+```{r}
+irr_sc10 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc10.csv", show_col_types = FALSE)
+
+kappa2(irr_sc10[,c(1,2)], "equal")
+```
+
+#### SC11 (Aggression Towards Pigs)
+
+```{r}
+irr_sc11 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc11.csv", show_col_types = FALSE)
+
+kappa2(irr_sc11[,c(1,2)], "equal")
+```
+
+#### SC12 (Dominance Over Other Pigs)
+
+```{r}
+irr_sc12 <- svy %>% select('Rater', 'PigID', 'SC12')
+
+irr_sc12 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc12.csv", show_col_types = FALSE)
+
+kappa2(irr_sc12[,c(1,2)], "equal")
 ```
 
 # Primary Analyses
