@@ -35,19 +35,19 @@ library(irr)
 Pulled from GitHub so you don't need to change these or download the CSV files!!
 
 ```{r}
-obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Obs_Clean.csv", show_col_types = FALSE)  # behavior observations
+obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/behavior_data/Obs_Clean.csv", show_col_types = FALSE)  # behavior observations
 
-behavior_counts <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/behavior_counts.csv", show_col_types = FALSE) # behavior observations but tidyer
+behavior_counts <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/behavior_data/behavior_counts.csv", show_col_types = FALSE) # behavior observations but tidyer
 
-svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data
+svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data
 
-svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with scores split between raters)
+svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with scores split between raters)
 
-D_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_D.csv", show_col_types = FALSE) # survey data from rater D
+D_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/svy_D.csv", show_col_types = FALSE) # survey data from rater D
 
-T_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_T.csv", show_col_types = FALSE) # survey data from rater T
+T_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/svy_T.csv", show_col_types = FALSE) # survey data from rater T
 
-Avg_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/svy_Avg.csv", show_col_types = FALSE) # survey data from averages of raters
+Avg_svy <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/svy_Avg.csv", show_col_types = FALSE) # survey data from averages of raters
 
 meta <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/PigSample.csv", show_col_types = FALSE) # meta data (pig demographics)
 ```
@@ -260,15 +260,22 @@ ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
 
 ### Cohen's Kappa
 
-🐽 How do I set up the date frame/run this? I definitely don't think I'm doing this part right
+I generated all these data frames by hand because I am stupid and dumb and a silly little goose
+
+#### SC1 (Fear of Humans)
 
 ```{r}
-# SC1
-irr_sc1 <- svy %>% select('Rater', 'SC1', 'PigID')
-
-irr_sc1 <- irr_sc1 %>% remove_rownames %>% column_to_rownames(var="Rater")
+irr_sc1 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc1.csv", show_col_types = FALSE) #SC1
 
 kappa2(irr_sc1[,c(1,2)], "unweighted")
+```
+
+#### SC2 (Nonsocial Fear)
+
+```{r}
+irr_sc2 <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_dfs/irr_sc2.csv", show_col_types = FALSE) #SC1
+
+kappa2(irr_sc2[,c(1,2)], "unweighted")
 
 ```
 
