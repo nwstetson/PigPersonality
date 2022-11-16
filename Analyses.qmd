@@ -191,8 +191,6 @@ ggplot(subfacets_tidy, aes(x= subfacet.Avg, y= subfacet.Avg.value)) +
 
 ### As a graph
 
-🐽 Need to organize behaviors into sub-categories so this is easier to visualize
-
 ```{r}
 ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
   geom_boxplot(color = "navy", fill='lightsteelblue1') +
@@ -206,70 +204,28 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
 
 ### Inter-item correlation
 
-Fix CSV to get average scores
+(correlations between each pig's average raw item scores)
 
 ```{r}
-write.csv(svy, "~/Desktop/svy_new.csv") 
-```
-
-(correlations between test items that go for the same construct)
-
-🐽 Having an issue removing NAs again (might be because one question accidentally got left blank)
-
-```{r}
-# Make DF with just test items
-svy_items <- svy %>% select(4:38)
-
-# See how they correlate
-svy_items_corr <- svy_items %>% correlate() %>% select(-term)
-
-# Remove NAs (something goes very wrong here!!)
-svy_items_corr_rm_NA <- colMeans(svy_items_corr, na.rm = TRUE)
-
-# Get average correlation between all the items
-mean(svy_items_corr)
-
-# Make into dataframe (maybe?)
-svy_items_corr_df <- data.frame(rbind(svy_items_corr_rm_NA))
-```
-
-### Inter-total correlation
-
-(correlations between scores)
-
-🐽 same issue as with items
-
-```{r}
-# Make df with just scores
-svy_scores <- svy %>% select(39:50)
-
-svy_scores_corr <- svy_scores %>% correlate() %>% select(-term)
-svy_scores_corr <- colMeans(svy_scores_corr, na.rm = TRUE)
-
-mean(svy_scores_corr)
-
-# Make into DF so I can put it as a histogram
-svy_scores_corr_df <- data.frame(rbind(svy_scores_corr))
+avg_items <- Avg_svy %>% select(3:37)
+inter_item <- avg_items %>% correlate() %>% select(-term)
+# do I need this? inter_item <- colMeans(inter_item, na.rm = TRUE)
 ```
 
 ### Cronbach's alpha
 
-`check.keys = TRUE` accounts for reverse-scored items just FYI
-
 ```{r}
-psych::alpha(svy_items, check.keys = TRUE)
-
-psych::alpha(svy_items, check.keys = TRUE)$total$std.alpha #this just gets the alpha value itself
-# 0.9131006
+psych::alpha(avg_items)
 ```
 
-🐽 Should I also do composite reliability?
+### Inter-total correlation
+
+(correlations between calculated personality sub-facet scores)
 
 ```{r}
-# https://www.r-bloggers.com/2016/08/five-ways-to-calculate-internal-consistency
-
-# scroll down to "Composite Reliability" for instructions
-
+avg_sf <- Avg_svy %>% select(38:49)
+inter_total_sf <- avg_items %>% correlate() %>% select(-term)
+# do I need this? inter_item <- colMeans(inter_item, na.rm = TRUE)
 ```
 
 ## Inter-rater Reliability
@@ -278,9 +234,21 @@ Do rater 1 and rater 2 score each pig in a similar way?
 
 🐽 How do I calculate the correlation between these?
 
-Also how do I reorder the tick marks
+I deleted the old code that made svy_wide smh
 
 ```{r}
+svy_wide <-svy_m %>% 
+  pivot_longer(cols = 14:48, names_to = "item", values_to = 'item.value')
+svy_wide <- svy_wide %>% 
+  pivot_longer(cols = 14:26, names_to = "sub.facet", values_to ='subfacet.value')
+
+  pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
+```
+
+```{r}
+
+subfacets_tidy$subfacet.Avg <- factor(subfacets_tidy$subfacet.Avg, levels=rev(unique(subfacets_tidy$subfacet.Avg))) #adjust this to reorder tick marks
+
 ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
   geom_boxplot() +
   theme_classic() +
