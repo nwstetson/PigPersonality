@@ -234,20 +234,20 @@ Do rater 1 and rater 2 score each pig in a similar way?
 
 🐽 How do I calculate the correlation between these?
 
-I deleted the old code that made svy_wide smh
+Make a new df because my brain is so smooth I literally cannot figure out how else to do it what if i killed myself right now
 
 ```{r}
 svy_wide <-svy_m %>% 
-  pivot_longer(cols = 14:48, names_to = "item", values_to = 'item.value')
+  pivot_longer(cols = 18:52, names_to = "item", values_to = 'item.value')
 svy_wide <- svy_wide %>% 
-  pivot_longer(cols = 14:26, names_to = "sub.facet", values_to ='subfacet.value')
-
-  pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
+  pivot_longer(cols = 18:29, names_to = "sub.facet", values_to ='subfacet.value')
+svy_wide <- svy_wide %>% 
+  pivot_longer(cols = 18:21, names_to = "facet", values_to = 'facet.value')
 ```
 
 ```{r}
-
-subfacets_tidy$subfacet.Avg <- factor(subfacets_tidy$subfacet.Avg, levels=rev(unique(subfacets_tidy$subfacet.Avg))) #adjust this to reorder tick marks
+svy_wide$sub.facet <- factor(svy_wide$sub.facet, levels=rev(unique(svy_wide$sub.facet)))
+#this reorders the tick marks so it's not out of order
 
 ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
   geom_boxplot() +
@@ -258,34 +258,17 @@ ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
   ggtitle("Variation in Personality Scores Across 20 Pigs")
 ```
 
-```{r}
-relInterIntra(svy_wide, nrater=2, raterLabels=NULL, rho0inter=0.6,
-               rho0intra=0.8, conf.level=.95)
-
-```
-
 ### Cohen's Kappa
 
 🐽 How do I set up the date frame/run this? I definitely don't think I'm doing this part right
 
 ```{r}
+# SC1
+irr_sc1 <- svy %>% select('Rater', 'SC1', 'PigID')
 
-# Attempt 1
-# Generate df containing survey scores and rater
-svy_scores_raters <- svy %>% select(11,49:61)
-#  idk if I need to include PigID but that's column 12
-kappa2(svy_scores_raters[, c("1", "2")], weight = "unweighted")
-# doesn't work because of how the DF is set up
-# do I need to set up the DF differently, or should I run a different test?
-# or run this one but in  different way?
-# Does not work
+irr_sc1 <- irr_sc1 %>% remove_rownames %>% column_to_rownames(var="Rater")
 
-#Attempt 2 (doing it by score)
-sc1_raters <- svy %>% 
-  pivot_longer(cols = 'Rater', 'SC1', names_to = 'Score')
-sc1_raters <- svy %>% select('Rater', 'SC1')
-cohen.kappa(x=cbind(1, 2))
-# Runs, but puts 0 for everything so must not be right either
+kappa2(irr_sc1[,c(1,2)], "unweighted")
 
 ```
 
