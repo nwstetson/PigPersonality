@@ -210,7 +210,8 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
 
 ```{r}
 item_matrix_table <- cor(svy_by_rater[,c(3:37)]) #3:37 is the test items
-corrplot(item_matrix_table, method="number")
+corrplot(item_matrix_table, addCoef.col = 1,
+         number.cex = 0.3, tl.cex = 0.5)
 ```
 
 ```{r}
@@ -292,7 +293,9 @@ psych::alpha(avg_f4)
 
 ```{r}
 svy_matrix_table <- cor(svy_by_rater[,c(38:49)]) #38:39 is the sub-facets
-corrplot(svy_matrix_table, method="number")
+
+corrplot(svy_matrix_table, addCoef.col = 1,
+         number.cex = 0.6, tl.cex = 0.7)
 ```
 
 ```{r}
@@ -568,8 +571,6 @@ cor.test(beh_sco_males$Get.disp, beh_sco_males$SC12.Avg)
 #-0.2460026 
 cor.test(beh_sco_females$Get.disp, beh_sco_females$SC12.Avg)
 # -0.1950034
-cor.test(beh_sco_females$SC12.Avg, beh_sco_males$SC12.Avg)
-# -0.5628518
 ```
 
 #### Attempts at Displacement
@@ -582,7 +583,6 @@ ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC12)) +
   xlab("Times Attempt Displace") +
   ylab("Dominance Score") +
   ggtitle("Do Pigs that Score Higher on Dominance Displace Pigs More?")
-
 
 # Pearson's correlation
 cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC12)
@@ -606,6 +606,82 @@ ggplot(behavior_and_scores, aes(x=Travel, y=SC9)) +
 # Pearson's correlation
 cor.test(behavior_and_scores$Travel, behavior_and_scores$SC9)
 #0.3479849
+```
+
+## Resting in proximity vs companionability
+
+```{r}
+cor.test(behavior_and_scores$Rest.proxim, behavior_and_scores$SC1.Avg)
+#SC1 = -0.2909014 (Fear of Humans)
+#SC5 = 0.2015292 (General Aggression)
+```
+
+```{r}
+ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC8.Avg)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Times Attempt Displace") +
+  ylab("Playfulness Score") +
+  ggtitle("Pigs that Displace Pigs More Score Lower in Playfulness")
+
+
+# Displacing other pigs is negatively correlated with playfulness
+
+# Pearson's correlation
+cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC8.Avg)
+# cor = -0.4235986
+
+# Getting displaced by other pigs is positively correlated with Companionability (.462)
+```
+
+```{r}
+# Pearson's correlation
+cor.test(behavior_and_scores$SC10.Avg, behavior_and_scores$Get.disp)
+# 0.461596
+
+ggplot(behavior_and_scores, aes(x=SC10.Avg, y=Get.disp)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Times Pig Gets Displaced") +
+  ylab("Companionability Score") +
+  ggtitle("Pigs that Score Higher in Companionability Get Displaced More")
+```
+
+## Top correlations overview
+
+🐵 git push meta data and fix df **(numbers might need to changed)**
+
+```{r}
+# not ready cor.test(behavior_and_scores$sex_num, behavior_and_scores$time)
+```
+
+```{r}
+svy_behav_matrix_table <- cor(behavior_and_scores[,c(2:21, 33:84)]) #takes out demographics
+
+describe(svy_behav_matrix_table)
+corrplot(svy_behav_matrix_table, addCoef.col = 1,
+         number.cex = 0.6, tl.cex = 0.7)
+
+corrplot(svy_behav_matrix_table, addCoef.col = 1,
+         number.cex = 0.4, tl.cex = 0.5, order="hclust", type="upper")
+```
+
+```{r}
+behavior_and_scores
+```
+
+```{r}
+library(lares)
+svy_behav <- behavior_and_scores %>% select(2:21, 33:84)
+
+library(lares) 
+corr_cross(svy_behav, # dataset
+           max_pvalue = 0.05, # show only sig. correlations at selected level
+           top = 25)# display top 10 correlations, any couples of variables  )
+           
+corr_var(svy_behav, # dataset
+         Get.disp, # name of variable to focus on
+         top = 10) # display top 10 correlations
 ```
 
 # Additional Analyses
@@ -679,6 +755,16 @@ ggplot(behavior_m, aes(x=Get.disp, fill = Sex)) +
   ylab("umm math i think") +
   ggtitle("Do Male Pigs Get Displaced Less Than Female Pigs?") +
   geom_density(alpha = 0.4) +
+  theme_minimal() +
+  scale_fill_manual(values = c("goldenrod1", "darkorchid4"))
+
+
+ggplot(behavior_m, aes(x=Get.disp, fill = Sex)) + 
+   theme_classic() +
+  xlab("Times Getting Displaced") +
+  ylab("umm math i think") +
+  ggtitle("Do Male Pigs Get Displaced Less Than Female Pigs?") +
+  geom_hist() +
   theme_minimal() +
   scale_fill_manual(values = c("goldenrod1", "darkorchid4"))
 ```

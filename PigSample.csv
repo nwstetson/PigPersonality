@@ -1,21 +1,21 @@
-PigName,PigID,Group,GroupSize,Sex,Time.Arrived/Born.at.CTPR,Age.Months.Arrive.CTPR,Background,BackgroundNotes,BioFam,ArrivedWith,PigNotes
-Atlas,1,Y,46,M,16-Oct,Unknown,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
-Bates,2,Y,46,M,,n/a,Other,Born at CTPR,Jellybeans,,Bates's mother Cora was pregnant with him when she arrived
-Bianca,3,Y,46,F,16-Oct,Unknown,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
-Dahlia,4,B,9,F,,,Other,Farm (see notes),Molly/Dahlia,,Was being raised for food but brought to sanctuary due to being sick after giving birth to Molly
-Dora,5,Y,46,F,16-Oct,Unknown,A/N,Cruelty Seizure (Bastrop),Georgie/Dora,Bastrop Pigs,
-Eleanor,6,Y,46,F,,,Other,Owner Surrender,,,Eleanor was bought off of Craigslist and raised as a pet before arriving to sanctuary
-George,7,B,9,M,16-Jul,Unknown,A/N,Cruelty Seizure (Westport?),,GKW,
-Georgie,8,Y,46,F,16-Oct,Unknown,A/N,Cruelty Seizure (Bastrop),Georgie/Dora,Bastrop Pigs,
-Hank,9,B,9,M,,12,A/N,Neglect,,,
-Horatio,10,Y,46,M,,n/a,Other,Born at CTPR,Shakespeares,,Horatio's mother Juliet was pregnant with him when she arrived
-Imogen,11,Y,46,F,,n/a,Other,Born at CTPR,Shakespeares,,Imogen's mother Juliet was pregnant with her when she arrived
-Kitty,12,B,9,F,16-Jul,Unknown,A/N,Cruelty Seizure (Westport?),,GKW,
-Loretta,13,B,9,F,,,A/N,Neglect,,,
-Molly,14,B,9,F,,n/a,Other,Born at CTPR,Molly/Dahlia,,Molly's mother Dahlia was pregnant with her when she arrived
-Pixie,15,B,9,F,22-Feb,9,Other,Owner Surrender (see notes),,,Raised for FFA program but brought to the sanctuary because the family didn’t want her to be killed for meat.
-Raymond,16,B,9,M,,,Other,Owner Surrender (see notes),,,Lived at a previous sanctuary but transferred to CTPR for being too high energy
-Rebel,17,Y,46,M,,Unknown,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
-Thomas,18,Y,46,M,,n/a,Other,Born at CTPR,Jellybeans,Jellybeans,Thomas's mother Cora was pregnant with him when she arrived
-Wilbur,19,Y,46,M,2016,,Other,Owner Surrender,,,Was raised as a pet
-Willie,20,B,9,M,16-Jul,Unknown,A/N,Cruelty Seizure (Westport?),,GKW,
+PigName,PigID,Group,Group_num,GroupSize,Sex_num,Sex,Time.Arrived/Born.at.CTPR,Age.Months.Arrive.CTPR,Background_num,Background,BackgroundNotes,BioFam,ArrivedWith,PigNotes
+Atlas,1,Y,1,46,1,M,16-Oct,Unknown,1,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
+Bates,2,Y,1,46,1,M,,n/a,2,Other,Born at CTPR,Jellybeans,,Bates's mother Cora was pregnant with him when she arrived
+Bianca,3,Y,1,46,2,F,16-Oct,Unknown,1,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
+Dahlia,4,B,2,9,2,F,,,2,Other,Farm (see notes),Molly/Dahlia,,Was being raised for food but brought to sanctuary due to being sick after giving birth to Molly
+Dora,5,Y,1,46,2,F,16-Oct,Unknown,1,A/N,Cruelty Seizure (Bastrop),Georgie/Dora,Bastrop Pigs,
+Eleanor,6,Y,1,46,2,F,,,2,Other,Owner Surrender,,,Eleanor was bought off of Craigslist and raised as a pet before arriving to sanctuary
+George,7,B,2,9,1,M,16-Jul,Unknown,1,A/N,Cruelty Seizure (Westport?),,GKW,
+Georgie,8,Y,1,46,2,F,16-Oct,Unknown,1,A/N,Cruelty Seizure (Bastrop),Georgie/Dora,Bastrop Pigs,
+Hank,9,B,2,9,1,M,,12,1,A/N,Neglect,,,
+Horatio,10,Y,1,46,1,M,,n/a,2,Other,Born at CTPR,Shakespeares,,Horatio's mother Juliet was pregnant with him when she arrived
+Imogen,11,Y,1,46,2,F,,n/a,2,Other,Born at CTPR,Shakespeares,,Imogen's mother Juliet was pregnant with her when she arrived
+Kitty,12,B,2,9,2,F,16-Jul,Unknown,1,A/N,Cruelty Seizure (Westport?),,GKW,
+Loretta,13,B,2,9,2,F,,,1,A/N,Neglect,,,
+Molly,14,B,2,9,2,F,,n/a,2,Other,Born at CTPR,Molly/Dahlia,,Molly's mother Dahlia was pregnant with her when she arrived
+Pixie,15,B,2,9,2,F,22-Feb,9,2,Other,Owner Surrender (see notes),,,Raised for FFA program but brought to the sanctuary because the family didn’t want her to be killed for meat.
+Raymond,16,B,2,9,1,M,,,2,Other,Owner Surrender (see notes),,,Lived at a previous sanctuary but transferred to CTPR for being too high energy
+Rebel,17,Y,1,46,1,M,,Unknown,1,A/N,Cruelty Seizure (Bastrop),,Bastrop Pigs,
+Thomas,18,Y,1,46,1,M,,n/a,2,Other,Born at CTPR,Jellybeans,Jellybeans,Thomas's mother Cora was pregnant with him when she arrived
+Wilbur,19,Y,1,46,1,M,2016,,2,Other,Owner Surrender,,,Was raised as a pet
+Willie,20,B,2,9,1,M,16-Jul,Unknown,1,A/N,Cruelty Seizure (Westport?),,GKW,
