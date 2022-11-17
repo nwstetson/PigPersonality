@@ -206,17 +206,84 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
 
 (correlations between each pig's average raw item scores)
 
+### Overall
+
+```{r}
+item_matrix_table <- cor(svy_by_rater[,c(3:37)]) #3:37 is the test items
+corrplot(item_matrix_table, method="number")
+```
+
 ```{r}
 avg_items <- Avg_svy %>% select(3:37)
 inter_item <- avg_items %>% correlate() %>% select(-term)
-inter_item
-# do I need this? inter_item <- colMeans(inter_item, na.rm = TRUE)
+
+inter <- colMeans(inter_item, na.rm = TRUE)
+
+mean(inter)
+# 0.00679244
+
 ```
 
-### Cronbach's alpha
+### By facet
+
+Fearfulness
 
 ```{r}
-psych::alpha(avg_items)
+avg_f1 <- Avg_svy %>% select(D1.Avg, D5.Avg, D23.Avg, D3.Avg, D8.Avg, D19.Avg, D10.Avg, D18.Avg, D33.Avg, D13.Avg, D28.Avg, D34.Avg)
+inter_f1 <- avg_f1 %>% correlate() %>% select(-term)
+
+inter_f1 <- colMeans(inter_f1, na.rm = TRUE)
+
+mean(inter_f1)
+# 0.08263553 (low)
+
+psych::alpha(avg_f1)
+# 0.47 (unacceptable)
+```
+
+Aggression Towards Humans
+
+```{r}
+avg_f2 <- Avg_svy %>% select(D6.Avg, D15.Avg, D31.Avg, D21.Avg, D25.Avg, D29.Avg)
+inter_f2 <- avg_f2 %>% correlate() %>% select(-term)
+
+inter_f2 <- colMeans(inter_f2, na.rm = TRUE)
+
+mean(inter_f2)
+# 0.3979195 (low)
+
+psych::alpha(avg_f2)
+# alpha: 0.75 (questionable)
+```
+
+Activity/Excitability
+
+```{r}
+avg_f3 <- Avg_svy %>% select(D12.Avg, D26.Avg, D32.Avg, D7.Avg, D14.Avg, D4.Avg, D11.Avg, D20.Avg, D17.Avg, D22.Avg, D30.Avg)
+inter_f3 <- avg_f3 %>% correlate() %>% select(-term)
+
+inter_f3 <- colMeans(inter_f3, na.rm = TRUE)
+
+mean(inter_f3)
+# 0.06783288 (low)
+
+psych::alpha(avg_f3)
+# 0.55 (poor)
+```
+
+Aggression/Dominance towards Pigs
+
+```{r}
+avg_f4 <- Avg_svy %>% select(D2.Avg, D16.Avg, D27.Avg, D9.Avg, D24.Avg, D35.Avg)
+inter_f4 <- avg_f4 %>% correlate() %>% select(-term)
+
+inter_f4 <- colMeans(inter_f4, na.rm = TRUE)
+
+mean(inter_f4)
+#0.1235088 (low)
+
+psych::alpha(avg_f4)
+# 0.56 (poor)
 ```
 
 ### Inter-total correlation
@@ -224,10 +291,14 @@ psych::alpha(avg_items)
 (correlations between calculated personality sub-facet scores)
 
 ```{r}
+svy_matrix_table <- cor(svy_by_rater[,c(38:49)]) #38:39 is the sub-facets
+corrplot(svy_matrix_table, method="number")
+```
+
+```{r}
 avg_sf <- Avg_svy %>% select(38:49)
-inter_total_sf <- avg_items %>% correlate() %>% select(-term)
-# do I need this? inter_item <- colMeans(inter_item, na.rm = TRUE)
-inter_total_sf
+inter_total_sf <- avg_sf %>% correlate() %>% select(-term)
+inter_total_sf_no_na <- colMeans(inter_total_sf, na.rm = TRUE)
 ```
 
 ## Inter-rater Reliability
@@ -240,11 +311,11 @@ Make a new df because my brain is so smooth I literally cannot figure out how el
 
 ```{r}
 svy_wide <-svy_m %>% 
-  pivot_longer(cols = 18:52, names_to = "item", values_to = 'item.value')
+  pivot_longer(cols = 15:49, names_to = "item", values_to = 'item.value')
 svy_wide <- svy_wide %>% 
-  pivot_longer(cols = 18:29, names_to = "sub.facet", values_to ='subfacet.value')
+  pivot_longer(cols = 15:26, names_to = "sub.facet", values_to ='subfacet.value')
 svy_wide <- svy_wide %>% 
-  pivot_longer(cols = 18:21, names_to = "facet", values_to = 'facet.value')
+  pivot_longer(cols = 15:18, names_to = "facet", values_to = 'facet.value')
 ```
 
 ```{r}
@@ -265,19 +336,19 @@ ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Rater)) +
 
 I generated all these data frames by hand because I am stupid and dumb and a silly little goose
 
-#### How to interpret (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/)
+#### How to interpret:
 
-0 - 0.2: No agreement
+0 or less: No agreement
 
-.21-.39: Minimal
+0.01-0.20: None to slight
 
-.40-.59: Weak
+0.21-0.40: Fair
 
-.60-.79: Moderate
+0.41-0.60: Moderate
 
-.80-.90: Strong
+0.61-0.80: Substantial
 
-Above .90: Almost perfect
+0.81-1.00: Almost perfect
 
 #### SC1 (Fear of Humans)
 
@@ -403,28 +474,59 @@ kappa2(irr_sc12[,c(1,2)], "equal")
 ```{r}
 irr_results <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_results.csv", show_col_types = FALSE)
 
-head(irr_results)
-
 ggplot(irr_results, aes(x = Sub.facet, y = Kappa) ) + 
-  geom_col()
+  geom_col(color = "navy", fill='lightsteelblue1') +
+  theme_classic() +
+  xlab("Personality Sub-Facet") +
+  ylab("Kappa") +
+  ggtitle("Inter-Rater Reliability Across Personality Scores") +
+  geom_hline(yintercept=0.21, linetype="dashed", color = "red")
+```
 
+Mean IRR
+
+```{r}
+mean(irr_results$Kappa)
 ```
 
 # Primary Analyses
 
 Do personality scores correlate with observable behaviors?
 
-🐽 This part I just made up and don't really know what to do so definitely let me know if you have better ideas on what I could do here
-
-## Repeatability of Behaviors
-
-🐽 Eli Strauss said to do this but idk how to do it but I was trying to act cool and normal so I pretended that I knew what he was talking about the whole time
+Make DF with both
 
 ```{r}
-# Put repeatability stuff here
-# Something like this? https://cran.r-project.org/web/packages/rptR/vignettes/rptR.html
+behavior_and_scores <- inner_join(behavior_m, Avg_svy, by = "PigID")
+```
 
-repeatability(obs)
+### Aggression Towards other Pigs
+
+```{r}
+ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC11.Avg)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Times Displaced") +
+  ylab("Aggression Score") +
+  ggtitle("Do Pigs that Score Higher on Aggression Displace Other Pigs More?")
+
+# Pearson's correlation
+cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC11.Avg)
+# cor = 0.285504 (weak positive correlation)
+# p-value = 0.2224
+```
+
+```{r}
+ggplot(behavior_and_scores, aes(x=Get.disp, y=SC11.Avg)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Times Displaced") +
+  ylab("Aggression Score") +
+  ggtitle("Do Pigs that Score Higher on Aggression Get Displaced Less?")
+
+# Pearson's correlation
+cor.test(behavior_and_scores$Get.disp, behavior_and_scores$SC11.Avg)
+# cor = -0.397797 (moderate negative correlation)
+# p-value = 0.08239
 ```
 
 ## Dominance Over Other Pigs
@@ -434,9 +536,7 @@ Hypothesis: A pig's Dominance Over Other Pigs score (SC12) positively correlates
 ### Does get.disp correlated with SC12 (dominance over pigs)
 
 ```{r}
-behavior_and_scores <- inner_join(behavior_m, pig_scores, by = "PigName")
-
-ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
+ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12.Avg)) +
   geom_point() +
   stat_smooth(method = "lm") +
   xlab("Times Displaced") +
@@ -445,20 +545,31 @@ ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
 
 
 # Pearson's correlation
-cor(behavior_and_scores$Get.disp, behavior_and_scores$SC12)
-# -0.1822779 #umm this looks pretty weak right
+cor.test(behavior_and_scores$Get.disp, behavior_and_scores$SC12.Avg)
+# -0.2143021 (weak negative correlation)
 ```
 
 What if it's split by sex?
 
 ```{r}
-ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12)) +
+ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12.Avg)) +
   geom_point() +
   stat_smooth(method = "lm") +
   xlab("Times Displaced") +
   ylab("Dominance Score") +
   ggtitle("Do Pigs that Score Higher on Dominance Get Displaced Less?") +
   facet_wrap(~ Sex)
+
+
+beh_sco_males <- behavior_and_scores %>% filter(Sex=="M")
+beh_sco_females <- behavior_and_scores %>% filter(Sex=="F")
+
+cor.test(beh_sco_males$Get.disp, beh_sco_males$SC12.Avg)
+#-0.2460026 
+cor.test(beh_sco_females$Get.disp, beh_sco_females$SC12.Avg)
+# -0.1950034
+cor.test(beh_sco_females$SC12.Avg, beh_sco_males$SC12.Avg)
+# -0.5628518
 ```
 
 #### Attempts at Displacement
@@ -474,7 +585,7 @@ ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC12)) +
 
 
 # Pearson's correlation
-cor(behavior_and_scores$Attempt.disp, behavior_and_scores$SC12)
+cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC12)
 # 0.1807212 #also weak
 ```
 
@@ -493,7 +604,7 @@ ggplot(behavior_and_scores, aes(x=Travel, y=SC9)) +
   ggtitle("Do Pigs that Score High on Active Engagement Travel More?")
 
 # Pearson's correlation
-cor(behavior_and_scores$Travel, behavior_and_scores$SC9)
+cor.test(behavior_and_scores$Travel, behavior_and_scores$SC9)
 #0.3479849
 ```
 
