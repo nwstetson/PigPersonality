@@ -66,7 +66,8 @@ obs <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main
 
 behavior_counts <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/behavior_data/behavior_counts.csv", show_col_types = FALSE) # behavior observations but tidyer
 
-behavior_cat_counts <- 
+behavior_cat_counts <-  read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/behavior_data/behavior_cat_counts.csv", show_col_types = FALSE) # behavior observations but tidyer
+
 svy <-read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/Survey_Nov7_Clean.csv", show_col_types = FALSE)  # survey data
 
 svy_by_rater <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/svy_with_averages.csv", show_col_types = FALSE) # survey data (but with scores split between raters)
