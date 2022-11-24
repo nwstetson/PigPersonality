@@ -160,8 +160,18 @@ behavior_counts_wide <-behavior_counts %>%
   pivot_longer(cols = 2:21 , names_to = "Behavior", values_to = 'Count')
 
 
-# Also make verion with meta data
+# Also make version with meta data
 behavior_m <- inner_join(behavior_counts, meta, by = "PigName")
+```
+
+```{r}
+# Make wide version
+behavior_cat_counts_wide <-behavior_cat_counts %>% 
+  pivot_longer(cols = 2:8 , names_to = "Behavior.Cat", values_to = 'Count')
+
+
+# Also make version with meta data
+behavior_cat_m <- inner_join(behavior_cat_counts, meta, by = "PigName")
 ```
 
 okay done with that phew
@@ -548,9 +558,11 @@ Mean IRR (not high)
 mean(irr_results$Kappa)
 ```
 
-So that's not great but I will compare the pigs scores by using their average score between the 2 raters :P
+So that's not great but I will compare the pigs scores by using their average score between the 2 raters
 
 ## Overview of Behaviors
+
+Yes I recorded everything in counts instead of times big mistake I don't want to talk about it 😍
 
 ### As a graph
 
@@ -558,6 +570,17 @@ they nudge the ground and sleep
 
 ```{r}
 ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
+  geom_boxplot(color = "navy", fill='lightsteelblue1') +
+  theme_classic() +
+  xlab("Behavior") +
+  ylab("Counts") +
+  ggtitle("Differences in Behavior Between Pigs")
+```
+
+Categories version
+
+```{r}
+ggplot(behavior_cat_counts_wide, aes(x= Behavior.Cat, y= Count)) +
   geom_boxplot(color = "navy", fill='lightsteelblue1') +
   theme_classic() +
   xlab("Behavior") +
@@ -573,10 +596,9 @@ ggplot(behavior_counts_wide, aes(x= Behavior, y= Count)) +
 
 Make DF with behaviors and scores
 
-Yes I recorded everything in counts instead of times big mistake I don't want to talk about it 😍
-
 ```{r}
 behavior_and_scores <- inner_join(behavior_m, Avg_svy, by = "PigID")
+behavior_cat_and_scores <- inner_join(behavior_cat_m, Avg_svy, by = "PigID")
 ```
 
 ## Top correlations overview
@@ -604,20 +626,52 @@ corr_cross(svy_behav, # dataset
            top = 25)# display top 10 correlations, any couples of variables 
 ```
 
+### Fearfulness
+
+```{r}
+ggplot(behavior_cat_and_scores, aes(x=Anxious, y=F1.Avg)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Number of Fearful Behaviors") +
+  ylab("Fearfulness Score") +
+  ggtitle("Fearfulness Score Versus Fearful Behaviors")
+
+# Pearson's correlation
+cor.test(behavior_cat_and_scores$Anxious, behavior_cat_and_scores$F1.Avg)
+# cor = -0.1384581 (very weak negative correlation)
+# p-value = 0.5605
+```
+
+### Activity/Excitability
+
+```{r}
+ggplot(behavior_cat_and_scores, aes(x=Anxious, y=F3.Avg)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  xlab("Number of Active Behaviors") +
+  ylab("Activity/Excitability Score") +
+  ggtitle("Activity/Excitability Score Versus Active Behaviors")
+
+# Pearson's correlation
+cor.test(behavior_cat_and_scores$Activity, behavior_cat_and_scores$F3.Avg)
+# cor = 0.3857312 (moderate positive correlation)
+# p-value = 0.09302
+```
+
 ### Aggression Towards other Pigs
 
 ```{r}
-ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC12.Avg)) +
+ggplot(behavior_cat_and_scores, aes(x=G.agg, y=F2.Avg)) +
   geom_point() +
   stat_smooth(method = "lm") +
-  xlab("Times Displaced") +
-  ylab("Aggression Score") +
-  ggtitle("Do Pigs that Score Higher on Aggression Dominance Other Pigs More?")
+  xlab("Number of Aggressive Behaviors") +
+  ylab("Aggression/Dominance Towards Pig Score") +
+  ggtitle("Aggression/Dominance towards Pigs Score Versus Agressive Behaviors")
 
 # Pearson's correlation
-cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC12.Avg)
-# cor = 0.285504 (weak positive correlation)
-# p-value = 0.3685
+cor.test(behavior_cat_and_scores$G.agg, behavior_cat_and_scores$F2.Avg)
+# cor = -0.1326601 (very weak negative correlation)
+# p-value = 0.5772
 ```
 
 ```{r}
@@ -649,11 +703,11 @@ cor.test(behavior_and_scores$Get.disp, behavior_and_scores$SC11.Avg)
 # p-value = 0.08239
 ```
 
-## Dominance Over Other Pigs
+------------------------------------------------------------------------
 
-Hypothesis: A pig's Dominance Over Other Pigs score (SC12) positively correlates with number of counts of obs\$Attempt.displace and negatively correlates with number of counts of \$Get.displaced
+## Behaviors (but not in categories this time) vs personality results
 
-### Does get.disp correlated with SC12 (dominance over pigs)
+#### Get.disp vs SC12 (dominance over pigs)
 
 ```{r}
 ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12.Avg)) +
@@ -669,30 +723,7 @@ cor.test(behavior_and_scores$Get.disp, behavior_and_scores$SC12.Avg)
 # -0.2143021 (weak negative correlation)
 ```
 
-What if it's split by sex?
-
-```{r}
-ggplot(behavior_and_scores, aes(x=Get.disp, y=SC12.Avg)) +
-  geom_point() +
-  stat_smooth(method = "lm") +
-  xlab("Times Displaced") +
-  ylab("Dominance Score") +
-  ggtitle("Do Pigs that Score Higher on Dominance Get Displaced Less?") +
-  facet_wrap(~ Sex)
-
-
-beh_sco_males <- behavior_and_scores %>% filter(Sex=="M")
-beh_sco_females <- behavior_and_scores %>% filter(Sex=="F")
-
-cor.test(beh_sco_males$Get.disp, beh_sco_males$SC12.Avg)
-#-0.2460026 #correlates more weakly in males but still weak all around
-cor.test(beh_sco_females$Get.disp, beh_sco_females$SC12.Avg)
-# -0.1950034
-```
-
-#### Attempts at Displacement
-
-vs dominance
+#### Attempt.disp vs SC12 (dominance over pigs)
 
 ```{r}
 # Correlation between pig's SC12 vs # of times they attempted to displace another pig
@@ -708,7 +739,7 @@ cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC12)
 # 0.1807212 #also weak
 ```
 
-vs playfulness
+#### Attempt.disp vs SC8 (playfulness)
 
 ```{r}
 ggplot(behavior_and_scores, aes(x=Attempt.disp, y=SC8.Avg)) +
@@ -723,10 +754,10 @@ cor.test(behavior_and_scores$Attempt.disp, behavior_and_scores$SC8.Avg)
 # cor = -0.4235986
 ```
 
-## Active Engagement
+### Travel vs SC9 (active engagement)
 
 ```{r}
-ggplot(behavior_and_scores, aes(x=Travel, y=SC9)) +
+ggplot(behavior_and_scores, aes(x=Travel, y=SC9.Avg)) +
   geom_point() +
   stat_smooth(method = "lm") +
   xlab("Times Traveling") +
@@ -748,7 +779,6 @@ cor.test(behavior_and_scores$Rest.proxim, behavior_and_scores$SC1.Avg)
 ### Getting displaced vs companionability
 
 ```{r}
-
 # Pearson's correlation
 cor.test(behavior_and_scores$SC10.Avg, behavior_and_scores$Get.disp)
 # 0.461596
@@ -767,8 +797,6 @@ so I don't think behaviors really correlate with the personality scores but mayb
 
 # Additional Analyses
 
-## Subscale Analyses/Potential Moderators
-
 ### Are there any sex differences in behavior?
 
 Oh hmm not really
@@ -784,30 +812,59 @@ corr_var(behavior_m, # dataset
 Maybe a little bit for aggression, but weak
 
 ```{r}
-corr_var(svy_m, # dataset
+corr_var(svy_avg_m, # dataset
          Sex_num, # name of variable to focus on
          top = 10) # display top 10 correlations
 ```
 
+### What about fearfulness?
+
+Cor = -0.2600817
+
+p = 0.2681
+
+t= -1.1428
+
+```{r}
+cor.test(svy_avg_m$Sex_num, svy_avg_m$F1.Avg)
+```
+
 Sex vs aggression towards humans
 
-Cor = -0.4768438
+Cor = -0.5578186
+
+t = -2.8515
+
+p= 0.0106
 
 So I would say no
 
 ```{r}
-cor.test(svy_m$Sex_num, svy_m$F2)
+cor.test(svy_avg_m$Sex_num, svy_avg_m$F2.Avg)
 ```
 
-### What about fearfulness?
+Activity/Excitablity
 
-Cor = -0.2388378
+cor = 0.3940262
 
-Even less so I guess not
+t = 1.8189
+
+p = 0.08561
 
 ```{r}
-cor.test(svy_m$Sex_num, svy_m$F1)
+cor.test(svy_avg_m$Sex_num, svy_avg_m$F3.Avg)
+```
 
+Aggression/Dominance Towards Pigs
+
+t = -0.13546
+
+cor = -0.03191228
+
+p = 0.8938
+
+```{r}
+cor.test(svy_avg_m$Sex_num, svy_avg_m$F4.Avg)
 ```
 
 Dominance?
@@ -817,7 +874,7 @@ Cor = 0.3450894
 also very small
 
 ```{r}
-cor.test(svy_m$Sex_num, svy_m$F3)
+cor.test(svy_avg_m$Sex_num, svy_m$F3)
 ```
 
 ### Overview of sex differences in personality scores
@@ -886,14 +943,41 @@ corr_var(behavior_m, # dataset
          top = 25) # display top 10 correlations
 ```
 
-#### Survey results
+### Background
+
+```{r}
+cor.test(svy_avg_m$Background_num, svy_avg_m$F1.Avg)
+cor.test(svy_avg_m$Background_num, svy_avg_m$F2.Avg)
+cor.test(svy_avg_m$Background_num, svy_avg_m$F3.Avg)
+cor.test(svy_avg_m$Background_num, svy_avg_m$F4.Avg)
+```
+
+### Group
+
+```{r}
+cor.test(svy_avg_m$Group_num, svy_avg_m$F1.Avg)
+cor.test(svy_avg_m$Group_num, svy_avg_m$F2.Avg)
+cor.test(svy_avg_m$Group_num, svy_avg_m$F3.Avg)
+cor.test(svy_avg_m$Group_num, svy_avg_m$F4.Avg)
+```
+
+### Time Informant has Known Pig
+
+```{r}
+cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F1.Avg)
+cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F2.Avg)
+cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F3.Avg)
+cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F4.Avg)
+```
+
+#### Survey results vs background
 
 lol again it's just showing it correlates more with other demographics than survey items/scores
 
 nothing over .5 so it doesn't look like it matters
 
 ```{r}
-corr_var(svy_m, # dataset
+corr_var(svy_avg_m, # dataset
          Background_num, # name of variable to focus on
          top = 10) # display top 10 correlations
 ```
@@ -916,7 +1000,7 @@ ggplot(behavior_m, aes(x=Get.disp, fill=Background)) + #fix name in DF later
 also an issue with this is idk if the owner surrendered pigs experienced abuse/neglect, probably a lot of them were neglected so that might be why there isn't much of a pattern
 
 ```{r}
-ggplot(svy_wide, aes(x= sub.facet, y= subfacet.value, fill = Background)) +
+ggplot(svy_avg_wide, aes(x= sub.facet, y= subfacet.value, fill = Background)) +
   geom_boxplot() +
   theme_classic() +
   scale_fill_manual(values = c("seagreen1", "lightblue1")) +
