@@ -541,7 +541,7 @@ Overall it looks like the raters don't really agree on their assessments, though
 Line shows where there is "fair" inter-observer reliability
 
 ```{r}
-irr_results <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/irr_results.csv", show_col_types = FALSE)
+irr_results <- read_csv("https://raw.githubusercontent.com/nwstetson/PigPersonality/main/survey_data/irr_dfs/irr_results.csv", show_col_types = FALSE)
 
 ggplot(irr_results, aes(x = Sub.facet, y = Kappa) ) + 
   geom_col(color = "navy", fill='lightsteelblue1') +
@@ -837,10 +837,11 @@ t = -2.8515
 
 p= 0.0106
 
-So I would say no
-
 ```{r}
 cor.test(svy_avg_m$Sex_num, svy_avg_m$F2.Avg)
+
+# Significant for F2. Here's what the mean scores are: 
+aggregate(svy_avg_m$F2.Avg, list(svy_avg_m$Sex), FUN=mean) 
 ```
 
 Activity/Excitablity
@@ -950,6 +951,9 @@ cor.test(svy_avg_m$Background_num, svy_avg_m$F1.Avg)
 cor.test(svy_avg_m$Background_num, svy_avg_m$F2.Avg)
 cor.test(svy_avg_m$Background_num, svy_avg_m$F3.Avg)
 cor.test(svy_avg_m$Background_num, svy_avg_m$F4.Avg)
+
+# Significant for F2. Here's what the mean scores are: 
+aggregate(svy_avg_m$F2.Avg, list(svy_avg_m$Background), FUN=mean) 
 ```
 
 ### Group
@@ -959,6 +963,7 @@ cor.test(svy_avg_m$Group_num, svy_avg_m$F1.Avg)
 cor.test(svy_avg_m$Group_num, svy_avg_m$F2.Avg)
 cor.test(svy_avg_m$Group_num, svy_avg_m$F3.Avg)
 cor.test(svy_avg_m$Group_num, svy_avg_m$F4.Avg)
+
 ```
 
 ### Time Informant has Known Pig
@@ -968,6 +973,17 @@ cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F1.Avg)
 cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F2.Avg)
 cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F3.Avg)
 cor.test(svy_avg_m$Time.Known.Avg, svy_avg_m$F4.Avg)
+```
+
+```{r}
+ggplot(svy_avg_m, aes(y= F4.Avg, x= Time.Known.Avg)) +
+  geom_point() +
+  theme_classic() +
+  stat_smooth(method = "lm") +
+  scale_fill_manual(values = c("powderblue", "goldenrod1")) +
+  xlab("Months Informant Has Known Pig For") +
+  ylab("Aggression/Dominance Towards Pigs Score") +
+  ggtitle("Months Known vs Aggression/Dominance Towards Pigs Score")
 ```
 
 #### Survey results vs background
