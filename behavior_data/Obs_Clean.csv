@@ -97,7 +97,7 @@ With Jordan",,0,0,NS
 9/23/22,10:43:41 AM,Hank,Willie,Rest.proxim,Pro.social,,,,1,0,AJ
 9/23/22,10:43:43,Pixie,No Value,Pee,Pee,"30.015094,-97.306330",,,0,0,NS
 9/23/22,10:44:04,Pixie,No Value,Sniff.obj,Activity,"30.015101,-97.306280",Branch,,0,0,NS
-9/23/22,10:44:21 AM,Hank,No Value,Anxious,Anxious,,,,0,0,AJ
+9/23/22,10:44:21 AM,Hank,No Value,Yawn.not.contaig,Anxious,,,,0,0,AJ
 9/23/22,10:44:33 AM,Hank,No Value,Travel,Activity,,,,0,0,AJ
 9/23/22,10:44:34,Pixie,No Value,Nudge.ground,Activity,"30.015091,-97.306365",Branch,,0,0,NS
 9/23/22,10:45:15 AM,Hank,No Value,Pee,Pee,,,,0,0,AJ
@@ -193,7 +193,7 @@ With Jordan",,0,0,NS
 9/23/22,11:50:24,Wilbur,No Value,Rest,Rest,"30.014947,-97.307404",Lay down,,0,1,NS
 9/30/22,9:29:15,Atlas,No Value,Grunt,Grunt,"30.014934,-97.307460",,,1,0,NS
 9/30/22,9:29:21 AM,Georgie,No Value,Grunt,Grunt,,,,1,0,AJ
-9/30/22,9:29:45 AM,Georgie,No Value,Anxious,Anxious,,,,0,0,AJ
+9/30/22,9:29:45 AM,Georgie,No Value,Yawn.not.contaig,Anxious,,,,0,0,AJ
 9/30/22,9:29:47,Atlas,No Value,Nudge.ground,Activity,"30.014933,-97.307449",,,0,0,NS
 9/30/22,9:30:30 AM,Georgie,No Value,Travel,Activity,,,,0,0,AJ
 9/30/22,9:30:45,Atlas,No Value,Nudge.ground,Activity,"30.015069,-97.307448",Dirt,,0,0,NS
@@ -205,7 +205,7 @@ With Jordan",,0,0,NS
 9/30/22,9:34:23 AM,Georgie,No Value,Rest,Rest,,,,0,1,AJ
 9/30/22,9:35:40,Eleanor,No Value,Rest,Rest,"30.015069,-97.307448",,,1,0,NS
 9/30/22,9:35:48 AM,Horatio,Unknown,Sniff.consp,Pro.social,,sniffing white pig with black head not in study,,1,0,AJ
-9/30/22,9:36:25 AM,Horatio,No Value,Anxious,Anxious,,,,0,0,AJ
+9/30/22,9:36:25 AM,Horatio,No Value,Yawn.not.contaig,Anxious,,,,0,0,AJ
 9/30/22,9:36:44,Eleanor,Unknown,Other,Other,"30.015069,-97.307448",Licked by unknown pig (vid),,0,0,NS
 9/30/22,9:36:48 AM,Horatio,No Value,Wag.tail,Wag.tail,,,,0,0,AJ
 9/30/22,9:36:57 AM,Horatio,No Value,Snout.touch,Pro.social,,all black pig not in study,,0,0,AJ
@@ -780,7 +780,7 @@ Bates",,0,0,NS
 10/28/22,10:23:32 AM,George,No Value,Grunt,Grunt,"30.014554,-97.306299",,,0,0,AJ
 10/28/22,10:24:05,Pixie,No Value,Pee,Pee,"30.015215,-97.306235",,,0,0,NS
 10/28/22,10:24:11,Pixie,No Value,Other,Other,"30.015239,-97.306229",Rub snout against small cabin,,0,0,NS
-10/28/22,10:24:51,Pixie,No Value,Anxious,Anxious,"30.015205,-97.306193",,,0,0,NS
+10/28/22,10:24:51,Pixie,No Value,Yawn.not.contaig,Anxious,"30.015205,-97.306193",,,0,0,NS
 10/28/22,10:25:52,Pixie,No Value,Nudge.ground,Activity,"30.015238,-97.306187",In big cabin,,0,0,NS
 10/28/22,10:26:36 AM,George,"Dahlia, Raymond",Rest.proxim,Pro.social,"30.013162,-97.301968",,,0,1,AJ
 10/28/22,10:26:37,Pixie,"Loretta, Hank, Willie, Kitty",Rest,Rest,"30.015139,-97.306159","Loretta, Hank, Willie, and Kitty in cabin",,0,0,NS
@@ -816,7 +816,7 @@ Bates",,0,0,NS
 10/28/22,10:43:42 AM,Pixie,No Value,Other,Other,"30.014966,-97.307006",chewing on plastic bin,,0,0,AJ
 10/28/22,10:43:45,Willie,No Value,Travel,Activity,"30.015076,-97.306509",,,0,0,NS
 10/28/22,10:44:04,Willie,No Value,Sniff.obj,Activity,"30.015111,-97.306496",Hank and Pixie nearby,,0,1,NS
-10/28/22,10:44:58 AM,Pixie,No Value,Anxious,Anxious,"30.013040,-97.306080",,,0,0,AJ
+10/28/22,10:44:58 AM,Pixie,No Value,Yawn.not.contaig,Anxious,"30.013040,-97.306080",,,0,0,AJ
 10/28/22,10:45:06 AM,Pixie,No Value,Travel,Activity,"30.015077,-97.306585",,,0,0,AJ
 10/28/22,10:45:47,Loretta,No Value,Rest,Rest,"30.011753,-97.297445",Big cabin,,0,0,NS
 10/28/22,10:46:16 AM,Pixie,No Value,Travel,Activity,"30.015063,-97.306515",,,0,1,AJ
@@ -916,7 +916,7 @@ Bates",,0,0,NS
 11/4/22,9:56:35 AM,Horatio,No Value,Rest,Rest,"30.014776,-97.307477",same as above,,0,1,AJ
 11/4/22,9:56:45,Wilbur,No Value,Rest.proxim,Pro.social,"30.014699,-97.307376",,,0,0,NS
 11/4/22,9:57:15,Wilbur,No Value,Other,Other,"30.015034,-97.307303",Get up when AJ looked inside to see which pigs were in cabin,,0,0,NS
-11/4/22,9:57:46,Wilbur,No Value,Anxious,Anxious,"30.014707,-97.307423",,,0,0,NS
+11/4/22,9:57:46,Wilbur,No Value,Yawn.not.contaig,Anxious,"30.014707,-97.307423",,,0,0,NS
 11/4/22,9:58:29,Wilbur,No Value,Rest,Rest,"30.015034,-97.307303",,,0,0,NS
 11/4/22,9:59:09 AM,Bianca,No Value,Sniff.obj,Activity,"30.014638,-97.307840",a stick,,1,0,AJ
 11/4/22,9:59:32 AM,Bianca,No Value,Rest,Rest,"30.014560,-97.307558",in forest area,,0,0,AJ
@@ -942,14 +942,14 @@ Bates",,0,0,NS
 11/4/22,10:11:13 AM,Eleanor,No Value,Wag.tail,Wag.tail,"30.014703,-97.307420",,,0,0,AJ
 11/4/22,10:12:53,Bianca,No Value,Rest,Rest,"30.015034,-97.307303",,,0,1,NS
 11/4/22,10:16:10 AM,Eleanor,No Value,Nudge.ground,Activity,"30.017575,-97.306973",,,0,1,AJ
-11/4/22,10:17:37 AM,Georgie,No Value,Anxious,Anxious,"30.014280,-97.304679",,,1,0,AJ
+11/4/22,10:17:37 AM,Georgie,No Value,Yawn,Anxious,"30.014280,-97.304679",,,1,0,AJ
 11/4/22,10:17:55,Rebel,Unknown,Rest.proxim,Pro.social,"30.015347,-97.307911",With Georgie and other grey splotch pig,,1,0,NS
 11/4/22,10:18:31,Rebel,No Value,Squeal,Anxious,"30.015034,-97.307303",,,0,0,NS
 11/4/22,10:18:48 AM,Georgie,Rebel,Squeal,Anxious,"30.015088,-97.307855",,,0,0,AJ
 11/4/22,10:19:11,Rebel,No Value,Nudge.ground,Activity,"30.015034,-97.307303",,,0,0,NS
 11/4/22,10:19:28,Rebel,No Value,Rest,Rest,"30.015034,-97.307303",,,0,0,NS
 11/4/22,10:19:48 AM,Georgie,No Value,Rest,Rest,"30.014705,-97.307448",in cabin with rebel and some other gray spotted pigs,,0,0,AJ
-11/4/22,10:20:42,Rebel,No Value,Anxious,Anxious,"30.015034,-97.307303",,,0,0,NS
+11/4/22,10:20:42,Rebel,No Value,Yawn.not.contaig,Anxious,"30.015034,-97.307303",,,0,0,NS
 11/4/22,10:23:05,Rebel,No Value,Rest,Rest,"30.015034,-97.307303",,,0,1,NS
 11/4/22,10:23:14 AM,Georgie,No Value,Rest,Rest,"30.012372,-97.300494",in cabin with rebel and some other gray spotted pigs,,0,1,AJ
 11/4/22,10:23:22,Georgie,"Rebel, Other",Rest.proxim,Pro.social,"30.015034,-97.307303",Rebel and other spotted pig,,1,0,NS
@@ -1022,7 +1022,7 @@ Bates",,0,0,NS
 11/4/22,11:22:41 AM,Hank,No Value,Drink,Drink,"30.014705,-97.306199",,,0,1,AJ
 11/4/22,11:24:11 AM,Molly,No Value,Rest,Rest,"30.004370,-97.303145",,,1,0,AJ
 11/4/22,11:24:49 AM,Molly,No Value,Grunt,Grunt,"30.004464,-97.303184",,,0,0,AJ
-11/4/22,11:25:03 AM,Molly,No Value,Anxious,Anxious,"30.015115,-97.305755",,,0,0,AJ
+11/4/22,11:25:03 AM,Molly,No Value,Yawn.not.contaig,Anxious,"30.015115,-97.305755",,,0,0,AJ
 11/4/22,11:26:32 AM,Molly,No Value,Travel,Activity,"30.015075,-97.305764",,,0,0,AJ
 11/4/22,11:26:57 AM,Molly,No Value,Rub.face,Grooming,"30.014899,-97.305863",scratched on tree,,0,0,AJ
 11/4/22,11:28:47 AM,Molly,No Value,Travel,Activity,"30.006869,-97.303873",,,0,0,AJ
