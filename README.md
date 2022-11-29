@@ -1,6 +1,6 @@
 # PigPersonality
-This is where I'm putting data from my senior thesis
+All the data for the Pig Personality Project is here!
 
-The actual analysis file I am using is Analyses.qmd
+The actual analysis file is Analyses.qmd
 
-I will also post the completed personality measures that I am developing for use in pigs
+I have also posted my full thesis, as well as the personality measure I used
