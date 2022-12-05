@@ -6,7 +6,7 @@
 
 📝 See Data_Collection_Materials for the pig personality survey I created, as well as the ethogram I used and the HanDBase files needed to replicate the project.
 
-🐽 I have also posted my full thesis, plus some bonus pig pictures and videos
+🐽 I have also posted some bonus pig pictures and videos
 
 
 ## You can also contact me here:
