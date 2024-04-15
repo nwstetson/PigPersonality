@@ -10,8 +10,6 @@
 
 
 ## You can also contact me here:
-📬 Email: [noah.stetson@utexas.edu](mailto:noah.stetson@utexas.edu)
-
-🐦 Twitter: [@nwstetson](https://twitter.com/NWStetson) 
+📬 Email: [noah.stetson@arizona.edu](mailto:noah.stetson@arizona.edu)
 
 🤝 LinkedIn: [linkedin.com/in/noah-stetson](https://linkedin.com/in/noah-stetson)
